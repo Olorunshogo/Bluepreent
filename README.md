@@ -1,4 +1,6 @@
-# Bluepreent
+# Bluepreent 
+
+[https://www.figma.com/files/team/975137577096231009/recents-and-sharing/recently-viewed?fuid=975137570783728657] (Link to the Figma Design)
 
 This template should help get you started developing with Vue 3 in Vite.
 

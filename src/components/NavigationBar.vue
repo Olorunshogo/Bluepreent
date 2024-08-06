@@ -84,6 +84,8 @@
     /* === TOP NAV: Overall container ===  */
     .top-nav {
         margin: 1.5rem 0;
+        width: 100%;
+        height: 80px;
     }
 
     /* === Container for both the Logo and Navigation */
@@ -91,8 +93,8 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        min-width: 95%;
-        margin: 0 auto;
+        width: 100%;
+        height: auto;
     }
 
     /* === Logo Container === */

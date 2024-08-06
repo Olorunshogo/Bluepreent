@@ -6,10 +6,17 @@
 
 <template>
     <div class="container">
-        <div>
-            <NavigationBar />
+        <div class="width">
+            <div class="nav-hero-container">
+                <div>
+                    <NavigationBar />
+                </div>
+                <div>
+                    <HeroSection />
+                </div>
+            </div>
         </div>
-        <HeroSection />
+        
     </div>
 </template>
 
@@ -17,7 +24,20 @@
 
 <style lang="css" scoped>
     .container {
-        width: 90%;
+        max-width: 1500px;
         margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .width {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .nav-hero-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
     }
 </style>
