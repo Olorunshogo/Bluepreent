@@ -44,6 +44,16 @@
             "wdth" 100,
             "YTLC" 500;
         font-style: normal;
-        color: var(--declutter-blue);
+        color: var(--secondary-blue);
+    }
+
+    @media (max-width: 600px) {
+        .logo {
+            width: 96px;
+        }
+
+        .logo img {
+            width: 100%;
+        }
     }
 </style>

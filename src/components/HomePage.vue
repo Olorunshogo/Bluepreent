@@ -28,10 +28,11 @@
         margin: 0 auto;
         display: flex;
         flex-direction: column;
+        padding-bottom: 4rem;
     }
 
     .width {
-        width: 80%;
+        width: 90%;
         margin: 0 auto;
     }
 

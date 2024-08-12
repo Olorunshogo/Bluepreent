@@ -2,14 +2,21 @@
 <script setup>
     import { ref } from 'vue'
 
-    const navSvgs = ref('svgs')
-
-
     import BluepreentLogo from '../assets/BluepreentLogo.vue'
-    import NavPhone from './icons/NavPhone.vue'
-    import NavNotification from './icons/NavNotification.vue'
-    import NavSell from './icons/NavSell.vue'
-    import NavChevdown from './icons/NavChevdown.vue'
+    import PhoneIcon from './icons/PhoneIcon.vue'
+    import NotificationIcon from './icons/NotificationIcon.vue'
+    import SellIcon from './icons/SellIcon.vue'
+    import ChevrondownIcon from './icons/ChevrondownIcon.vue'
+
+    import BarsIcon from './icons/BarsIcon.vue'
+    import TimesIcon from './icons/TimesIcon.vue'
+
+    const open = ref(true)
+    const close = ref(false)
+    function openClose() {
+        open.value = !open.value
+        close.value = !close.value
+    }
 </script>
 
 <template>
@@ -27,13 +34,28 @@
                     </div>
                 </div>
 
+                <div class="open-close">
+                    <button v-on:click="openClose">
+                        <span v-show="open">
+                            <i>
+                                <BarsIcon />
+                            </i>
+                        </span>
+                        <span v-show="close">
+                            <i>
+                                <TimesIcon />
+                            </i>
+                        </span>
+                    </button>                     
+                </div>
+
                 <!-- Nav Links container -->
                 <nav class="nav" role="navigation">
                     <div class="nav-one">
                         <div title="Help/Contact" class="link-container">
                             <a target="_blank">
                                 <i>
-                                    <NavPhone v-bind:class="navSvgs" />
+                                    <PhoneIcon class="icons" />
                                 </i>
                                 <span>Help/Contact</span>
                             </a>
@@ -42,7 +64,7 @@
                         <div title="Notification" class="link-container">
                             <a target="_blank">
                                 <i>
-                                    <NavNotification v-bind:class="navSvgs" />
+                                    <NotificationIcon class="icons" />
                                 </i>
                                 <span>Notification</span>
                             </a>                        
@@ -54,7 +76,7 @@
                         <div title="Sell" class="link-container">
                             <a target="_blank" id="sell">
                                 <i>
-                                    <NavSell v-bind:class="navSvgs" />
+                                    <SellIcon class="icons" />
                                 </i>
                                 <span>Sell</span>
                             </a>
@@ -66,7 +88,7 @@
                                     <span>Register</span>
                                 </div>
                                 <i>
-                                    <NavChevdown v-bind:class="navSvgs" />
+                                    <ChevrondownIcon class="icons register" />
                                 </i>
                             </a>                            
                         </div>
@@ -84,8 +106,8 @@
     /* === TOP NAV: Overall container ===  */
     .top-nav {
         margin: 1.5rem 0;
-        width: 100%;
-        height: 80px;
+        min-width: 100%;
+        height: 60px;
     }
 
     /* === Container for both the Logo and Navigation */
@@ -119,6 +141,7 @@
         align-items: right;
         justify-content: flex-start;
         width: 620px;
+        max-width: 70%;
     }
 
     .nav-one,
@@ -144,6 +167,9 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        color: var(--secondary-blue);
+        font-size: 14px;
+        line-height: 17px;        
         width: 145px;
         height: 55px;
         border-radius: 8px;
@@ -159,11 +185,23 @@
 
     .nav .link-container #sell {
         background-color: rgba(14, 120, 185, 0.08);
-
+        color: var(--secondary-blue);
+        font-weight: 600;
+        font-size: 14px;
+        font-family: Inter
     }
 
     .nav .link-container #register {
-        background-color: #0E78B9;
+        background-color: var(--primary-blue);
+        color: white;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+        font-family: SF Pro Text;
+    }
+
+    .nav .register {
+        color: white;
     }
 
     /* === Link Title === */
@@ -173,10 +211,39 @@
         margin: 0 10px;
     }
 
-    /* === Icons at the Nav Bar === */
-    .nav .svgs {
-        width: 20px;
-        height: 20px;
-        color: red;
+    /* === TOGGLE BUTTON +++ */
+    .open-close {
+        display: none;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .open-close button {
+        outline: none;
+        border: none;
+        height: 32px;
+        width: 32px;
+        background-color: transparent;;
+    }
+
+    .open-close span i {
+        font-weight: 700;
+        font-size: 100%;
+        color: var(--primary-blue);
+    }
+
+    @media (max-width: 600px) {
+        .top-nav {
+            margin: 0rem 0;
+            height: 65px;
+            padding: 11px 0px 11px 16px;
+        }
+
+        .nav {
+            display: none;
+        }
+
+        .open-close {
+            display: block;
+        }
     }
 </style>
