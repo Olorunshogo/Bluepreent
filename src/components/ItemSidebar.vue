@@ -62,7 +62,7 @@
 
             <div class="price">
                 <div>
-                    <h3>Price</h3>
+                    <h4>Price</h4>
                     <button class="reset-clear">Reset</button>
                 </div>
 
@@ -119,7 +119,7 @@
 
             <div class="condition">
                 <div>
-                    <h3>Condition</h3>
+                    <h4>Condition</h4>
                     <i><ChevrondownIcon /></i>
                 </div>
 
@@ -140,7 +140,7 @@
 
             <div class="availability">
                 <div>
-                    <h3>Availability</h3>
+                    <h4>Availability</h4>
                     <i><ChevrondownIcon /></i>
                 </div>
 
@@ -162,7 +162,7 @@
 
             <div class="location">
                 <div>
-                    <h3>Location</h3>
+                    <h4>Location</h4>
                     <i><ChevrondownIcon /></i>
                 </div>
 
@@ -207,33 +207,22 @@
         color: black;
         background-color: #FAFBFF;
         width: 100%;
+        height: 100%;
         padding-bottom: 1rem;
-        border: 1px dashed var(--primary-blue);
     } 
 
     .items-wrapper {
         display: flex;
         flex-direction: column;        
-        padding: 20px 10px;
+        padding: 2rem 10px 1rem 1rem;
         width: 100%;       
     }
 
     .items-wrapper > div {
-        margin: 1rem 0;
+        margin: 0.5rem 0;
     }
 
-    .items-wrapper h4 {
-        font-family: Inter;
-        font-size: 16px;
-        font-weight: 600;
-        line-height: 19.36px;
-        text-align: left;
-        color: var(--black-text);
-        display: flex;
-        flex-direction: row;
-        align-self: center;
-        justify-content: center;
-    }
+    
 
     /* === The RESET and CLEAR BUTTON */
     .items-wrapper .reset-clear {
@@ -273,15 +262,16 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        margin: 12px 0;
         width: 100%;
+        max-height: 100px;
+        color: #F5F7FF;
     }
 
     .items-wrapper .header h3 {
         font-family: Inter;
         font-size: 24px;
         font-weight: 700;
-        line-height: 29.05px;
+        line-height: 20px;
         text-align: center;
         color: var(--black-text);
         display: flex;
@@ -292,6 +282,22 @@
     .items-wrapper .categories {
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: fit-content;
+        max-height: 450px;
+    }
+
+    .items-wrapper h4 {
+        font-family: Inter;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 19px;
+        text-align: left;
+        color: var(--black-text);
+        display: flex;
+        flex-direction: row;
+        align-self: center;
         justify-content: center;
     }
 
@@ -310,7 +316,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        padding: 12px 6px;
+        padding: 8px 6px;
         color: #515456;
         font-size: 1rem;
     }

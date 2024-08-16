@@ -1,6 +1,6 @@
 
 <script setup>
-    import { ref, computed } from 'vue'
+    import { ref, computed, onMounted, onUnmounted } from 'vue'
 
 
     import GraduationIcon from './icons/GraduationIcon.vue'
@@ -12,15 +12,8 @@
 
     // DROPDOWN
 
-    // State List
-    const states = ref([
-        {id: 1, State: "Abia State", Capital: "Umuahia" },
-        {id: 2, State: "Adamawa State", Capital: "Yola" },
-        {id: 3, State: "Akwa Ibom State", Capital: "Uyo" },
-        {id: 4, State: "Anambra State", Capital: "Awka" },
-    ]); 
-
     // Declaring the variables
+    const states = ref([]); 
     const searchTerm = ref('');
     const showDropdown = ref(false);
 
@@ -47,6 +40,11 @@
         showDropdown.value = true;
     };
 
+    // Computed property to show oly the first 6 results
+    const limitedOptions = computed(() => {
+        return filteredOptions.value.slice(0, 6);
+    })
+
     // Function to update searchTerm and close dropdown
     const selectOption = (option) => {
         searchTerm.value = option.State;
@@ -62,8 +60,24 @@
         }
     };
 
+    // Fetch data from external file on mount
+    onMounted(async () => {
+        try {
+            const response = await fetch('states.json');
+            states.value = await response.json();
+            document.addEventListener('click', closeDropdown)
+        } catch (error) {
+            console.log('Error loading states: ', error)
+        }
+    });
+
     // Add event listener to document
     document.addEventListener('click', closeDropdown);
+
+    // Cleanup event listener when component unmounts
+    onUnmounted(() => {
+        document.removeEventListener('click', closeDropdown);
+    });
 
     
 
@@ -111,7 +125,7 @@
 
             <div v-if="showDropdown && filteredOptions.length" class="dropdown">
                 <div 
-                    v-for="option in filteredOptions" 
+                    v-for="option in limitedOptions" 
                     :key="option.id" 
                     class="dropdown-item" 
                     @click="selectOption(option)"
@@ -297,7 +311,7 @@
         max-width: 740px;
         width: 60%;
         max-height: 234px;
-        height: 100%;
+        height: fit-content;
         position: relative;
         top: -15px;
         left: 2%;
@@ -358,9 +372,7 @@
         border: none;
         outline: none;
         margin-left: 40px;
-    }
-
-    
+    }  
 
     
 

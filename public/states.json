@@ -35,5 +35,5 @@
     {"id": 33, "State": "Taraba State", "Capital": "Jalingo" },
     {"id": 34, "State": "Yobe State", "Capital": "Damaturu" },
     {"id": 35, "State": "Zamfara State", "Capital": "Gusau" },
-    {"id": 35, "State": "FCT, Abuja", "Capital": "Abuja" }
+    {"id": 35, "State": "Federal Capital Territory (FCT)", "Capital": "Abuja" }
 ]
