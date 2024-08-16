@@ -1,82 +1,131 @@
 
 <script setup>
-    // import { ref, reactive, computed } from 'vue'
-    // import { ref } from 'vue'
+    import { ref, computed } from 'vue'
+
 
     import GraduationIcon from './icons/GraduationIcon.vue'
     import LocationIcon from './icons/LocationIcon.vue'
     import TimesIcon from './icons/TimesIcon.vue'
     import SearchIcon from './icons/SearchIcon.vue'
     import ChevrondownIcon from './icons/ChevrondownIcon.vue'
+    import PlusIcon from './icons/PlusIcon.vue'
 
-    // const stateList = reactive([
-    //     {id: 1, State: "Abia State", Capital: "Umuahia" },
-    //     {id: 2, State: "Adamawa State", Capital: "Yola" },
-    //     {id: 3, State: "Akwa Ibom State", Capital: "Uyo" },
-    //     {id: 4, State: "Anambra State", Capital: "Awka" },
-    // ])
+    // DROPDOWN
 
-    // const filteredStateList = computed(() => {
-    //     return stateList.value.filter((State) => State.value.match(/Foo/)
-    //     )
-    // })
-        
-    // const filteredStateList = computed({
-    //    get() {
-    //     return stateList.value.filter((State) => State.value.match(/search/))
-    //    },
-    //    set(newValue) {
-    //         stateList.value = newValue.split("")
-    //    }
-    // })
+    // State List
+    const states = ref([
+        {id: 1, State: "Abia State", Capital: "Umuahia" },
+        {id: 2, State: "Adamawa State", Capital: "Yola" },
+        {id: 3, State: "Akwa Ibom State", Capital: "Uyo" },
+        {id: 4, State: "Anambra State", Capital: "Awka" },
+    ]); 
+
+    // Declaring the variables
+    const searchTerm = ref('');
+    const showDropdown = ref(false);
+
+    // Computed property to filter options based on searchTerm
+    const filteredOptions = computed(() => {
+        if (!searchTerm.value) return [];
+            return states.value.filter(option => 
+                option.State.toLowerCase().includes(searchTerm.value.toLowerCase())
+        );
+    });
+
+    // Function to handle input event
+    const onInput = () => {
+        showDropdown.value = true;
+    };
+
+    // Function to handle search button click
+    const handleSearch = () => {
+        // Currently, it just shows dropdown based on input value and matches it with the first search result
+        const matchedOptions = filteredOptions.value;
+        if(matchedOptions.length) {
+            selectOption(matchedOptions[0])
+        }
+        showDropdown.value = true;
+    };
+
+    // Function to update searchTerm and close dropdown
+    const selectOption = (option) => {
+        searchTerm.value = option.State;
+        onInput.value = option;
+        showDropdown.value = false;
+    };
+
+    // Close the dropdown when clicking outside
+    const closeDropdown = (event) => {
+        const dropdownContainer = document.querySelector('.dropdown-container');
+        if (dropdownContainer && !dropdownContainer.contains(event.target)) {
+            showDropdown.value = false;
+        }
+    };
+
+    // Add event listener to document
+    document.addEventListener('click', closeDropdown);
+
+    
 
 </script>
 
 <template>
-    <div class="hero-search-container">
+    
+    <div>
+        <div class="hero-search-container">
         
-        <div class="search-input">
-            <i class="icons graduation">
-                <GraduationIcon />
-            </i>
-            <input type="text" id="heroSearch"
-                placeholder="Locate Buyers Nearby: Search by State & Location"
-            />
-            <i class="icons search">
-                <SearchIcon />
-            </i>
-        </div>
-
-        <!-- <div class="search-input">
-            <span class="graduation-icon">
-                <GraduationIcon />
-            </span>
-            <input type="text" v-model="search" 
-                id="heroSearch"
-                placeholder="Locate Buyers Nearby: Search by State & Location"
-            />
-            <div class="item search" v-for="value in filteredStateList" :key="value.id">
-                <p>{{ value.State }}</p>
-            </div>
-        </div>
-
-        <div class="item error" v-if="search.length==0&&filteredStateList.length==0">
-            <p>No results found</p>
-        </div> -->
-
-        <div class="search-result">
-
-            <div class="result-input">
-                <i><LocationIcon class="icons location" /></i>
-                <div>
-                    <input type="text" />
-                    <i class="icons times"><TimesIcon /></i>    
+            <div class="search-input">
+                <i class="icons graduation">
+                    <GraduationIcon />
+                </i>
+                <input type="text" id="heroSearch" v-model="searchTerm" 
+                    @input="onInput" @focus="showDropdown.value = true"
+                    placeholder="Locate Buyers Nearby: Search by State & Location"
+                />
+                <div class="button-container">
+                    <button @click="handleSearch">
+                        <i class="icons search-icon">
+                            <SearchIcon />
+                        </i>
+                    </button>
                 </div>
             </div>
 
-            <div>
-                <i class="icons chev-down"><ChevrondownIcon /></i>
-            </div> 
+            <div class="search-result">
+
+                <div class="result-input">
+                    <i><LocationIcon class="icons location" /></i>
+                    <div>
+                        <input type="text" />
+                        <i class="icons times"><TimesIcon /></i>    
+                    </div>
+                </div>
+
+                <div>
+                    <i class="icons chev-down"><ChevrondownIcon /></i>
+                </div> 
+            </div>
+        </div>
+
+        <div class="dropdown-container">
+
+            <div v-if="showDropdown && filteredOptions.length" class="dropdown">
+                <div 
+                    v-for="option in filteredOptions" 
+                    :key="option.id" 
+                    class="dropdown-item" 
+                    @click="selectOption(option)"
+                >
+                    {{ option.Capital }}, {{ option.State }}
+                </div>
+
+                <div class="enter-state">
+                    <span><i><PlusIcon /></i></span>
+                    <input type="text" name="" id="additionalStates" placeholder="Enter 'Rivers state' ">
+                </div>
+            </div>                
+
+            
         </div>
     </div>
 </template>
@@ -90,12 +139,10 @@
         border: 1px solid var(--primary-blue);
         background-color: var(--primary-bg-colour);
         border-radius: 8px;
-        padding: 15px 5px;  
-        width: 100%;
-        background-color: white; 
+        padding: 10px 8px;  
+        width: 100%; 
         position: relative;
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-
     }
 
     .hero-search-container i { 
@@ -104,6 +151,8 @@
         align-items: center;
         justify-items: center;
         font-weight: 400;
+        padding: 0 20px;
+        font-size: 1.2rem;
     }
 
     .search-input {
@@ -111,29 +160,23 @@
         width: 60%;
         padding: 0 4px 0 0;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: center;
         align-self: center;
         border-right: 4px solid #ddd;
     }
 
     .graduation {
-        color: var(--icon-grey);
-        font-size: 1.2rem;
-        position: absolute;
-        left: 4px;
-    }
-
-    .search {
-        font-size: 1.6rem;
-        position: absolute;
-        left: 56%;
+        /* position: absolute;
+        top: 35%; */
+        position: relative;
+        left: 8px;        
     }
 
     .search-input input[type=text] {
-        width: 90%;
-        padding: 0 10px;
-        margin-left: 50px;
+        width: 80%;
+        padding: 0 12px 0 16px;
+        margin-left: 20px;
         height: 100%;
         border: none;
         border-radius: 8px;
@@ -143,14 +186,15 @@
         justify-self: center;
         color: black;
         font-size: 14px;
+        font-weight: 400;
         caret-color: black;
         transition: all 0.5s ease-in-out;
+        cursor: text;
     }
 
     input[type=text]:focus {
-        background-color: #ddd;
-        width: 100%;
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        width: 85%;
+        /* box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; */
     }
     input[type=text]::placeholder {
         color: #B0B8C2;
@@ -158,6 +202,31 @@
         font-weight: 600;
     }
 
+    .search-input .button-container{
+        display: flex;
+        align-items: center;
+        width: 40px;
+        height: auto;
+    }
+
+    .search-input button {
+        display: flex;
+        align-items: center;
+        background-color: transparent;
+        width: 100%;
+        height: auto;
+        border: none;
+        outline: none;
+    }
+
+    .search-icon {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: auto;
+    }
+
+    /* === SEARCH RESULT SECTION === */
     .search-result {
         height: 76px;
         width: 40%;
@@ -172,14 +241,15 @@
         flex-direction: row;
         justify-content: left;
         align-items: center;
-        width: 60%;
+        width: 80%;
+        max-width: 350px;
     }
 
     .search-result .result-input div {
         width: 90%;
         display: flex;
         flex-direction: row;
-        margin: 0 10px;
+        margin: 0 8px;
     }
 
     .search-result input[type=text] {
@@ -201,12 +271,17 @@
 
     }
 
+    .search-result i {
+        display: flex;
+        align-items: center;
+        font-size: 22px;
+        color: var(--icon-grey);
+    }
+
     .search-result .location {
         display: flex;
         justify-self: left;
         align-items: left;
-        font-size: 22px;
-        color: var(--icon-grey);
     }
 
     .search-result .times {
@@ -214,11 +289,81 @@
         justify-content: flex-end;
         position: relative;
         right: 40px;
-        font-size: 22px;
     }
 
-    .search-result .chev-down {
-        display: flex;
-        color: var(--icon-grey);
+
+    /* === DROPDOWN SECTION === */
+    .dropdown-container {
+        max-width: 740px;
+        width: 60%;
+        max-height: 234px;
+        height: 100%;
+        position: relative;
+        top: -15px;
+        left: 2%;
+        padding: 8px 0px 8px 0px;
+        gap: 8px;
+        border-radius: 2px 0px 0px 0px;
+        border: 1px solid #F2F4F7;
+        cursor: default;
     }
+
+    .dropdown-container .dropdown {
+        max-width: 706px;
+        width: 90%;
+        max-height: 160px;
+        /* height: 80%; */
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        padding: 10px 12px 10px 16px;
+    }
+
+    .dropdown-container .dropdown .dropdown-item {
+        padding: 8px 0;
+    }
+
+    .dropdown-container .enter-state {
+        max-width: 706px;
+        width: 90%;
+        max-height: 74px;
+        height: 20%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: left;
+        padding: 10px 12px 10px 16px;
+    }
+
+    .dropdown-container .enter-state span {
+        font-size:12px;
+        width: 15px;
+        height: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .dropdown-container .enter-state span i {
+        font-size: 12px;
+    }
+
+    .dropdown-container .enter-state input[type=text] {
+        width: 100%;
+        height: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        outline: none;
+        margin-left: 40px;
+    }
+
+    
+
+    
+
+    
+
 </style>

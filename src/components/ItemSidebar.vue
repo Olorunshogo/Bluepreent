@@ -6,10 +6,13 @@
     const minRange = ref(10)
     const maxRange = ref(25000000)
     const condition = ref("")
-    const availability = ref("")
+
+    const avChecked = ref(false);
+    const locationChecked = ref(false);
 
     import ChevrondownIcon from './icons/ChevrondownIcon.vue';
     import LocationIcon from './icons/LocationIcon.vue'
+
 
 </script>
 
@@ -142,15 +145,17 @@
                 </div>
 
                 <div class="radio">
-                    <div>Availability: {{ availability }}</div>
-
                     <div>
-                        <input type="radio" id="available-now" value="Available Now" v-model="availability" />
+                        <input type="radio" id="available-now" value="Available Now" v-model="avChecked" />
                         <label for="available-now">Available Now</label>
                     </div>
 
                     <div>
-                        <input type="date" id="date">
+                        <input type="date" id="date"
+                             placeholder="Location" :disabled="avChecked"
+                             :class="{ 'disabled': avChecked, 'enabled': !avChecked }"
+                        />
+                        <!-- <input type="date" id="date"> -->
                     </div>
                 </div>
             </div>
@@ -163,13 +168,18 @@
 
                 <div class="radio">
                     <div>
-                        <input type="radio" id="location" value="Location" />
+                        <input v-model="locationChecked" type="radio" 
+                            id="location" value="Location" 
+                        />
                         <label for="Location">All <span class="count">(234)</span></label>
                     </div>
 
                     <div class="location-input">
                         <i><LocationIcon /></i>
-                        <input type="text" id="location" placeholder="Location">
+                        <input type="text" id="location" 
+                             placeholder="Location" :disabled="locationChecked"
+                             :class="{ 'disabled': locationChecked, 'enabled': !locationChecked }"
+                        />
                     </div>
 
                     
@@ -279,7 +289,7 @@
     }
 
     /* === CATEGORY SECTION === */
-    .items-wrapper .categories{
+    .items-wrapper .categories {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -311,9 +321,19 @@
         justify-content: center;
         width: 18px;
         height: 18px;
+        background-color: var(--primary-blue);
+        margin-right: 8px;
     }
 
-    .items-wrapper .radio label {
+    .disabled {
+        cursor: not-allowed;
+    }
+
+    .enabled {
+        cursor: text;
+    }
+
+    .items-wrapper .checkbox label {
         margin-left: 12px;
     }
 
