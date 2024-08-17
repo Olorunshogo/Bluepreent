@@ -1,17 +1,17 @@
 
 <script setup>
-    import { ref } from 'vue'
+    import { ref } from 'vue';
 
-    const category = ref("")
-    const minRange = ref(10)
-    const maxRange = ref(25000000)
-    const condition = ref("")
+    const category = ref("");
+    const minRange = ref(10);
+    const maxRange = ref(25000000);
+    const condition = ref("");
 
     const avChecked = ref(false);
     const locationChecked = ref(false);
 
     import ChevrondownIcon from './icons/ChevrondownIcon.vue';
-    import LocationIcon from './icons/LocationIcon.vue'
+    import LocationIcon from './icons/LocationIcon.vue';  
 
 
 </script>
@@ -26,7 +26,7 @@
 
             <div class="categories">
                 <div>
-                    <h4>Filters</h4>
+                    <h4>Categories</h4>
                     <i><ChevrondownIcon /></i>
                 </div>
 
@@ -34,27 +34,47 @@
                     <div>Category: {{ category }}</div>
 
                     <div>
-                        <input type="radio" id="bed-mattrass" value="Bed/Mattrass" v-model="category" />
+                        <input 
+                            type="radio" id="bed-mattrass" 
+                            value="Bed/Mattrass" v-model="category"
+                            @change="updateCategoryOutput"
+                        />
                         <label for="bed-mattrass">Bed/Mattrass</label>
                     </div>
 
                     <div>
-                        <input type="radio" id="housing" value="Housing" v-model="category" />
+                        <input 
+                            type="radio" id="housing" 
+                            value="Housing" v-model="category"
+                            @change="updateCategoryOutput"
+                        />
                         <label for="housing">Housing</label>
                     </div>
 
                     <div>
-                        <input type="radio" value="Kitchen Items" id="kitchen" v-model="category">
+                        <input 
+                            type="radio" value="Kitchen Items" 
+                            id="kitchen" v-model="category"
+                            @change="updateCategoryOutput"
+                        />
                         <label for="kitchen">Kitchen Items</label>
                     </div>
                     
                     <div>
-                        <input type="radio" value="Furniture" id="furniture" v-model="category">
+                        <input 
+                            type="radio" value="Furniture" 
+                            id="furniture" v-model="category"
+                            @change="updateCategoryOutput"
+                        />
                         <label for="furniture">Furniture</label>
                     </div>
 
                     <div>
-                        <input type="radio" value="Electronics" id="electronics" v-model="category">
+                        <input 
+                            type="radio" value="Electronics" 
+                            id="electronics" v-model="category"
+                            @change="updateCategoryOutput"
+                        />
                         <label for="electronics">Eletronics</label>
                     </div>
                 </div>
@@ -151,7 +171,7 @@
                     </div>
 
                     <div>
-                        <input type="date" id="date"
+                        <input type="date" id="date" v-model="avChecked"
                              placeholder="Location" :disabled="avChecked"
                              :class="{ 'disabled': avChecked, 'enabled': !avChecked }"
                         />
@@ -316,7 +336,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        padding: 8px 6px;
+        padding: 12px 6px;
         color: #515456;
         font-size: 1rem;
     }
@@ -488,10 +508,11 @@
     .items-wrapper .location-input #location {
         position: absolute;
         left: 0%;
+        padding-left: 1.5rem
     }
 
     .items-container .location-input input[type=text]::placeholder {
-        padding-left: 1rem;
+        padding-left: 0px;
     }
 
     .items-wrapper span.count {

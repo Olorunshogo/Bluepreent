@@ -30,6 +30,8 @@
                 <ItemGallery />
             </div>
 
+            <div></div>
+
         </div>
 
     </div>
@@ -39,9 +41,12 @@
 
 <style scoped>
     .categories {
-        margin-top: 200px;
+        margin: 8rem 0;
         display: flex;
         flex-direction: column;
+        max-height: 1200px;
+        height: fit-content;
+        width: 100%;
     }
 
     .top {
