@@ -1,7 +1,9 @@
 
 <script setup>
+
     import MattrassImage from '../assets/MattrassImage.vue'
     import CalendarIcon from './icons/CalendarIcon.vue'
+    
 
     defineProps({
         item: {

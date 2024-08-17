@@ -4,6 +4,9 @@
     import SearchIcon from '../components/icons/SearchIcon.vue'
     import ItemSidebar from '../components/ItemSidebar.vue'
     import ItemGallery from './ItemGallery.vue'
+
+    import RightArrowIcon from './icons/RightArrowIcon.vue'
+    import LeftArrowIcon from './icons/LeftArrowIcon.vue'
 </script>
 
 <template>
@@ -28,10 +31,30 @@
 
             <div class="gallery">
                 <ItemGallery />
+            </div>           
+
+        </div>
+
+        <div class="pagination">
+            <div class="pagination-btn-group">
+                <span>
+                    <button>
+                        <span><i><LeftArrowIcon /></i></span>
+                        <span>Previous</span>                    
+                    </button>
+                </span>
+                <span><button>1</button></span>
+                <span><button>2</button></span>
+                <span><button>3</button></span>
+                <span><button>...</button></span>
+                <span><button>8</button></span>
+                <span><button>9</button></span>
+                <span><button>10</button></span>
+                <button>
+                    <span>Next</span>
+                    <span><i><RightArrowIcon /></i></span>
+                </button>
             </div>
-
-            <div></div>
-
         </div>
 
     </div>
@@ -148,5 +171,45 @@
         width: calc(100%-240px);
         max-height: 100%;
         max-height: fit-content;
+    }
+
+    .pagination {
+        /* max-width: 1280px; */
+        height: 68px;
+        min-width: 100%;
+        padding: 12px 0px 16px 0px;
+        border: 1px solid #EAECF0;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    .pagination-btn-group {
+        width: 500px;
+        height: 40px;
+        gap: 0px;
+        border-radius: 8px;
+        border: 1px solid #D0D5DD;
+        box-shadow: 0px 1px 2px 0px #1018280D;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-items: space-evenly;
+    }
+
+    .pagination-btn-group button {
+        min-width: 50px;
+        height: auto;
+        border-radius: 8px;
+        border: none;
+        border-right: 1px solid #D0D5DD;
+        outline: none;        
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-items: space-evenly;
+        text-align: center;
+        background-color: transparent;
+        padding: 12px 8px;
     }
 </style>
