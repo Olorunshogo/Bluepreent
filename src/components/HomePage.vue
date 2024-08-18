@@ -64,7 +64,7 @@
         display: none;
     }
 
-    @media (max-width: 1200px) {
+    @media (max-width: 600px) {
         .container {
             /* padding-bottom: 0; */
             display: none;

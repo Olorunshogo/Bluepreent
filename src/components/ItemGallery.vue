@@ -9,7 +9,7 @@
         { id: 1, name: 'Bed/Mattrass', price: 1000, location: "Lagos, Nigeria", condition: 'Brand New', available: 'Available Now' },
         { id: 2, name: 'Chairs', price: 1500, location: "Lagos, Nigeria", condition: 'Fairly Used', available: 'Available in 2 weeks' },
         { id: 3, name: 'Furniture', price: 2000, location: "Lagos, Nigeria", condition: 'Brand New', available: 'Available Now' },
-        { id: 4, name: 'Mirrors', price: 2500, location: "Lagos, Nigeria", condition: 'FairlyUsed', available: 'Available Now' }
+        { id: 4, name: 'Mirrors', price: 2500, location: "Lagos, Nigeria", condition: 'Fairly Used', available: 'Available Now' }
     ]);
 
     // const props = defineProps({
@@ -27,29 +27,29 @@
     <div>
         <div class="container">
             <div class="search-categories">
-                <div class="sort-section">
-                    <p>Showing 1-60 items out of a total of 1.2k for <span class="highlight">“Bed/Mattrass”</span></p>
-                    <div class="sort-buttons">
-                        <button>
-                            <span>
-                                <span>Sort By:</span>
-                                <span class="highlight"> Position</span>
-                            </span>
-                            <i>
-                                <ChevrondownIcon />
-                            </i>
-                        </button>
-                        <button>
-                            <span>
-                                <span>Show:</span>
-                                <span class="highlight"> 24 per page</span>
-                            </span>
-                            <i>
-                                <ChevrondownIcon />
-                            </i>
-                        </button>                        
-                    </div>
-                </div>              
+                <p>Showing 1-60 items out of a total of 1.2k for <span class="highlight">“Bed/Mattrass”</span></p>                   
+
+                <div class="sort-buttons">
+                    <button>
+                        <span>
+                            <span>Sort By:</span>
+                            <span class="highlight"> Position</span>
+                        </span>
+                        <i>
+                            <ChevrondownIcon />
+                        </i>
+                    </button>
+
+                    <button>
+                        <span>
+                            <span>Show:</span>
+                            <span class="highlight"> 24 per page</span>
+                        </span>
+                        <i>
+                            <ChevrondownIcon />
+                        </i>
+                    </button>                        
+                </div>             
             </div>
 
             <div class="sort-categories">
@@ -144,29 +144,41 @@
 
 <style lang="css" scoped>
     .container {
-        max-width: 1032px;
         width: 100%;
-        max-height: 1120px;
         height: 100%;
+        padding: 2rem 0 2rem 2rem;
         display: flex;
         flex-direction: column;
-        padding: 2rem;
-        /* background-color: lightblue; */
     }
 
     .search-categories {
-        width: 1030.49px;
+        width: 100%;
         height: 50px;
-        border: Mixed solid #CACDD8;
+        border: 1px solid #CACDD8;
+        border-radius: 8px;
         margin-bottom: 2rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        color: #CACDD8;
+    }
+
+    .search-categories p {
+        font-family: Inter;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        text-align: left;
+        width: 65%;
     }
 
     .search-categories .sort-buttons {
-        width: 40%;
-        height: 50px;
+        width: 35%;
+        height: 100%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
     }
 
     .search-categories button {
@@ -178,8 +190,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-between;
-        padding: 12px 8px;
+        padding: 13px 16px;
         color: #B0B8C2;
         font-family: Inter;
         font-size: 12px;
@@ -187,14 +198,15 @@
         line-height: 25px;
         text-align: center;
         background-color: var(--white-text);
+        transition: var(--trans-01-ease-out);
     }
 
-    .search-categories p {
-        font-family: Inter;
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 20px;
-        text-align: left;
+    .search-categories button:hover {
+        opacity: 95%;
+    }
+
+    .search-categories button:focus {
+        transform: scale(0.97);
     }
 
     .highlight {
@@ -205,25 +217,6 @@
         text-align: left;
     }
 
-    .sort-section {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        max-width: 900px;
-        height: 50px;
-        color: #B0B8C2;
-    }
-
-    .sort-section p {
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 20px;
-        width: 65%;
-        color: #B0B8C2;
-    }  
-
     /* === SORT CATEGORIES === */
     .sort-categories {
         display: flex;
@@ -231,9 +224,9 @@
         align-items: center;
         justify-content: space-between;
         width: 70%;
-        max-width: 750px;
+        max-width: 800px;
         height: 50px;
-        margin-bottom: 2rem
+        margin-bottom: 2rem;
     }
 
     .sort-categories .sort-category {
@@ -257,7 +250,8 @@
         height: 50px;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        align-items: center;
+        justify-items: space-between;
     }
 
     .sort-categories button {
@@ -280,29 +274,27 @@
 
     /* === ITEMS SECTION === */
     .items-section {
-        width: 100%;
-        height: 90%;
-        max-height: 1180px;
         display: flex;
         flex-direction: column;
+        width: 100%;
+        height: 100%;
     }
 
     .items-container {
-        width: 100%;        
-        height: 100%;
-        max-height: 350px;
         display: flex;
         flex-direction: column;
-        justify-content: left;
+        justify-items: space-between;
+        width: 100%;        
+        height: 100%;
     }
 
     .items {
         width: 100%;        
         height: 100%;
-        margin-bottom: 40px;
+        margin-bottom: 35px;
+        gap: 20px;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        align-items: center;
     }
 </style>

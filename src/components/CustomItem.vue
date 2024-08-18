@@ -44,10 +44,10 @@
 <style lang="css" scoped>
     .card-container {
         width: 100%;
-        max-width: 225px;
         max-height: 345px;
         height: 100%;
         gap: 40px;
+        border-radius: 8px;
         display: flex;
         flex-direction: column;
         background-color: var(--primary-bg-colour);
@@ -131,11 +131,4 @@
         line-height: 23px;
         color: #1A1A1A;
     }
-
-
-
-
-
-
-
 </style>

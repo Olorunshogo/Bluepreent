@@ -50,10 +50,12 @@
                 <span><button>8</button></span>
                 <span><button>9</button></span>
                 <span><button>10</button></span>
-                <button>
-                    <span>Next</span>
-                    <span><i><RightArrowIcon /></i></span>
-                </button>
+                <span>
+                    <button>
+                        <span>Next</span>
+                        <span><i><RightArrowIcon /></i></span>
+                    </button>
+                </span>
             </div>
         </div>
 
@@ -68,8 +70,9 @@
         display: flex;
         flex-direction: column;
         max-height: 1200px;
-        height: fit-content;
+        height: 100%;
         width: 100%;
+        background-color: var(--primary-bg-colour);
     }
 
     .top {
@@ -159,7 +162,6 @@
         max-width: 30%;
         width: 240px;
         height: 100%;
-        max-height: fit-content;
     }
 
     .items-container .gallery {
@@ -167,10 +169,8 @@
         display: flex;
         flex-direction: row;
         justify-items: left;
-        max-width: 70%;
-        width: calc(100%-240px);
-        max-height: 100%;
-        max-height: fit-content;
+        width: 70%;
+        height: 100%;
     }
 
     .pagination {
@@ -185,7 +185,7 @@
     }
 
     .pagination-btn-group {
-        width: 500px;
+        width: 520px;
         height: 40px;
         gap: 0px;
         border-radius: 8px;
@@ -194,12 +194,18 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-items: space-evenly;
+        justify-content: space-between;
     }
 
-    .pagination-btn-group button {
-        min-width: 50px;
-        height: auto;
+    .pagination-btn-group span:first-child {
+        display: flex;
+        align-items: center;
+        max-width: 100%;
+    }
+
+    .pagination-btn-group span button {
+        width: 100%;
+        height: 100%;
         border-radius: 8px;
         border: none;
         border-right: 1px solid #D0D5DD;
@@ -207,9 +213,10 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-items: space-evenly;
+        justify-items: space-between;
         text-align: center;
         background-color: transparent;
         padding: 12px 8px;
+        /* background-color: red */
     }
 </style>

@@ -10,6 +10,10 @@
   --black-text: #000;
 
   --icon-grey: #515456;
+
+  --trans-01-ease-out: all 0.1s ease-out;
+  --trans-03-ease-in: all 0.3s ease-in;
+  --trans-05-ease-in-out: all 0.5s ease-in-out;
 }
 
 *,
