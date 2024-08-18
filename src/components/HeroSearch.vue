@@ -123,7 +123,11 @@
 
         <div class="dropdown-container">
 
-            <div v-if="showDropdown && filteredOptions.length" class="dropdown">
+            <div 
+                v-if="showDropdown && filteredOptions.length"
+                class="dropdown"
+                >
+                
                 <div 
                     v-for="option in limitedOptions" 
                     :key="option.id" 
@@ -155,6 +159,7 @@
         border-radius: 8px;
         padding: 10px 8px;  
         width: 100%; 
+        height: auto;
         position: relative;
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     }
@@ -177,7 +182,7 @@
         flex-direction: row;
         justify-content: center;
         align-self: center;
-        border-right: 4px solid #ddd;
+        border-right: 2px solid #ddd;
     }
 
     .graduation {
@@ -190,7 +195,7 @@
     .search-input input[type=text] {
         width: 80%;
         padding: 0 12px 0 16px;
-        margin-left: 20px;
+        margin-left: 20px; 
         height: 100%;
         border: none;
         border-radius: 8px;
@@ -268,16 +273,16 @@
 
     .search-result input[type=text] {
         width: 100%;
-        /* padding: 0 50px; */
         height: 40px;
         border: none;
-        border-radius: 1rem;
+        border-radius: 8px;
         outline: none;
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
         color: black;
+        caret-color: var(--primary-blue);
         font-size: 14px;
         background-color: var(--light-blue-bg);
         transition: all 0.5s ease-in-out;
@@ -313,12 +318,13 @@
         max-height: 234px;
         height: fit-content;
         position: relative;
-        top: -15px;
+        top: -5px;
         left: 2%;
         border-radius: 2px;
         cursor: default;
         border: 1px solid #F2F4F7;
         z-index: 3;
+        font-size: 14px;
     }
 
     .dropdown-container .dropdown {
@@ -374,7 +380,112 @@
         border: none;
         outline: none;
         margin-left: 40px;
-    }  
+        font-size: 14px;
+        font-weight: 400;
+    } 
+
+    .dropdown-container .enter-state input[type=text]::placeholder {
+        font-size: 14px;
+        font-weight: 600;
+    }
+    
+    @media  (max-width: 1055px) {
+        .hero-search-container { 
+            padding: 7px 5px; 
+        }
+
+        .hero-search-container i { 
+            padding: 0 16px;
+            font-size: 0.85rem;
+        }
+
+        .search-input {
+            height: 54px;
+        }
+
+        .graduation {
+            position: relative;
+            left: 6px;        
+        }
+
+        .search-input input[type=text] {
+            padding: 0 9px 0 12px;
+            margin-left: 16px;
+            font-size: 13px;
+        }
+
+        input[type=text]:focus {
+            width: 85%;
+        }
+
+        input[type=text]::placeholder {
+            font-size: 13px;
+        }
+
+        .search-input .button-container{
+            width: 30px;
+        }
+
+        /* === SEARCH RESULT SECTION === */
+        .search-result {
+            height: 54px;
+        }
+
+        .search-result .result-input {
+            max-width: 250px;
+        }
+
+        .search-result .result-input div {
+            margin: 0 6px;
+        }
+
+        .search-result i {
+            font-size: 22px;
+        }
+
+        .search-result .times {
+            right: 40px;
+        }
+
+
+        /* === DROPDOWN SECTION === */
+        .dropdown-container {
+            top: 0px;
+            font-size: 13px;
+        }
+
+        .dropdown-container .dropdown .dropdown-item {
+            padding: 6px 0;
+            padding: 8px 9px 8px 12px;
+        }
+
+        .dropdown-container .enter-state {
+            max-height: 52px;
+            padding: 8px 9px 8px 12px;
+        }
+
+        .dropdown-container .enter-state span {
+            font-size: 12px;
+            width: 12px;
+            height: 12px;
+        }
+
+        .dropdown-container .enter-state span i {
+            font-size: 11px;
+        }
+
+        .dropdown-container .enter-state input[type=text] {
+            height: 35px;
+            margin-left: 30px;
+            font-size: 13px;
+        } 
+
+        .dropdown-container .enter-state input[type=text]::placeholder {
+            font-size: 13px;
+            font-weight: 500;
+        }
+        
+    }
 
     
 

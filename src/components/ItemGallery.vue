@@ -1,9 +1,20 @@
 
 <script setup>
     import { ref } from 'vue'
+
+    const category = ref("");
+    const minRange = ref(10);
+    const maxRange = ref(25000000);
+    const condition = ref("");
+
+    // const avChecked = ref(false);
+    const locationChecked = ref(false);
+
+
     import CustomItem from './CustomItem.vue'
     import ChevrondownIcon from './icons/ChevrondownIcon.vue'
     import TimesIcon from './icons/TimesIcon.vue';
+
 
     const collection = ref([
         { id: 1, name: 'Bed/Mattrass', price: 1000, location: "Lagos, Nigeria", condition: 'Brand New', available: 'Available Now' },
@@ -53,7 +64,7 @@
             </div>
 
             <div class="sort-categories">
-                <div class="sort-category">
+                <div class="sort-category" title="Categories">
                     <span>
                         {{ category }}
                     </span>
@@ -62,7 +73,7 @@
                     </i>
                 </div>
 
-                <div class="sort-category">
+                <div class="sort-category" title="Range">
                     <span>
                         <span>
                             {{ minRange }}

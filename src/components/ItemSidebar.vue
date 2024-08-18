@@ -555,6 +555,31 @@
         height: 100%;
     }
     
+    @media  (max-width: 1055px) {
+        /* === THE WHOLE CONTAINER === */ 
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: black;
+            background-color: #FAFBFF;
+            width: 100%;
+            height: 100%;
+            padding-bottom: 1rem;
+        } 
+
+    .items-wrapper {
+        display: flex;
+        flex-direction: column;        
+        padding: 2rem 10px 1rem 1rem;
+        width: 100%;       
+    }
+
+    .items-wrapper > div {
+        margin: 0.5rem 0;
+    }
+    }
 
             
 

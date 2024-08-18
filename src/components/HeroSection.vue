@@ -18,12 +18,14 @@
                 </div>
 
                 <div class="hero-img">
-                    <YoungCouriers />
+                    <!-- <YoungCouriers /> -->
                 </div>
 
-                <div class="hero-search">
-                    <HeroSearch />
-                </div>
+                
+            </div>
+
+            <div class="hero-search">
+                <HeroSearch />
             </div>
             
         </div>
@@ -39,10 +41,20 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
+        align-content: center;
         background-color: var(--primary-blue);
         max-width: 100%;
         height: 450px;
         position: relative;
+    }
+
+    .desktop-hero {
+        display: flex;
+        flex-direction: column;
+        justify-items: left;
+        align-items: left;
+        width: 100%;
+        padding: 0 5%;
     }
 
     .hero-texts {
@@ -50,31 +62,36 @@
         flex-direction: column;
         justify-content: center;
         align-items: left;
-        max-width: 60%;
-        padding: 0 5%;
-    }
-
-    .hero-texts > div :nth-child(1) {
-        margin-bottom: 20px;
+        width: 65%;
+        padding-top: 3.5rem;
     }
 
     .hero-texts h1 {
         display: flex;
         flex-direction: row;
-        font-size: 4.5rem;
-        font-size: 69px;
+        justify-items: center;
+        align-items: center;
+        font-size: 4.1rem;
         font-weight: 700;
         font-family: Campton;
-        line-height: 70px;
+        line-height: 80px;
         letter-spacing: 1%;
         font-family: Campton;
-        color: var(--primary-bg-colour);
+        color: var(--white-text);
+    }
+
+    .hero-texts h1 .e-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 38px;
+        height: auto;
     }
 
     .hero-texts p {
         font-family: "Inter", sans-serif;
         font-optical-sizing: auto;
-        font-size: 36px;
+        font-size: 2.3rem;
         line-height: 50px;
         font-weight: 400;
         font-variation-settings:
@@ -89,11 +106,11 @@
         flex-direction: row;
         justify-content: space-around;
 
-        max-width: 40%;
+        max-width: 35%;
         margin: 0 2rem;
     }
 
-    .hero-img img {
+    /* .hero-img img {
         width: 100%;
         height: auto
     }
@@ -101,13 +118,13 @@
     .hero-texts img {
         width: 50px;
         height: auto;
-    }
+    } */
 
     .hero-search {
-        width: 90%;
+        width: 100%;
         height: 107px;
         position: relative;
-        top: 200px;
+        top: 170px;
         display: flex;
         flex-direction: column;
         align-self: center;
@@ -118,13 +135,47 @@
         display: none;
     }
 
-    @media (max-width: 600px) {
-        .desktop-hero {
+    @media  (max-width: 1055px) {
+        .container {
+            height: 316px;
             display: none;
         }
 
-        .mobile-hero {
+        .hero-texts {
             display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: left;
+            width: 65%;
+            padding-top: 3.5rem;
         }
+
+        .hero-texts h1 {
+            font-size: 2.9rem;
+            line-height: 50px;
+        }
+
+        .hero-texts h1 .e-logo {
+            width: 26.7px;
+        }
+
+        .hero-texts p {
+            font-size: 1.27rem;
+            line-height: 35px;
+        }
+
+        .hero-img {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+
+            max-width: 35%;
+            margin: 0 2rem;
+        }
+
+        .hero-search {
+            height: 76px;
+            top: 120px;
+        } 
     }
 </style>

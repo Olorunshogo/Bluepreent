@@ -12,7 +12,7 @@
 <template>
     <div class="categories">
         <div class="top">
-            <div>
+            <div class="category-heading">
                 <h2>Category of items</h2>
                 <p>Please Explore Categories: Find What You're Looking For</p>
             </div>
@@ -84,14 +84,14 @@
         margin: 8px 0;
     }
 
-    .top div:first-child {
+    .top .category-heading {
         width: 60%;
         display: flex;
         flex-direction: column;
         align-content: center;
     }
 
-    .top div:first-child h2 {
+    .top .category-heading h2 {
         font-family: Inter;
         font-size: 2rem;
         font-weight: 700;
@@ -101,7 +101,7 @@
         margin-bottom: 16px;
     }
 
-    .top div:first-child p {
+    .top .category-heading p {
         font-family: Inter;
         font-size: 1.5rem;
         font-weight: 500;
@@ -145,7 +145,7 @@
 
     .top .search {
         color: #969696;
-        font-size: 20px;
+        font-size: 1.5rem;
     }
 
     .items-container {
@@ -174,7 +174,6 @@
     }
 
     .pagination {
-        /* max-width: 1280px; */
         height: 68px;
         min-width: 100%;
         padding: 12px 0px 16px 0px;
@@ -217,6 +216,68 @@
         text-align: center;
         background-color: transparent;
         padding: 12px 8px;
-        /* background-color: red */
+    }
+
+    .pagination-btn-group i {
+        font-size: 12px;
+    }
+
+    @media  (max-width: 1055px) {
+        .categories {
+            margin: 6rem 0;
+        }
+
+        .top {
+            height: 72px;
+        }
+
+        .top .category-heading h2 {
+            font-size: 1.5rem;
+            line-height: 1.7rem;
+            margin-bottom: 12px;
+        }
+
+        .top .category-heading p {
+            font-size: 0.9rem;
+            line-height: 20px;
+        }
+
+        .top .top-input {
+            width: 40%;
+            height: 45px;
+        }
+
+        .top .top-input input[type=text] {
+            padding: 8px 9px 8px 12px;
+            margin: 0;
+        }
+
+        .top .top-input input[type=text]::placeholder {
+            font-size: 0.8rem;
+            line-height: 18px;
+        }
+
+        .top .search {
+            color: #969696;
+            font-size: 0.9rem;
+        }
+
+        .items-container .side-bar {
+            width: 200px;
+        }
+
+        .pagination {
+            padding: 9px 0px 12px 0px;
+        }
+
+        .pagination-btn-group {
+            width: 366px;
+            height: 35px;
+        }        
+
+        .pagination-btn-group span button {
+            padding: 9px 6px;
+        }
+
     }
 </style>
