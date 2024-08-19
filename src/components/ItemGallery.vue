@@ -311,7 +311,7 @@
 
     .items {
         width: 100%;        
-        height: 100%;
+        height: 33.33%;
         margin-bottom: 2.2rem;
         gap: 1.25rem;
         display: flex;

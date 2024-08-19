@@ -44,7 +44,7 @@
 <style lang="css" scoped>
     .card-container {
         width: 100%;
-        max-height: 345px;
+        /* max-height: 345px; */
         height: 100%;
         gap: 2.8rem;
         border-radius: 8px;
@@ -64,7 +64,7 @@
 
     .product-container {
         position: relative;
-        max-height: 10rem;
+        /* max-height: 10rem; */
         height: 40%;
         max-width: 100%;
         background-color: var(--light-blue);
@@ -116,7 +116,7 @@
         font-weight: 700;
         line-height: 19px;
         text-align: left;
-        height: 30%;
+        height: 25%;
     }
 
     .description > div:nth-child(2) {
@@ -124,7 +124,7 @@
         flex-direction: column;
         justify-content: space-between;
         text-align: left;
-        height: 70%;
+        height: 75%;
     }
 
     .description .price {
@@ -143,7 +143,7 @@
 
     @media  (max-width: 1055px) {
         .card-container {
-            max-height: 300px;
+            /* max-height: 300px; */
             gap: 2.3rem;  
         }
 
@@ -188,16 +188,5 @@
             font-size: 0.9rem;
             line-height: 1.2rem;
         }
-        
-
-    
-
-    
-
-    
-
-    
-
-    
     }
 </style>

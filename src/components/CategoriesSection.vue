@@ -40,11 +40,11 @@
             <div class="pagination-btn-group">
                 <span>
                     <button>
-                        <span><i><LeftArrowIcon /></i></span>
-                        <span id="previous">Previous</span>                    
+                        <span id="previous"><i><LeftArrowIcon /></i></span>
+                        <span>Previous</span>                    
                     </button>
                 </span>
-                <span><button>1</button></span>
+                <span><button class="center">1</button></span>
                 <span><button>2</button></span>
                 <span><button>3</button></span>
                 <span><button>...</button></span>
@@ -184,38 +184,49 @@
     }
 
     .pagination-btn-group {
-        width: 520px;
+        max-width: 640px;
+        width: 55%;
         height: 40px;
-        gap: 0px;
         border-radius: 8px;
         border: 1px solid #D0D5DD;
         box-shadow: 0px 1px 2px 0px #1018280D;
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-evenly;
+        justify-content: space-between;
     }
 
-    .pagination-btn-group span:first-child {
+    .pagination-btn-group > span {
         display: flex;
         align-items: center;
-        max-width: 100%;
+        justify-items: space-between;
+        width: 100%;
     }
 
-    .pagination-btn-group span button {
+    .pagination-btn-group > span button {
         width: 100%;
         height: 100%;
-        border-radius: 8px;
         border: none;
-        border-right: 1px solid #D0D5DD;
-        outline: none;        
+        outline: none; 
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-items: space-between;
-        text-align: center;
+        justify-content: center;       
         background-color: transparent;
         padding: 12px 8px;
+        margin: 0 auto;
+        transition: all 0.5s ease-out;
+    }
+
+    .pagination-btn-group > span:nth-child(1) button,
+    .pagination-btn-group > span:nth-child(2) button,
+    .pagination-btn-group > span:nth-child(3) button,
+    .pagination-btn-group > span:nth-child(4) button,
+    .pagination-btn-group > span:nth-child(5) button,
+    .pagination-btn-group > span:nth-child(6) button,
+    .pagination-btn-group > span:nth-child(7) button,
+    .pagination-btn-group > span:nth-child(8) button {
+        border-right: 1px solid #D0D5DD;
     }
 
     .pagination-btn-group span button:hover {
@@ -228,14 +239,14 @@
 
     .pagination-btn-group #previous {
         font-size: 12px;
-        margin-right: 4px;
+        margin-right: 8px;
         display: flex;
         align-items: center;
     }
 
     .pagination-btn-group #next {
         font-size: 12px;
-        margin-left: 4px;
+        margin-left: 8px;
         display: flex;
         align-items: center;
     }
@@ -285,29 +296,13 @@
         }
 
         .pagination {
-            height: 48px;
+            height: 50px;
             padding: 9px 12px;
         }
 
         .pagination-btn-group {
-            width: 380px;
+            width: 60%;
             height: 40px;
-        }
-
-        .pagination-btn-group span button {
-            width: 100%;
-            height: 100%;
-            border-radius: 8px;
-            border: none;
-            border-right: 1px solid #D0D5DD;
-            outline: none;        
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-items: space-between;
-            text-align: center;
-            background-color: transparent;
-            padding: 9px 5.5px;
         }
 
         .pagination-btn-group i {
@@ -319,4 +314,6 @@
             font-size: 10px;
         }
     }
+
+    
 </style>

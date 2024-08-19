@@ -106,7 +106,7 @@
     /* === TOP NAV: Overall container ===  */
     .top-nav {
         margin: 1.5rem 0;
-        min-width: 100%;
+        width: 100%;
         height: 60px;
     }
 
@@ -121,7 +121,7 @@
 
     /* === Logo Container === */
     .logo-container {
-        min-width: 30%;
+        width: 30%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -146,7 +146,7 @@
 
     .nav-one,
     .nav-two {
-        min-width: 50%;
+        width: 50%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -168,10 +168,10 @@
         justify-content: center;
         align-items: center;
         color: var(--secondary-blue);
-        font-size: 14px;
-        line-height: 17px;        
-        width: 145px;
-        height: 55px;
+        font-size: 1rem;
+        line-height: 1.05rem;        
+        width: 9rem;
+        height: 3.5rem;
         border-radius: 8px;
         cursor: default;
         transition: all 0.5s ease-in-out;
@@ -195,8 +195,8 @@
         background-color: var(--primary-blue);
         color: white;
         font-weight: 700;
-        font-size: 16px;
-        line-height: 19px;
+        font-size: 1rem;
+        line-height: 1.1rem;
         font-family: SF Pro Text;
     }
 
@@ -231,6 +231,93 @@
         color: var(--primary-blue);
     }
 
+    @media  (max-width: 950px) {
+        .top-nav {
+            margin: 1rem 0;
+            min-width: 100%;
+            height: 55px;
+        }
+
+        /* === Logo Container === */
+        .logo-container {
+            width: 25%;
+        }
+
+        /* === The Container for all the links in the NavBar === */
+        .nav {
+            width: 620px;
+            max-width: 75%;
+        }
+
+        /* .nav-one,
+        .nav-two {
+            miwidth: 50%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        } */
+
+        .nav .link-container a {
+            font-size: 12px;
+            line-height: 14px;        
+            width: 8rem;
+            height: 3rem;
+
+        }
+
+        .nav .link-container a:hover {
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;    
+        }
+
+        .nav .link-container #sell {
+            font-size: 14px;
+            font-family: Inter
+        }
+
+        .nav .link-container #register {
+            background-color: var(--primary-blue);
+            color: white;
+            font-weight: 700;
+            font-size: 0.95rem;
+            line-height: 14px;
+        }
+
+        /* === Link Title === */
+        .nav span {
+            font-size: 12px;
+            font-weight: 400;
+            margin: 0 10px;
+        }
+
+        /* === TOGGLE BUTTON === */
+        .open-close {
+            display: none;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .open-close button {
+            outline: none;
+            border: none;
+            height: 32px;
+            width: 32px;
+            background-color: transparent;;
+        }
+
+        .open-close span i {
+            font-weight: 700;
+            font-size: 100%;
+            color: var(--primary-blue);
+        }
+
+    }
+
+    @media  (max-width: 760px) {
+        .nav .link-container a {        
+            width: 7rem;
+        }
+
+    }
+
     @media (max-width: 600px) {
         .top-nav {
             margin: 0rem 0;
@@ -246,4 +333,5 @@
             display: block;
         }
     }
+
 </style>

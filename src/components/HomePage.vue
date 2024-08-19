@@ -3,6 +3,8 @@
     import NavigationBar from '../components/NavigationBar.vue'
     import HeroSection from '../components/HeroSection.vue'
     import CategoriesSection from '../components/CategoriesSection.vue'
+    import DeclutterSell from './DeclutterSell.vue'
+
 </script>
 
 <template>
@@ -20,15 +22,19 @@
             <div class="section">
                 <CategoriesSection />
             </div>
+
+            <div class="section">
+                <DeclutterSell />
+            </div>
         </div>
         
     </div>
 
-    <div class="mobile">
-        <h1>Tada &#129313;&#129313;&#129313;</h1>
-        <p>This website is not cool yet on <b>max-width: 1200px</b> screen sizes. Infact, it is not on any screen size less than <b>1500px</b></p>
+    <div class="mobil">
+        <h1>Well &#129320;&#129320;&#129320;</h1>
+        <p>This website is only cool to view at precisely <b>max-width: 1050px</b> screen size. Anything in between that and <b>1500px</b> would not look good.</p>
         <p>Now, rotate your screen to use the <b>longer side as the width</b>, or change your screen to <b>Desktop</b>.</p>
-        <p><b>Ire o.</b>Thanks &#128513;</p>
+        <h3><b>Ire o.</b>&#128524;</h3>
     </div>
 </template>
 
@@ -64,10 +70,10 @@
         display: none;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 1000px) {
         .container {
-            /* padding-bottom: 0; */
-            display: none;
+            /* display: none; */
+            display: block;
         }
 
 

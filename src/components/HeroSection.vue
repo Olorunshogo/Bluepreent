@@ -84,7 +84,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 38px;
+        width: 2.2rem;
         height: auto;
     }
 
@@ -156,11 +156,49 @@
         }
 
         .hero-texts h1 .e-logo {
-            width: 26.7px;
+            width: 1.5rem;
         }
 
         .hero-texts p {
             font-size: 1.27rem;
+            line-height: 35px;
+        }
+
+        .hero-img {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+
+            max-width: 35%;
+            margin: 0 2rem;
+        }
+
+        .hero-search {
+            height: 76px;
+            top: 120px;
+        } 
+    }
+
+    @media  (max-width: 760px) {
+        .container {
+            height: 290px;
+        }
+
+        .hero-texts {
+            padding-top: 3rem;
+        }
+
+        .hero-texts h1 {
+            font-size: 2.4rem;
+            line-height: 40px;
+        }
+
+        .hero-texts h1 .e-logo {
+            width: 1rem;
+        }
+
+        .hero-texts p {
+            font-size: 1.1rem;
             line-height: 35px;
         }
 

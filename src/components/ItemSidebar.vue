@@ -281,6 +281,7 @@
         flex-direction: row;
         justify-content: space-between;
         width: 100%;
+        height: 100%;
         max-height: 100px;
         color: #F5F7FF;
     }
@@ -302,7 +303,7 @@
         flex-direction: column;
         justify-content: center;
         width: 100%;
-        height: fit-content;
+        height: 100%;
         max-height: 450px;
     }
 
@@ -399,6 +400,7 @@
         opacity: 0.8;
         -webkit-transition: 0.2s;
         transition: opacity 0.2s;
+        cursor: default;
     }
 
     .items-wrapper .price .range input[type=range]:hover {
@@ -411,8 +413,6 @@
     }
 
     .items-wrapper .price .range input[type=range]::-webkit-slider-moz {
-        /* -webkit-appearance: none;
-        appearance: none; */
         width: 10px;
         height: 2px;
 
@@ -429,7 +429,6 @@
     }
 
     .items-wrapper .price .min-max-values,
-    .items-wrapper .availability input[type=date],
     .items-container .location-input input[type=text] {
         display: flex;
         display: flex;
@@ -445,6 +444,25 @@
         padding: 10px 12px 10px 16px;
         height: 50px;
         font-size: 0.9rem;
+        cursor: text;
+    }
+
+    .items-wrapper .availability input[type=date] {
+        display: flex;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 8px 0;
+        border-radius: 8px;
+        border: 1px solid #E5E5E5;
+        outline: none;
+        background-color: #FFF;
+        color: #1A1A1A;
+        width: 100%;
+        padding: 10px 12px 10px 16px;
+        height: 50px;
+        font-size: 0.9rem;
+        cursor: pointer;
     }
 
     .items .availability input[type=date]::placeholder,
@@ -539,7 +557,7 @@
         border: none;
         border-radius: 8px;
         width: 100%;
-        height: 60px;
+        height: 50px;
     }
 
     .apply {
@@ -672,7 +690,7 @@
 
         /* === LOCATION SECTION === */
         .items-wrapper .location-input #location {
-            padding-left: 1rem
+            padding-left: 1rem;
         }
 
         .items-wrapper span.count {
@@ -682,6 +700,7 @@
 
         .items-container .location-input input[type=text]::placeholder {
             padding-left: 0px;
+            margin-top: 8px;
         }
 
         .items-wrapper span.count {
@@ -694,7 +713,7 @@
             font-size: 1rem;
             line-height: 1rem;
             padding: 0.8rem;
-            height: 42px;
+            height: 40px;
         }
 
 
