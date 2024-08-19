@@ -46,21 +46,25 @@
         width: 100%;
         max-height: 345px;
         height: 100%;
-        gap: 40px;
+        gap: 2.8rem;
         border-radius: 8px;
         display: flex;
         flex-direction: column;
         background-color: var(--primary-bg-colour);
         box-shadow: 0 5px 3px  0 #A4A4A40F;
-        transition: all 0.5s ease-in-out; 
+        transition: all 0.4s ease-in-out; 
         box-shadow: 0px 4.88px 3.25px 0px #A4A4A40F;
         box-shadow: 0px 8.13px 27.64px -13.01px #00000014;
         box-shadow: 0px 0px 0px 0.81px #0000000D;      
     }
 
+    .card-container:hover {
+        transform: scale(1.05)    ;  
+    }
+
     .product-container {
         position: relative;
-        max-height: 160px;
+        max-height: 10rem;
         height: 40%;
         max-width: 100%;
         background-color: var(--light-blue);
@@ -74,8 +78,8 @@
     .available {
         background-color: var(--primary-blue);
         color: var(--primary-bg-colour);
-        width: 125px;
-        height: 20px;
+        width: 7.9rem;
+        height: 1.5rem;
         font-family: Satoshi;
         font-size: 9px;
         font-weight: 400;
@@ -88,8 +92,7 @@
         flex-direction: row;
         align-items: center;
         padding: 1.5px 4px;
-        border-radius: 3px 0px 0px 3px;
-        opacity: 0px;
+        border-radius: 4px;
     }
 
     .available i {
@@ -109,7 +112,7 @@
 
     .description h3 {
         font-family: Inter;
-        font-size: 16px;
+        font-size: 1.1rem;
         font-weight: 700;
         line-height: 19px;
         text-align: left;
@@ -126,9 +129,75 @@
 
     .description .price {
         font-family: Inter;
-        font-size: 19px;
+        font-size: 1rem;
         font-weight: 700;
-        line-height: 23px;
+        line-height: 1.5rem;
         color: #1A1A1A;
+    }
+
+    .description .location,
+    .description .condition {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    @media  (max-width: 1055px) {
+        .card-container {
+            max-height: 300px;
+            gap: 2.3rem;  
+        }
+
+        .product-container {
+            max-height: 9rem;
+        }
+
+        .available {
+            width: 7.2rem;
+            font-size: 0.7rem;
+            top: 1px;
+            right:1px;
+            padding: 1px 3px;
+            border-radius: 4px 8px 4px 4px;
+        }
+
+        .available i {
+            font-size: 10px;
+            margin-right: 4px;
+        }
+
+        .description {
+            padding: 8px 9px 8px 12px;
+        }
+
+        .description h3 {
+            font-size: 1rem;
+            line-height: 13px;
+        }
+
+        .description > div:nth-child(2) {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: left;
+            height: 70%;
+        }
+
+        .description .price,
+        .description .location,
+        .description .condition {
+            font-size: 0.9rem;
+            line-height: 1.2rem;
+        }
+        
+
+    
+
+    
+
+    
+
+    
+
+    
     }
 </style>

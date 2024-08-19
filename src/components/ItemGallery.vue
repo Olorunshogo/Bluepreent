@@ -2,10 +2,10 @@
 <script setup>
     import { ref } from 'vue'
 
-    const category = ref("");
+    const category = ref("Bed/Mattrass");
     const minRange = ref(10);
     const maxRange = ref(25000000);
-    const condition = ref("");
+    const condition = ref("Brand New");
 
     // const avChecked = ref(false);
     const locationChecked = ref(false);
@@ -74,15 +74,16 @@
                 </div>
 
                 <div class="sort-category" title="Range">
-                    <span>
+                    <div>
                         <span>
                             {{ minRange }}
                         </span>
+                        &nbsp; - &nbsp;
                         <span>
                             {{ maxRange }}
                         </span>
 
-                    </span>
+                    </div>
                     <i>
                         <TimesIcon />
                     </i>
@@ -160,12 +161,12 @@
         padding: 2rem 0 2rem 2rem;
         display: flex;
         flex-direction: column;
+        cursor: default;
     }
 
     .search-categories {
         width: 100%;
         height: 50px;
-        border: 1px solid #CACDD8;
         border-radius: 8px;
         margin-bottom: 2rem;
         display: flex;
@@ -176,15 +177,15 @@
 
     .search-categories p {
         font-family: Inter;
-        font-size: 14px;
+        font-size: 0.9rem;
         font-weight: 400;
-        line-height: 20px;
+        line-height: 1.2rem;
         text-align: left;
         width: 65%;
     }
 
     .search-categories .sort-buttons {
-        width: 35%;
+        min-width: 35%;
         height: 100%;
         display: flex;
         flex-direction: row;
@@ -193,7 +194,7 @@
     }
 
     .search-categories button {
-        width: 165px;
+        width: 11rem;
         height: 50px;
         border: 1px solid #CACDD8;
         outline: none;
@@ -201,22 +202,24 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        padding: 13px 16px;
+        padding: 12px 4px;
         color: #B0B8C2;
         font-family: Inter;
-        font-size: 12px;
+        font-size: 0.8rem;
         font-weight: 600;
-        line-height: 25px;
+        line-height: 1.7rem;
         text-align: center;
-        background-color: var(--white-text);
-        transition: var(--trans-01-ease-out);
+        background-color: var(--primary-bg-colour);
+        transition: all 0.3s ease-out;
     }
 
-    .search-categories button:hover {
-        opacity: 95%;
+    .search-categories button:hover,
+    .sort-categories button:hover {
+        background-color: #eee;
     }
 
-    .search-categories button:focus {
+    .search-categories button:focus,
+    .sort-categories button:focus {
         transform: scale(0.97);
     }
 
@@ -224,7 +227,7 @@
         color: var(--primary-blue);
         font-family: Inter;
         font-weight: 700;
-        line-height: 20px;
+        line-height: 1.2rem;
         text-align: left;
     }
 
@@ -234,8 +237,7 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        width: 70%;
-        max-width: 800px;
+        width: 75%;
         height: 50px;
         margin-bottom: 2rem;
     }
@@ -244,11 +246,18 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        border-radius: 20px;
+        border-radius: 8px;
         padding: 10px 15px;
-        font-size: 14px;
+        font-size: 0.9rem;
         font-weight: 400;
+        opacity: 0.9;
         background-color: var(--light-blue-bg);
+    }
+
+    .sort-categories .sort-category:focus,
+    .sort-categories .sort-category:hover {
+        opacity: 1.0;
+        border: 1px solid #CACDD8;
     }
 
     .sort-categories .sort-category i {
@@ -276,9 +285,9 @@
         justify-content: center;
         padding: 12px 8px;
         font-family: Inter;
-        font-size: 12px;
+        font-size: 0.8rem;
         font-weight: 600;
-        line-height: 25px;
+        line-height: 1.5rem;
         text-align: center;
         background-color: transparent;
     }
@@ -294,6 +303,7 @@
     .items-container {
         display: flex;
         flex-direction: column;
+        align-items: center;
         justify-items: space-between;
         width: 100%;        
         height: 100%;
@@ -302,10 +312,67 @@
     .items {
         width: 100%;        
         height: 100%;
-        margin-bottom: 35px;
-        gap: 20px;
+        margin-bottom: 2.2rem;
+        gap: 1.25rem;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+    }
+
+    @media  (max-width: 1055px) {
+        .container {
+            padding: 1.45rem 0 1.45rem 1.45rem;
+        }
+
+        .search-categories {
+            height: 40px;
+            margin-bottom: 1.45rem;
+        }
+
+        .search-categories p {
+            font-size: 0.8rem;
+            line-height: 0.9rem;
+        }
+
+        .search-categories button {
+            width: 9.5rem;
+            height: 40px;
+            padding: 8px 4px;
+            font-size: 0.7rem;
+            line-height: 1.2rem;
+        }
+
+        .highlight {
+            line-height: 0.9rem;
+        }
+
+        /* === SORT CATEGORIES === */
+        .sort-categories {
+            height: 40px;
+            margin-bottom: 1.45rem;
+        }
+
+        .sort-categories .sort-category {
+            padding: 8px 12px;
+            font-size: 0.7rem;
+        }
+
+        .sort-categories .sort-buttons {
+            height: 40px;
+        }
+
+        .sort-categories button {
+            height: 40px;
+            padding: 8px 6px;
+            font-size: 0.7rem;
+            line-height: 1.1rem;
+        }
+
+        /* === ITEMS SECTION === */
+        .items {
+            margin-bottom: 1.55rem;
+            gap: 0.9rem;
+        }
+
     }
 </style>

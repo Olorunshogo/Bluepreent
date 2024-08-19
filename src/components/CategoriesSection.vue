@@ -36,11 +36,12 @@
         </div>
 
         <div class="pagination">
+            <div class="empty"></div>
             <div class="pagination-btn-group">
                 <span>
                     <button>
                         <span><i><LeftArrowIcon /></i></span>
-                        <span>Previous</span>                    
+                        <span id="previous">Previous</span>                    
                     </button>
                 </span>
                 <span><button>1</button></span>
@@ -53,7 +54,7 @@
                 <span>
                     <button>
                         <span>Next</span>
-                        <span><i><RightArrowIcon /></i></span>
+                        <span id="next"><i><RightArrowIcon /></i></span>
                     </button>
                 </span>
             </div>
@@ -72,7 +73,6 @@
         max-height: 1200px;
         height: 100%;
         width: 100%;
-        background-color: var(--primary-bg-colour);
     }
 
     .top {
@@ -103,7 +103,7 @@
 
     .top .category-heading p {
         font-family: Inter;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         font-weight: 500;
         line-height: 29.05px;
         text-align: left;
@@ -169,18 +169,18 @@
         display: flex;
         flex-direction: row;
         justify-items: left;
-        width: 70%;
         height: 100%;
     }
 
     .pagination {
         height: 68px;
-        min-width: 100%;
-        padding: 12px 0px 16px 0px;
+        width: 100%;
+        padding: 12px 16px;
         border: 1px solid #EAECF0;
         display: flex;
         flex-direction: row;
-        justify-content: flex-end;
+        align-items: center;
+        justify-content: space-between;
     }
 
     .pagination-btn-group {
@@ -193,7 +193,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-evenly;
     }
 
     .pagination-btn-group span:first-child {
@@ -218,8 +218,26 @@
         padding: 12px 8px;
     }
 
-    .pagination-btn-group i {
+    .pagination-btn-group span button:hover {
+        background-color: #eee;
+    }
+
+    .pagination-btn-group span button:focus {
+        transform: scale(0.97);
+    }
+
+    .pagination-btn-group #previous {
         font-size: 12px;
+        margin-right: 4px;
+        display: flex;
+        align-items: center;
+    }
+
+    .pagination-btn-group #next {
+        font-size: 12px;
+        margin-left: 4px;
+        display: flex;
+        align-items: center;
     }
 
     @media  (max-width: 1055px) {
@@ -267,17 +285,38 @@
         }
 
         .pagination {
-            padding: 9px 0px 12px 0px;
+            height: 48px;
+            padding: 9px 12px;
         }
 
         .pagination-btn-group {
-            width: 366px;
-            height: 35px;
-        }        
-
-        .pagination-btn-group span button {
-            padding: 9px 6px;
+            width: 380px;
+            height: 40px;
         }
 
+        .pagination-btn-group span button {
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            border: none;
+            border-right: 1px solid #D0D5DD;
+            outline: none;        
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-items: space-between;
+            text-align: center;
+            background-color: transparent;
+            padding: 9px 5.5px;
+        }
+
+        .pagination-btn-group i {
+            font-size: 10px;
+        }   
+        
+        .pagination-btn-group #previous,
+        .pagination-btn-group #next {
+            font-size: 10px;
+        }
     }
 </style>

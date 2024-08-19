@@ -240,9 +240,7 @@
 
     .items-wrapper > div {
         margin: 0.5rem 0;
-    }
-
-    
+    }    
 
     /* === The RESET and CLEAR BUTTON */
     .items-wrapper .reset-clear {
@@ -289,7 +287,7 @@
 
     .items-wrapper .header h3 {
         font-family: Inter;
-        font-size: 24px;
+        font-size: 1.5rem;
         font-weight: 700;
         line-height: 20px;
         text-align: center;
@@ -310,7 +308,7 @@
 
     .items-wrapper h4 {
         font-family: Inter;
-        font-size: 16px;
+        font-size: 1rem;
         font-weight: 600;
         line-height: 19px;
         text-align: left;
@@ -394,8 +392,6 @@
     }
 
     .items-wrapper .price .range span input[type=range] {
-        /* -webkit-appearance: none;
-        appearance: none; */
         width: 100%;
         height: 2px;
         background-color: var(--primary-blue);
@@ -410,8 +406,6 @@
     }
 
     .items-wrapper .price .range input[type=range]::-webkit-slider-thumb {
-        /* -webkit-appearance: none;
-        appearance: none; */
         width: 10px;
         height: 2px;
     }
@@ -450,12 +444,13 @@
         width: 100%;
         padding: 10px 12px 10px 16px;
         height: 50px;
+        font-size: 0.9rem;
     }
 
     .items .availability input[type=date]::placeholder,
     .items-container .location-input input[type=text]::placeholder {
         font-family: Inter;
-        font-size: 14px;
+        font-size: 0.9rem;
         font-weight: 400;
         line-height: 17px;
         text-align: left;
@@ -475,7 +470,7 @@
     .items-container .price .naira {
         font-family: Inter;
         font-weight: 700;
-        line-height: 24px;
+        line-height: 1.5rem;
         text-align: left;
         color: #1A1A1A;
         display: flex;
@@ -487,7 +482,7 @@
         font-family: Inter;
         font-size: 12px;
         font-weight: 700;
-        line-height: 18px;
+        line-height: 1.05rem;
         text-align: left;
         color: #1A1A1A;
         display: flex;
@@ -517,9 +512,9 @@
 
     .items-wrapper span.count {
         font-family: Inter;
-        font-size: 16px;
+        font-size: 1rem;
         font-weight: 400;
-        line-height: 19px;
+        line-height: 1.1rem;
         text-align: left;
         color: var(--primary-blue);
 
@@ -528,11 +523,11 @@
     /* === The APPLY FILTER BUTTON */
     .apply-container {
         font-family: Inter;
-        font-size: 13px;
+        font-size: 1rem;
         font-weight: 600;
-        line-height: 16px;
+        line-height: 1rem;
         text-align: center;
-        padding: 16px;
+        padding: 1rem;
         color: var(--white-text);
         background-color: var(--primary-blue);
         text-decoration: none;
@@ -546,6 +541,7 @@
         width: 100%;
         height: 60px;
     }
+
     .apply {
         color: var(--white-text);
         background-color: transparent;
@@ -558,27 +554,150 @@
     @media  (max-width: 1055px) {
         /* === THE WHOLE CONTAINER === */ 
         .container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: black;
-            background-color: #FAFBFF;
-            width: 100%;
-            height: 100%;
-            padding-bottom: 1rem;
+            padding-bottom: 0.8rem;
         } 
 
-    .items-wrapper {
-        display: flex;
-        flex-direction: column;        
-        padding: 2rem 10px 1rem 1rem;
-        width: 100%;       
-    }
+        .items-wrapper {        
+            padding: 1.4rem 8px 0.7rem 0.7rem;      
+        }
 
-    .items-wrapper > div {
-        margin: 0.5rem 0;
-    }
+        .items-wrapper > div {
+            margin: 0.4rem 0;
+        }
+
+        /* === The RESET and CLEAR BUTTON */
+        .items-wrapper .reset-clear {
+            line-height: 11px;
+        }
+
+        .items-wrapper i {
+            font-size: 9px;
+        }
+
+        /* === HEADER SECTION === */
+        .items-wrapper .header {
+            max-height: 72px;
+        }
+
+        .items-wrapper .header h3 {
+            font-size: 1.1rem;
+            line-height: 14px;
+        }
+
+        /* === CATEGORY SECTION === */
+        .items-wrapper .categories {
+            max-height: 317px;
+        }
+
+        .items-wrapper h4 {
+            font-size: 0.9rem;
+            line-height: 13.5px;
+        }
+
+        .items-wrapper .categories > div:nth-child(1),
+        .items-wrapper .price > div:nth-child(1),
+        .items-wrapper .condition > div:nth-child(1),
+        .items-wrapper .availability > div:nth-child(1),
+        .items-wrapper .location > div:nth-child(1) {
+            margin: 6px 0;
+        }
+
+        .items-wrapper .radio > div {
+            padding: 9px 5px;
+            font-size: 0.8rem;
+        }
+
+        .items-wrapper .radio input[type=radio] {
+            width: 12.5px;
+            height: 12.5px;
+            margin-right: 6px;
+        }
+
+        .items-wrapper .checkbox label {
+            margin-left: 9px;
+        }
+
+        /* === PRICE SECTION === */
+        .items-wrapper .price .range {
+            line-height: 10px;
+        }
+
+        .items-wrapper .price .range span {
+            margin: 6px 0;
+        }
+
+        
+
+        .items-wrapper .price .range input[type=range]::-webkit-slider-thumb {
+            width: 8px;
+            height: 2px;
+        }
+
+        .items-wrapper .price .range input[type=range]::-webkit-slider-moz {
+            width: 8px;
+            height: 2px;
+        }
+
+        .items-wrapper .price .min-max {
+            margin: 6px 0;
+            padding: 6px 12px;
+        }
+
+        .items-wrapper .price .min-max-values,
+        .items-wrapper .availability input[type=date],
+        .items-container .location-input input[type=text] {
+            margin: 6px 0;
+            padding: 10px 12px 10px 16px;
+            height: 35px;
+            font-size: 0.8rem;
+        }
+
+        .items .availability input[type=date]::placeholder,
+        .items-container .location-input input[type=text]::placeholder {
+            font-size: 0.8rem;
+            line-height: 11.5px;
+            padding-left: 0.8rem;
+        }
+
+        .items-container .price .naira {
+            line-height: 1rem;
+        }
+
+        .items-container .price .naira-small {
+            font-family: Inter;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 0.8rem;
+        }
+
+        /* === LOCATION SECTION === */
+        .items-wrapper .location-input #location {
+            padding-left: 1rem
+        }
+
+        .items-wrapper span.count {
+            font-size: 0.8rem;
+            line-height: 0.9rem;
+        }
+
+        .items-container .location-input input[type=text]::placeholder {
+            padding-left: 0px;
+        }
+
+        .items-wrapper span.count {
+            font-size: 0.8rem;
+            line-height: 0.9rem;
+        }
+
+        /* === The APPLY FILTER BUTTON */
+        .apply-container {
+            font-size: 1rem;
+            line-height: 1rem;
+            padding: 0.8rem;
+            height: 42px;
+        }
+
+
     }
 
             

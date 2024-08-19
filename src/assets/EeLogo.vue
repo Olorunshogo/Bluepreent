@@ -19,4 +19,9 @@
         flex-direction: row;
         justify-content: center;
     }
+
+    svg {
+        max-width: 100%;
+        height: auto;
+    }
 </style>
