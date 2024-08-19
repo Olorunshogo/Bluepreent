@@ -5,7 +5,7 @@
     import BluepreentLogo from '../assets/BluepreentLogo.vue'
     import PhoneIcon from './icons/PhoneIcon.vue'
     import NotificationIcon from './icons/NotificationIcon.vue'
-    import SellIcon from './icons/SellIcon.vue'
+    
     import ChevrondownIcon from './icons/ChevrondownIcon.vue'
 
     import BarsIcon from './icons/BarsIcon.vue'

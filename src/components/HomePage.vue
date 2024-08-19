@@ -3,7 +3,7 @@
     import NavigationBar from '../components/NavigationBar.vue'
     import HeroSection from '../components/HeroSection.vue'
     import CategoriesSection from '../components/CategoriesSection.vue'
-    import DeclutterSell from './DeclutterSell.vue'
+    import DeclutterSell from '../components/DeclutterSell.vue'
 
 </script>
 
@@ -19,18 +19,22 @@
                 </div>
             </div>
 
-            <div class="section">
-                <CategoriesSection />
+            <div class="section-width">
+                <div class="section-margin">
+                    <CategoriesSection />
+                </div>
             </div>
 
-            <div class="section">
-                <DeclutterSell />
+            <div class="section-width">
+                <div class="secton-margin">
+                    <DeclutterSell />
+                </div>
             </div>
         </div>
         
     </div>
 
-    <div class="mobil">
+    <div class="mobile">
         <h1>Well &#129320;&#129320;&#129320;</h1>
         <p>This website is only cool to view at precisely <b>max-width: 1050px</b> screen size. Anything in between that and <b>1500px</b> would not look good.</p>
         <p>Now, rotate your screen to use the <b>longer side as the width</b>, or change your screen to <b>Desktop</b>.</p>
@@ -54,10 +58,13 @@
         margin: 0 auto;
     }
 
-    .section {
-        margin: 3rem 0;
+    .section-width {
         margin: 0 auto;
         width: 90%;
+    }
+
+    .section-margin {
+        margin: 4rem 0;
     }
 
     .nav-hero-container {
