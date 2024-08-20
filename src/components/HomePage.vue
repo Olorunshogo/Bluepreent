@@ -4,6 +4,7 @@
     import HeroSection from '../components/HeroSection.vue'
     import CategoriesSection from '../components/CategoriesSection.vue'
     import DeclutterSell from '../components/DeclutterSell.vue'
+    import TrendingPosts from '../components/TrendingPosts.vue'
 
 </script>
 
@@ -19,15 +20,21 @@
                 </div>
             </div>
 
-            <div class="section-width">
-                <div class="section-margin">
+            <div class="width">
+                <div class="categories">
                     <CategoriesSection />
                 </div>
             </div>
 
-            <div class="section-width">
-                <div class="secton-margin">
+            <div class="width">
+                <div class="declutter-sell">
                     <DeclutterSell />
+                </div>
+            </div>
+
+            <div class="section-width">
+                <div class="trending-posts">
+                    <TrendingPosts />
                 </div>
             </div>
         </div>
@@ -63,8 +70,13 @@
         width: 90%;
     }
 
-    .section-margin {
-        margin: 4rem 0;
+    .categories {
+        margin: 7rem 0 3rem 0;
+    }
+
+    .declutter-sell,
+    .trending-posts {
+        margin: 3rem 0;
     }
 
     .nav-hero-container {

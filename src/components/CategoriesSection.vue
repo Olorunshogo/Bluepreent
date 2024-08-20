@@ -67,10 +67,8 @@
 
 <style scoped>
     .categories {
-        margin: 8rem 0;
         display: flex;
         flex-direction: column;
-        max-height: 1200px;
         height: 100%;
         width: 100%;
     }

@@ -5,6 +5,7 @@
     import BluepreentLogo from '../assets/BluepreentLogo.vue'
     import PhoneIcon from './icons/PhoneIcon.vue'
     import NotificationIcon from './icons/NotificationIcon.vue'
+    import SellIcon from './icons/SellIcon.vue'
     
     import ChevrondownIcon from './icons/ChevrondownIcon.vue'
 
@@ -189,6 +190,12 @@
         font-weight: 600;
         font-size: 14px;
         font-family: Inter
+    }
+
+    .nav .link-container #sell i {
+        color: var(--secondary-blue);
+        width: 25px;
+        height: 25px;
     }
 
     .nav .link-container #register {

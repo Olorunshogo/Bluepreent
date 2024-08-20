@@ -1,27 +1,26 @@
 
 <script setup>
-    // import { ref } from 'vue'
+
     import EeLogo from '../assets/EeLogo.vue'
-    // import YoungCouriers from '../assets/YoungCouriers.vue'
+    import YoungCouriers from '../assets/YoungCouriers.vue'
     import HeroSearch from './HeroSearch.vue'
-    // import stateslist from './stateslist.ts'
 
 </script>
 
 <template>
     <div class="container">
         <div class="desktop-hero">
-            <div>
+            <div class="hero-section"> 
                 <div class="hero-texts">
                     <h1>Z<span class="e-logo"><EeLogo /></span>ro Insp<span class="e-logo"><EeLogo /></span>ction fee</h1>
                     <p>For Over 10,000 Listings</p>
                 </div>
 
                 <div class="hero-img">
-                    <!-- <YoungCouriers /> -->
-                </div>
-
-                
+                    <div>
+                        <YoungCouriers />
+                    </div>
+                </div>                
             </div>
 
             <div class="hero-search">
@@ -38,23 +37,26 @@
 
 <style lang="css" scoped>
     .container {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-content: center;
-        background-color: var(--primary-blue);
-        max-width: 100%;
+        width: 100%;
         height: 450px;
         position: relative;
+        background-color: var(--primary-blue);
     }
 
     .desktop-hero {
         display: flex;
         flex-direction: column;
-        justify-items: left;
-        align-items: left;
         width: 100%;
         padding: 0 5%;
+    }
+
+    .hero-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        align-content: center;
+        width: 100%;
+        height: 100%;
     }
 
     .hero-texts {
@@ -63,7 +65,6 @@
         justify-content: center;
         align-items: left;
         width: 65%;
-        padding-top: 3.5rem;
     }
 
     .hero-texts h1 {
@@ -104,38 +105,29 @@
     .hero-img {
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
-
-        max-width: 35%;
-        margin: 0 2rem;
-    }
-
-    /* .hero-img img {
-        width: 100%;
-        height: auto
-    }
-
-    .hero-texts img {
-        width: 50px;
+        justify-content: center;
+        width: 35%;
         height: auto;
-    } */
+        max-width: 150px;
+        max-height: 400px;
+        margin: 0 1rem;
+    }
 
     .hero-search {
         width: 100%;
         height: 107px;
-        position: relative;
-        top: 170px;
         display: flex;
         flex-direction: column;
         align-self: center;
         margin: 0 auto;
+        position: relative;
     }
 
     .mobile-hero {
         display: none;
     }
 
-    @media  (max-width: 1055px) {
+    /* @media  (max-width: 1055px) {
         .container {
             height: 316px;
             display: none;
@@ -147,7 +139,6 @@
             justify-content: center;
             align-items: left;
             width: 65%;
-            padding-top: 3.5rem;
         }
 
         .hero-texts h1 {
@@ -167,10 +158,8 @@
         .hero-img {
             display: flex;
             flex-direction: row;
-            justify-content: space-around;
-
-            max-width: 35%;
-            margin: 0 2rem;
+            justify-content: center;
+            width: 35%;
         }
 
         .hero-search {
@@ -213,7 +202,6 @@
 
         .hero-search {
             height: 76px;
-            top: 120px;
         } 
-    }
+    } */
 </style>

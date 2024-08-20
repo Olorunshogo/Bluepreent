@@ -23,15 +23,6 @@
         { id: 4, name: 'Mirrors', price: 2500, location: "Lagos, Nigeria", condition: 'Fairly Used', available: 'Available Now' }
     ]);
 
-    // const props = defineProps({
-    //     category: String,
-    //     minRange: Number,
-    //     maxRange: Number,
-    //     condition: String,
-    //     avChecked: String,
-    //     locationChecked: String
-    // });
-
 </script>
 
 <template>

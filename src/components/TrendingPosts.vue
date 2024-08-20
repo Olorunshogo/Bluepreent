@@ -1,14 +1,100 @@
 
+<script setup>
+    import { ref } from 'vue' 
+
+    import CustomProducts from './CustomProducts.vue'
+
+    const products = ref([
+        { id: 1, name: 'Television', condition: 'Brand New', price: 1000, description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit!', location: 'Front of School, Minna Paiko' },
+        { id: 2, name: 'TV', condition: 'FairlyUsed', price: 1500, description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit!', location: 'Ibadan express way, Abuja' },
+        { id: 3, name: 'VDU', condition: 'Brand New', price: 2000, description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit!', location: "Shooting range road, Oyo"},
+        { id: 4, name: 'Electronics', condition: 'Fairly Used', price: 2500, description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit!', location: "Lagos, Nigeria" }
+    ]);
+</script>
+
 <template>
     <div>
-
+        <div class="container">
+            <div class="header">
+                <h2>Trending Posts</h2>
+                <p>Get Inspired: Trending Posts to Ignite Your Selling Journey</p>
+            </div>
+            <div class="gallery-container">
+                <div class="product-container">
+                    <CustomProducts 
+                        v-for="product in products" :key="product.id"
+                        :product="product"
+                    />                        
+                </div>
+            </div>
+            <div class="slides-container">
+                <div>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
-<script setup>
 
-</script>
 
-<style lang="scss" scoped>
+<style lang="css" scoped>
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-items: space-between;
+        width: 100%;
+        height: 100%;
+        max-height: 750px;
+    }
 
+    .header {
+        max-width: 435px;
+        max-height: 95px;
+        gap: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-items: space-between;
+        align-items: left;
+        margin: 2rem 0;
+    }
+
+    .header h2 {
+        font-family: Inter;
+        font-size: 2rem;
+        font-weight: 600;
+        line-height: 2.4rem;
+        text-align: left;
+        color: #05283E;
+    }
+
+    .header p {
+        font-family: Inter;
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1.1rem;
+        letter-spacing: -0.20813153684139252px;
+        text-align: left;
+        width: 100%;
+        color: #1A1A1AA3;
+    }
+
+    .gallery-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+
+    .product-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 3rem;
+        width: 100%;
+        max-height: 410px;
+    }
 </style>

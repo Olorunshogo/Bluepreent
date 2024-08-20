@@ -5,7 +5,7 @@
 </script>
 
 <template>
-    <div class="declutter-sell">
+    <div class="page-wrapper">
         <div class="container">
             <div class="center">
                 <div class="declutter-earn-container">
@@ -29,13 +29,9 @@
 
 
 <style lang="css" scoped>
-    .declutter-sell {
+    .page-wrapper {
         height: 100%;
-        width: 100%;  
-        position: relative; 
-        position: relative;
-        top: 7rem;
-        margin: 3rem 0;     
+        width: 100%;   
     }
 
     .container {
