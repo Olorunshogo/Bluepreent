@@ -1,42 +1,50 @@
 
 <script setup>
-    import NavigationBar from '../components/NavigationBar.vue'
-    import HeroSection from '../components/HeroSection.vue'
-    import CategoriesSection from '../components/CategoriesSection.vue'
-    import DeclutterSell from '../components/DeclutterSell.vue'
-    import TrendingPosts from '../components/TrendingPosts.vue'
+    import NavigationBar from '../components/NavigationBar.vue';
+    import HeroSection from '../components/HeroSection.vue';
+    import CategoriesSection from '../components/CategoriesSection.vue';
+    import DeclutterSell from '../components/DeclutterSell.vue';
+    import TrendingPosts from '../components/TrendingPosts.vue';
+    import ServicesSection from '../components/ServicesSection.vue';
 
 </script>
 
 <template>
-    <div class="container">
+    <div class="container" title="Home Page">
         <div class="width">
             <div class="nav-hero-container section">
-                <div>
+                <div title="Navigation Bar">
                     <NavigationBar />
                 </div>
-                <div>
+                <div title="Hero Section">
                     <HeroSection />
                 </div>
             </div>
 
             <div class="width">
-                <div class="categories">
+                <div class="categories" title="Categories">
                     <CategoriesSection />
                 </div>
             </div>
 
-            <div class="width">
+            <div class="width" title="Declutter and Sell">
                 <div class="declutter-sell">
                     <DeclutterSell />
                 </div>
             </div>
 
-            <div class="section-width">
+            <div class="section-width" title="Trending Posts">
                 <div class="trending-posts">
                     <TrendingPosts />
                 </div>
             </div>
+
+            <div class="section-width" title="Services Offered">
+                <div class="services-section">
+                    <ServicesSection />
+                </div>
+            </div>
+
         </div>
         
     </div>
@@ -74,7 +82,8 @@
     }
 
     .declutter-sell,
-    .trending-posts {
+    .trending-posts,
+    .services-section {
         margin: 3rem 0;
     }
 

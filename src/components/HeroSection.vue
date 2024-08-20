@@ -11,24 +11,23 @@
     <div class="container">
         <div class="desktop-hero">
             <div class="hero-section"> 
-                <div class="hero-texts">
+                <div class="hero-texts" title="Hero Header">
                     <h1>Z<span class="e-logo"><EeLogo /></span>ro Insp<span class="e-logo"><EeLogo /></span>ction fee</h1>
                     <p>For Over 10,000 Listings</p>
                 </div>
 
-                <div class="hero-img">
+                <div class="hero-img" title="Young Couriers">
                     <div>
                         <YoungCouriers />
                     </div>
                 </div>                
             </div>
 
-            <div class="hero-search">
+            <div class="hero-search" title="Search Bar">
                 <HeroSearch />
             </div>
             
         </div>
-
         
     </div>
 </template>

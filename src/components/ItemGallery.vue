@@ -27,12 +27,12 @@
 
 <template>
     <div>
-        <div class="container">
+        <div class="container" title="Product Gallery">
             <div class="search-categories">
                 <p>Showing 1-60 items out of a total of 1.2k for <span class="highlight">“Bed/Mattrass”</span></p>                   
 
-                <div class="sort-buttons">
-                    <button>
+                <div class="sort-buttons" title="Sort">
+                    <button title="Sort By Position">
                         <span>
                             <span>Sort By:</span>
                             <span class="highlight"> Position</span>
@@ -42,7 +42,7 @@
                         </i>
                     </button>
 
-                    <button>
+                    <button title="Show"> 
                         <span>
                             <span>Show:</span>
                             <span class="highlight"> 24 per page</span>
@@ -64,7 +64,7 @@
                     </i>
                 </div>
 
-                <div class="sort-category" title="Range">
+                <div class="sort-category" title="Price">
                     <div>
                         <span>
                             {{ minRange }}
@@ -80,7 +80,7 @@
                     </i>
                 </div>
 
-                <div class="sort-category">
+                <div class="sort-category" title="Condition">
                     <span>
                         {{ condition }}
                     </span>
@@ -90,7 +90,7 @@
                 </div>
 
                 <!-- COMMECT THIS PART OUT -->
-                <!-- <div class="sort-category">
+                <!-- <div class="sort-category" title="Availability">
                     <span>
                         {{ avChecked }}
                     </span>
@@ -99,7 +99,7 @@
                     </i>
                 </div> -->
 
-                <div class="sort-category">
+                <div class="sort-category" title="Location">
                     <span>
                         {{ locationChecked }}
                     </span>
@@ -115,7 +115,7 @@
                 </div>
             </div>
 
-            <div class="items-section">
+            <div class="items-section" title="Products">
                 <div class="items-container">
                     <div class="items">
                         <CustomItem 
@@ -192,6 +192,7 @@
         border-radius: 8px;
         display: flex;
         flex-direction: row;
+        justify-content: space-around;
         align-items: center;
         padding: 12px 4px;
         color: #B0B8C2;
@@ -236,6 +237,7 @@
     .sort-categories .sort-category {
         display: flex;
         flex-direction: row;
+        justify-content: space-around;
         align-items: center;
         border-radius: 8px;
         padding: 10px 15px;

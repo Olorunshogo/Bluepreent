@@ -57,9 +57,9 @@
     }
 
     .product-container {
-        max-height: 140px;
         width: 100%;
         max-width: 260px;
+        max-height: 140px;
         background-color: #C1C1C133;
         border-radius: 8px;
     }

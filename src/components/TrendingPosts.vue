@@ -1,8 +1,10 @@
 
 <script setup>
-    import { ref } from 'vue' 
+    import { ref } from 'vue';
 
-    import CustomProducts from './CustomProducts.vue'
+    import CustomProducts from './CustomProducts.vue';
+    import ChevronLeft from './icons/ChevronLeft.vue';
+    import ChevronRight from './icons/ChevronRight.vue';
 
     const products = ref([
         { id: 1, name: 'Television', condition: 'Brand New', price: 1000, description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit!', location: 'Front of School, Minna Paiko' },
@@ -10,6 +12,7 @@
         { id: 3, name: 'VDU', condition: 'Brand New', price: 2000, description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit!', location: "Shooting range road, Oyo"},
         { id: 4, name: 'Electronics', condition: 'Fairly Used', price: 2500, description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit!', location: "Lagos, Nigeria" }
     ]);
+
 </script>
 
 <template>
@@ -19,6 +22,7 @@
                 <h2>Trending Posts</h2>
                 <p>Get Inspired: Trending Posts to Ignite Your Selling Journey</p>
             </div>
+
             <div class="gallery-container">
                 <div class="product-container">
                     <CustomProducts 
@@ -27,12 +31,27 @@
                     />                        
                 </div>
             </div>
+
             <div class="slides-container">
-                <div>
+                <div class="span">
                     <span></span>
                     <span></span>
                     <span></span>
                     <span></span>
+                </div>
+
+                <div class="chevron">
+                    <span>
+                        <i>
+                            <ChevronLeft />
+                        </i>
+                    </span>
+
+                    <span>
+                        <i>
+                            <ChevronRight />
+                        </i>
+                    </span>
                 </div>
             </div>
         </div>
@@ -97,4 +116,90 @@
         width: 100%;
         max-height: 410px;
     }
+
+    .slides-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+        margin-top: 4rem;
+    }
+
+    .slides-container .span {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .slides-container .span > span {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 95%;
+        max-width: 85px;
+        height: 4px;
+        border-radius: 4px;
+        background-color: #CED6F0;
+        position: relative;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .slides-container .span > span:first-child {
+        display: flex;
+        align-items: center;
+        background-color: var(--primary-blue);
+    }
+
+    .slides-container .span > span:hover {
+        background-color: var(--primary-blue);
+        transform: scale(0.96);
+    }
+
+    .slides-container .chevron {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        width: 130px;
+        height: 50px;
+    }
+
+    .slides-container .chevron span {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 100%;
+        border-radius: 50%;
+        /* background-color: #CED6F0; */
+        position: relative;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .slides-container .chevron > span i {
+        color: var(--white-text);
+        background-color: #1A438452;
+        height: 42px;
+        width: 42px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .slides-container .chevron > span i:hover {
+        display: flex;
+        align-items: center;
+        background-color: var(--primary-blue);
+        transform: scale(0.96);
+    }
+
 </style>

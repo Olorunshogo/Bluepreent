@@ -3,7 +3,7 @@
 
     import MattrassImage from '../assets/MattrassImage.vue'
     import CalendarIcon from './icons/CalendarIcon.vue'
-    
+    import LocationIcon from './icons/LocationIcon.vue'
 
     defineProps({
         item: {
@@ -24,16 +24,15 @@
             <span>{{ item.available }}</span>
         </p>
     </div>
-    <div class="description">
-        <div class="name">
-            <h3>{{ item.name }}</h3>  
-        </div>
 
-        <div>
-            <p class="price"><span class="naira">₦</span>{{ item.price }}</p>
-            <p class="location">{{ item.location }}</p>
-            <p class="condition">{{ item.condition }}</p>
-        </div>
+    <div class="description">
+        <h3>{{ item.name }}</h3> 
+        <p class="price"><span class="naira">₦</span>{{ item.price }}</p>
+        <p class="location">
+            <span><i><LocationIcon /></i></span>
+            <span>{{ item.location }}</span>
+        </p>
+        <p class="condition">{{ item.condition }}</p>
     </div>
 </div>
 
@@ -44,18 +43,17 @@
 <style lang="css" scoped>
     .card-container {
         width: 100%;
-        /* max-height: 345px; */
+        max-height: 345px;
         height: 100%;
-        gap: 2.8rem;
+        gap: 1.9rem;
+        border: 1px solid #F0F0F0;
         border-radius: 8px;
         display: flex;
         flex-direction: column;
+        align-items: center;
         background-color: var(--primary-bg-colour);
         box-shadow: 0 5px 3px  0 #A4A4A40F;
         transition: all 0.4s ease-in-out; 
-        box-shadow: 0px 4.88px 3.25px 0px #A4A4A40F;
-        box-shadow: 0px 8.13px 27.64px -13.01px #00000014;
-        box-shadow: 0px 0px 0px 0.81px #0000000D;      
     }
 
     .card-container:hover {
@@ -63,16 +61,16 @@
     }
 
     .product-container {
-        position: relative;
-        /* max-height: 10rem; */
-        height: 40%;
-        max-width: 100%;
+        width: 100%;
+        max-width: 320px;
+        max-height: 9rem;
+        position: relative;        
         background-color: var(--light-blue);
     }
 
     .product {
         height: 100%;
-        max-width: 100%;
+        width: 100%;
     }
 
     .available {
@@ -86,8 +84,8 @@
         line-height: 8px;
         text-align: left;
         position: absolute;
-        top: 4px;
-        right: 4px;
+        top: 2px;
+        right: 2px;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -114,17 +112,14 @@
         font-family: Inter;
         font-size: 1.1rem;
         font-weight: 700;
-        line-height: 19px;
+        line-height: 1.4rem;
         text-align: left;
         height: 25%;
+        gap: 0.8rem;
     }
 
-    .description > div:nth-child(2) {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        text-align: left;
-        height: 75%;
+    .description > p {
+        margin-top: 12px;
     }
 
     .description .price {
@@ -135,16 +130,36 @@
         color: #1A1A1A;
     }
 
-    .description .location,
-    .description .condition {
-        font-size: 1rem;
-        line-height: 1.5rem;
+    .description .location {
+        font-family: Inter;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.1rem;
+        gap: 12px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
     }
 
-    @media  (max-width: 1055px) {
+    .description .location > span {
+        font-family: Inter;
+        font-weight: 400;
+        gap: 8px;
+        color: #524545;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    } 
+
+    .description .condition {
+        font-size: 14px;
+        line-height: 1.1rem;
+    }
+
+    /* @media  (max-width: 1055px) {
         .card-container {
-            /* max-height: 300px; */
-            gap: 2.3rem;  
+            gap: 2.1rem;  
         }
 
         .product-container {
@@ -188,5 +203,5 @@
             font-size: 0.9rem;
             line-height: 1.2rem;
         }
-    }
+    } */
 </style>
