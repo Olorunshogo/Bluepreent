@@ -44,7 +44,6 @@
     <div class="mobile">
         <h1>Well &#129320;&#129320;&#129320;</h1>
         <p>This website is only cool to view at precisely <b>max-width: 1050px</b> screen size. Anything in between that and <b>1500px</b> would not look good.</p>
-        <p>Now, rotate your screen to use the <b>longer side as the width</b>, or change your screen to <b>Desktop</b>.</p>
         <h3><b>Ire o.</b>&#128524;</h3>
     </div>
 </template>
@@ -91,8 +90,7 @@
 
     @media (max-width: 1000px) {
         .container {
-            /* display: none; */
-            display: block;
+            display: none;
         }
 
 
