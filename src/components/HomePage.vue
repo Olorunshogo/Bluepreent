@@ -4,9 +4,11 @@
     import HeroSection from '../components/HeroSection.vue';
     import CategoriesSection from '../components/CategoriesSection.vue';
     import DeclutterSell from '../components/DeclutterSell.vue';
+
     import TrendingPosts from '../components/TrendingPosts.vue';
     import ServicesSection from '../components/ServicesSection.vue';
-
+    import ShopSell from '../components/ShopSell.vue';
+    import FooTer from '../components/FooTer.vue'
 </script>
 
 <template>
@@ -21,8 +23,8 @@
                 </div>
             </div>
 
-            <div class="width">
-                <div class="categories" title="Categories">
+            <div class="width" title="Categories">
+                <div class="categories">
                     <CategoriesSection />
                 </div>
             </div>
@@ -42,6 +44,18 @@
             <div class="section-width" title="Services Offered">
                 <div class="services-section">
                     <ServicesSection />
+                </div>
+            </div>
+
+            <div class="section-width" title="Shop. Sell. Excel.">
+                <div class="shop-sell">
+                    <ShopSell />
+                </div>
+            </div>
+
+            <div class="section-width" title="Shop. Sell. Excel.">
+                <div class="footer">
+                    <FooTer />
                 </div>
             </div>
 
