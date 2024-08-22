@@ -1,22 +1,25 @@
 
 <script setup>
     import CustomServices from "./CustomServices.vue";
+
+    import ClockIcon from "./icons/ClockIcon.vue";
     import GraduationIcon from "./icons/GraduationIcon.vue";
+    import PayIcon from "./icons/PayIcon.vue";
 
 </script>
 
 <template>
     <div>
-        <div class="page-container">
+        <div class="page-container" title="YServices">
             <div class="container">
-                <h2>You can count on us for <span>&#128077;</span></h2>
+                <h2 title="You can count on us">You can count on us for <span>&#128077;</span></h2>
 
                 <div class="services-container">                    
-                    <div class="service">
+                    <div class="service" title="Quick and Convenient">
                         <CustomServices>
                             <template v-slot:icon>
                                 <div>
-                                    <GraduationIcon />
+                                    <ClockIcon />
                                 </div>
                             </template>
 
@@ -34,7 +37,7 @@
                         </CustomServices>
                     </div> 
 
-                    <div class="service">
+                    <div class="service" title="Connect with Peers">
                         <CustomServices>
                             <template v-slot:icon>
                                 <div>
@@ -56,11 +59,11 @@
                         </CustomServices>
                     </div>
 
-                    <div class="service">
+                    <div class="service" title="Easy Cash">
                         <CustomServices>
                             <template v-slot:icon>
                                 <div>
-                                    <GraduationIcon />
+                                    <PayIcon />
                                 </div>
                             </template>
 
@@ -157,7 +160,6 @@
         }
 
         .container h2 {
-            font-family: Inter;
             font-size: 1.6rem;
             line-height: 1.5rem;
         }

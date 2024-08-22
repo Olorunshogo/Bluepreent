@@ -29,24 +29,24 @@
     .container {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         width: 100%;
         height: 100%;
+        height: 250px;
         border-radius: 8px;
         padding: 1.2rem;
         background-color: #C9DBE838;
     }
 
     .icon {
+        width: 68px;
+        height: 60px;
         display: flex;
         justify-content: center;
-        align-content: center;
+        align-items: center;
         border-radius: 8px;
-        text-align: left;
         margin-bottom: 4px;
         padding: 1rem;
-        width: 68px;
-        height: 54px;
+        color: var(--primary-blue);
         background-color: var(--white-text);
     }
 
@@ -55,21 +55,24 @@
         height: 30px;
         border-radius: 8px;
         display: flex;
+        justify-items: center;
         align-items: center;
+        font-size: 1.2rem;
     }
 
     .icon i > span {
         display: flex;
+        justify-content: center;
         align-items: center;
         width: 25px;
         height: 25px;
-        color: var(--primary-blue);
+        margin: auto;
     }
 
     .heading-description {
         width: 100%;
-        height: 120px;
-        margin-top: 12px;
+        max-height: 60px;
+        margin: 12px 0;
     }
 
     .heading h3 {
@@ -89,6 +92,43 @@
         line-height: 28px;
         text-align: left;
         color: #506683;
+    }
+
+    @media (max-width: 1050px) {
+        .container {
+            padding: 1rem;
+        }
+
+        .icon {
+            width: 60px;
+            height: auto;
+            padding: 1rem;
+        }
+
+        .icon i {
+            width: 25px;
+            height: 25px;
+            font-size: 1rem;
+        }
+
+        .icon i > span {
+            width: 20px;
+            height: 20px;
+        }
+
+        .heading-description {
+            margin: 8px 0;
+        }
+
+        .heading h3 {
+            font-size: 1.1rem;
+        }
+
+        .description p {
+            font-size: 0.9rem;
+            line-height: 24px;
+        }
+
     }
 
 </style>

@@ -53,7 +53,7 @@
                 </div>
             </div>
 
-            <div class="width" title="Shop. Sell. Excel.">
+            <div class="width" title="Footer">
                 <div class="footer">
                     <FooTer />
                 </div>
@@ -106,9 +106,22 @@
         display: none;
     }
 
+    @media (max-width: 1200px) {
+        .width {
+            width: 95%;
+            margin: 0 auto;
+        }
+
+    }
+
     @media (max-width: 700px) {
         .container {
             display: none;
+        }
+
+        .width {
+            width: 90%;
+            margin: 0 auto;
         }
 
 

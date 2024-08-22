@@ -36,17 +36,17 @@
 
 <style lang="css" scoped>
     .card-container {
-        width: 100%;
-        max-width: 300px;
-        height: 100%;
-        max-height: 450px;
-        gap: 2.4rem;
-        padding: 12px;
-        border: 1px solid #F0F0F0;
-        border-radius: 1rem;
         display: flex;
         flex-direction: column;
         align-items: center;
+        flex: 0 0 23%;
+        max-width: 25%;
+        height: 400px;
+        max-height: 100%;
+        gap: 2rem;
+        padding: 1rem;
+        border: 1px solid #F0F0F0;
+        border-radius: 1rem;
         background-color: var(--primary-bg-colour);
         box-shadow: 0 5px 3px  0 #A4A4A40F;
         transition: all 0.4s ease-in-out;     
@@ -58,8 +58,7 @@
 
     .product-container {
         width: 100%;
-        max-width: 260px;
-        max-height: 140px;
+        max-height: 160px;
         background-color: #C1C1C133;
         border-radius: 8px;
     }
@@ -162,7 +161,19 @@
     }
 
     @media  (max-width: 1055px) {
-        
+        .card-container {
+            flex: 0 0 33%;
+            max-width: 34%;
+            gap: 1.5rem;
+            padding: 12px; 
+        }
+
+        .product-container {
+        width: 100%;
+        max-height: 160px;
+        background-color: #C1C1C133;
+        border-radius: 8px;
+    }
 
         
     }
