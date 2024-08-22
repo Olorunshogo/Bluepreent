@@ -8,7 +8,7 @@
     const condition = ref("");
 
     const avChecked = ref(false);
-    const locationChecked = ref(false);
+    const locationChecked = ref();
 
     import ChevrondownIcon from './icons/ChevrondownIcon.vue';
     import LocationIcon from './icons/LocationIcon.vue';  
@@ -31,7 +31,7 @@
                 </div>
 
                 <div class="radio">
-                    <div>Category: {{ category }}</div>
+                    <!-- <div>Category: {{ category }}</div> -->
 
                     <div>
                         <input 
@@ -144,7 +144,7 @@
                 </div>
 
                 <div class="radio">
-                    <div>Condition: {{ condition }}</div>
+                    <!-- <div>Condition: {{ condition }}</div> -->
 
                     <div>
                         <input type="radio" id="brand-new" value="Brand New" v-model="condition" />
@@ -209,7 +209,7 @@
         </div>
 
         <div class="apply-container">
-            <button class="apply">Apply Filters <span class="count">(4)</span></button>
+            <button>Apply Filters <span class="count">(4)</span></button>
         </div>
 
     </div>
@@ -224,11 +224,15 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        color: black;
+        color: var(--black-text);
         background-color: #FAFBFF;
         width: 100%;
         height: 100%;
         padding-bottom: 1rem;
+        position: relative;
+        left: 0;
+        top: 0;
+        cursor: default;
     } 
 
     .items-wrapper {
@@ -236,6 +240,10 @@
         flex-direction: column;        
         padding: 2rem 10px 1rem 1rem;
         width: 100%;       
+    }
+
+    .items-wrapper label {
+        font-size: 1rem;
     }
 
     .items-wrapper > div {
@@ -304,12 +312,11 @@
         justify-content: center;
         width: 100%;
         height: 100%;
-        max-height: 450px;
     }
 
     .items-wrapper h4 {
         font-family: Inter;
-        font-size: 1rem;
+        font-size: 1.1rem;
         font-weight: 600;
         line-height: 19px;
         text-align: left;
@@ -335,7 +342,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        padding: 12px 6px;
+        padding: 8px 4px;
         color: #515456;
         font-size: 1rem;
     }
@@ -344,10 +351,11 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 18px;
-        height: 18px;
+        width: 1rem;
+        height: 1rem;
         background-color: var(--primary-blue);
         margin-right: 8px;
+        cursor: pointer;
     }
 
     .disabled {
@@ -356,10 +364,6 @@
 
     .enabled {
         cursor: text;
-    }
-
-    .items-wrapper .checkbox label {
-        margin-left: 12px;
     }
 
     /* === PRICE SECTION === */
@@ -400,7 +404,7 @@
         opacity: 0.8;
         -webkit-transition: 0.2s;
         transition: opacity 0.2s;
-        cursor: default;
+        cursor: pointer;
     }
 
     .items-wrapper .price .range input[type=range]:hover {
@@ -408,7 +412,7 @@
     }
 
     .items-wrapper .price .range input[type=range]::-webkit-slider-thumb {
-        width: 10px;
+        width: 5px;
         height: 2px;
     }
 
@@ -420,7 +424,6 @@
 
     .items-wrapper .price .min-max {
         display: flex;
-        margin: 8px 0;
         padding: 8px 16px;
         font-size: 10px;
         display: flex;
@@ -430,7 +433,6 @@
 
     .items-wrapper .price .min-max-values,
     .items-container .location-input input[type=text] {
-        display: flex;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -449,9 +451,7 @@
 
     .items-wrapper .availability input[type=date] {
         display: flex;
-        display: flex;
         align-items: center;
-        justify-content: space-between;
         margin: 8px 0;
         border-radius: 8px;
         border: 1px solid #E5E5E5;
@@ -512,6 +512,7 @@
         position: relative;
         width: 100%;
         border: none;
+        margin: 2rem 0;
     }
 
     .items-wrapper .location-input i {
@@ -521,7 +522,7 @@
     .items-wrapper .location-input #location {
         position: absolute;
         left: 0%;
-        padding-left: 1.5rem
+        padding-left: 1.6rem;
     }
 
     .items-container .location-input input[type=text]::placeholder {
@@ -550,101 +551,44 @@
         background-color: var(--primary-blue);
         text-decoration: none;
         display: flex;
-        align-self: center;
+        align-items: center;
         justify-content: center;
-        cursor: pointer;
         outline: none;
         border: none;
         border-radius: 8px;
         width: 100%;
         height: 50px;
+        cursor: pointer;
     }
 
-    .apply {
+    .apply-container button {
         color: var(--white-text);
         background-color: transparent;
         outline: none;
         border: none;
         width: 100%;
         height: 100%;
+        margin: auto;
     }
     
-    @media  (max-width: 1055px) {
-        /* === THE WHOLE CONTAINER === */ 
-        .container {
-            padding-bottom: 0.8rem;
-        } 
-
-        .items-wrapper {        
-            padding: 1.4rem 8px 0.7rem 0.7rem;      
-        }
-
-        .items-wrapper > div {
-            margin: 0.4rem 0;
-        }
-
-        /* === The RESET and CLEAR BUTTON */
-        .items-wrapper .reset-clear {
-            line-height: 11px;
-        }
-
-        .items-wrapper i {
-            font-size: 9px;
-        }
-
-        /* === HEADER SECTION === */
-        .items-wrapper .header {
-            max-height: 72px;
-        }
-
+    @media  (max-width: 1050px) {
         .items-wrapper .header h3 {
-            font-size: 1.1rem;
-            line-height: 14px;
-        }
-
-        /* === CATEGORY SECTION === */
-        .items-wrapper .categories {
-            max-height: 317px;
+            font-size: 1.3rem;
         }
 
         .items-wrapper h4 {
-            font-size: 0.9rem;
-            line-height: 13.5px;
+            font-size: 1rem;
         }
 
-        .items-wrapper .categories > div:nth-child(1),
-        .items-wrapper .price > div:nth-child(1),
-        .items-wrapper .condition > div:nth-child(1),
-        .items-wrapper .availability > div:nth-child(1),
-        .items-wrapper .location > div:nth-child(1) {
-            margin: 6px 0;
-        }
-
-        .items-wrapper .radio > div {
-            padding: 9px 5px;
-            font-size: 0.8rem;
+        .items-wrapper label {
+            font-size: 14px;
         }
 
         .items-wrapper .radio input[type=radio] {
-            width: 12.5px;
-            height: 12.5px;
-            margin-right: 6px;
-        }
-
-        .items-wrapper .checkbox label {
-            margin-left: 9px;
-        }
-
-        /* === PRICE SECTION === */
-        .items-wrapper .price .range {
-            line-height: 10px;
-        }
-
-        .items-wrapper .price .range span {
-            margin: 6px 0;
-        }
-
-        
+            width: 12px;
+            height: 12px;
+            margin-right: 4px;
+        }        
 
         .items-wrapper .price .range input[type=range]::-webkit-slider-thumb {
             width: 8px;
@@ -656,24 +600,17 @@
             height: 2px;
         }
 
-        .items-wrapper .price .min-max {
-            margin: 6px 0;
-            padding: 6px 12px;
-        }
-
         .items-wrapper .price .min-max-values,
         .items-wrapper .availability input[type=date],
         .items-container .location-input input[type=text] {
-            margin: 6px 0;
-            padding: 10px 12px 10px 16px;
-            height: 35px;
+            padding: 8px 10px 8px 12px;
+            height: 40px;
             font-size: 0.8rem;
         }
 
         .items .availability input[type=date]::placeholder,
         .items-container .location-input input[type=text]::placeholder {
-            font-size: 0.8rem;
-            line-height: 11.5px;
+            font-size: 0.90rem;
             padding-left: 0.8rem;
         }
 
@@ -682,9 +619,7 @@
         }
 
         .items-container .price .naira-small {
-            font-family: Inter;
-            font-size: 12px;
-            font-weight: 700;
+            font-size: 10px;
             line-height: 0.8rem;
         }
 
@@ -694,13 +629,11 @@
         }
 
         .items-wrapper span.count {
-            font-size: 0.8rem;
-            line-height: 0.9rem;
+            font-size: 0.9rem;
         }
 
         .items-container .location-input input[type=text]::placeholder {
             padding-left: 0px;
-            margin-top: 8px;
         }
 
         .items-wrapper span.count {
@@ -711,9 +644,6 @@
         /* === The APPLY FILTER BUTTON */
         .apply-container {
             font-size: 1rem;
-            line-height: 1rem;
-            padding: 0.8rem;
-            height: 40px;
         }
 
 

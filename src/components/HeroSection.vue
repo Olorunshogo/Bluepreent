@@ -2,7 +2,7 @@
 <script setup>
 
     import EeLogo from '../assets/EeLogo.vue'
-    import YoungCouriers from '../assets/YoungCouriers.vue'
+    //import YoungCouriers from '../assets/YoungCouriers.vue'
     import HeroSearch from './HeroSearch.vue'
 
 </script>
@@ -18,14 +18,15 @@
 
                 <div class="hero-img" title="Young Couriers">
                     <div>
-                        <YoungCouriers />
+                        <!-- <YoungCouriers /> -->
+                        <img src="../images/Young_Couriers.png" alt="Young Couriers">
                     </div>
                 </div>                
             </div>
 
             <div class="hero-search" title="Search Bar">
                 <HeroSearch />
-            </div>
+            </div>           
             
         </div>
         
@@ -37,7 +38,8 @@
 <style lang="css" scoped>
     .container {
         width: 100%;
-        height: 450px;
+        height: fit-content;
+        max-height: 420px;
         position: relative;
         background-color: var(--primary-blue);
     }
@@ -45,17 +47,17 @@
     .desktop-hero {
         display: flex;
         flex-direction: column;
-        width: 100%;
-        padding: 0 5%;
+        width: 90%;
+        height: 100%;
+        margin: 0 auto;
     }
 
     .hero-section {
         display: flex;
         flex-direction: row;
-        justify-content: left;
-        align-content: center;
+        align-items: center;
         width: 100%;
-        height: 100%;
+        height: 370px;
     }
 
     .hero-texts {
@@ -63,7 +65,8 @@
         flex-direction: column;
         justify-content: center;
         align-items: left;
-        width: 65%;
+        width: 60%;
+        height: 100%;
     }
 
     .hero-texts h1 {
@@ -71,7 +74,7 @@
         flex-direction: row;
         justify-items: center;
         align-items: center;
-        font-size: 4.1rem;
+        font-size: 3.8rem;
         font-weight: 700;
         font-family: Campton;
         line-height: 80px;
@@ -84,14 +87,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 2.2rem;
+        width: 1.9rem;
         height: auto;
     }
 
     .hero-texts p {
         font-family: "Inter", sans-serif;
         font-optical-sizing: auto;
-        font-size: 2.3rem;
+        font-size: 2.1rem;
         line-height: 50px;
         font-weight: 400;
         font-variation-settings:
@@ -105,11 +108,15 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
-        width: 35%;
+        align-items: center;
+        width: 40%;
+        height: 100%;
+        position: relative;
+    }
+
+    .hero-img img {
+        width: 100%;
         height: auto;
-        max-width: 150px;
-        max-height: 400px;
-        margin: 0 1rem;
     }
 
     .hero-search {
@@ -120,87 +127,79 @@
         align-self: center;
         margin: 0 auto;
         position: relative;
+        top: 0px;
     }
 
     .mobile-hero {
         display: none;
     }
 
-    /* @media  (max-width: 1055px) {
+    @media  (max-width: 1050px) {
         .container {
-            height: 316px;
+            max-height: 350px;
+        }
+
+        .hero-section {
+            height: 330px;
+        }
+
+        .hero-texts {
+            width: 55%;
+        }
+
+        .hero-texts h1 {
+            font-size: 3rem;
+        }
+
+        .hero-texts h1 .e-logo {
+            width: 1.7rem;
+        }
+
+        .hero-texts p {
+            font-size: 1.7rem;
+        }
+
+        .hero-img {
+            width: 45%;
+        }
+
+
+        .hero-search {
+            height: 80px;
+            top: -20px;
+        }
+
+        .mobile-hero {
             display: none;
         }
 
-        .hero-texts {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: left;
-            width: 65%;
-        }
-
-        .hero-texts h1 {
-            font-size: 2.9rem;
-            line-height: 50px;
-        }
-
-        .hero-texts h1 .e-logo {
-            width: 1.5rem;
-        }
-
-        .hero-texts p {
-            font-size: 1.27rem;
-            line-height: 35px;
-        }
-
-        .hero-img {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            width: 35%;
-        }
-
-        .hero-search {
-            height: 76px;
-            top: 120px;
-        } 
     }
 
-    @media  (max-width: 760px) {
-        .container {
-            height: 290px;
-        }
-
-        .hero-texts {
-            padding-top: 3rem;
-        }
-
+    @media  (max-width: 910px) {
         .hero-texts h1 {
-            font-size: 2.4rem;
-            line-height: 40px;
+            font-size: 2.7rem;
         }
 
         .hero-texts h1 .e-logo {
-            width: 1rem;
+            width: 1.4rem;
         }
 
         .hero-texts p {
-            font-size: 1.1rem;
-            line-height: 35px;
+            font-size: 1.5rem;
+        }
+    }
+
+    @media  (max-width: 810px) {
+        .hero-texts h1 {
+            font-size: 2.5rem;
         }
 
-        .hero-img {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-
-            max-width: 35%;
-            margin: 0 2rem;
+        .hero-texts h1 .e-logo {
+            width: 1.2rem;
         }
 
-        .hero-search {
-            height: 76px;
-        } 
-    } */
+        .hero-texts p {
+            font-size: 1.3rem;
+        }
+    }
 </style>

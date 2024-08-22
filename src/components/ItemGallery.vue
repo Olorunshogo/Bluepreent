@@ -152,6 +152,7 @@
         padding: 2rem 0 2rem 2rem;
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
         cursor: default;
     }
 
@@ -159,7 +160,7 @@
         width: 100%;
         height: 50px;
         border-radius: 8px;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -170,13 +171,13 @@
         font-family: Inter;
         font-size: 0.9rem;
         font-weight: 400;
-        line-height: 1.2rem;
+        line-height: 1.1rem;
         text-align: left;
         width: 65%;
     }
 
     .search-categories .sort-buttons {
-        min-width: 35%;
+        width: 35%;
         height: 100%;
         display: flex;
         flex-direction: row;
@@ -231,7 +232,7 @@
         justify-content: space-between;
         width: 75%;
         height: 50px;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
     }
 
     .sort-categories .sort-category {
@@ -287,8 +288,6 @@
 
     /* === ITEMS SECTION === */
     .items-section {
-        display: flex;
-        flex-direction: column;
         width: 100%;
         height: 100%;
     }
@@ -297,7 +296,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-items: space-between;
+        justify-content: space-between;
         width: 100%;        
         height: 100%;
     }
@@ -305,14 +304,13 @@
     .items {
         width: 100%;        
         height: 33.33%;
-        margin-bottom: 2.2rem;
-        gap: 1.25rem;
+        margin-bottom: 2rem;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
     }
 
-    @media  (max-width: 1055px) {
+    @media  (max-width: 1050px) {
         .container {
             padding: 1.45rem 0 1.45rem 1.45rem;
         }
@@ -343,6 +341,7 @@
         .sort-categories {
             height: 40px;
             margin-bottom: 1.45rem;
+            width: 95%;
         }
 
         .sort-categories .sort-category {

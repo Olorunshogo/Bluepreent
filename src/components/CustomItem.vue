@@ -42,28 +42,28 @@
 
 <style lang="css" scoped>
     .card-container {
-        width: 100%;
-        max-height: 345px;
-        height: 100%;
-        gap: 1.9rem;
-        border: 1px solid #F0F0F0;
-        border-radius: 8px;
         display: flex;
         flex-direction: column;
         align-items: center;
+        flex: 0 0 23%;
+        max-width: 25%;
+        height: 100%;
+        max-height: 350px;
+        gap: 1rem;
+        border: 1px solid #F0F0F0;
+        border-radius: 8px;
         background-color: var(--primary-bg-colour);
         box-shadow: 0 5px 3px  0 #A4A4A40F;
         transition: all 0.4s ease-in-out; 
     }
-
+    
     .card-container:hover {
         transform: scale(1.05)    ;  
     }
 
     .product-container {
         width: 100%;
-        max-width: 320px;
-        max-height: 9rem;
+        max-height: 8rem;
         position: relative;        
         background-color: var(--light-blue);
     }
@@ -76,7 +76,9 @@
     .available {
         background-color: var(--primary-blue);
         color: var(--primary-bg-colour);
-        width: 7.9rem;
+        width: fit-content;
+        min-width: 6.9rem;
+        max-width: 8rem;
         height: 1.5rem;
         font-family: Satoshi;
         font-size: 9px;
@@ -84,8 +86,8 @@
         line-height: 8px;
         text-align: left;
         position: absolute;
-        top: 2px;
-        right: 2px;
+        top: 10%;
+        right: 4px;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -101,7 +103,7 @@
     .description {
         width: 100%;
         height: 100%;
-        padding: 10px 12px 10px 16px;
+        padding: 0 16px 8px 16px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -114,8 +116,6 @@
         font-weight: 700;
         line-height: 1.4rem;
         text-align: left;
-        height: 25%;
-        gap: 0.8rem;
     }
 
     .description > p {
@@ -125,8 +125,8 @@
     .description .price {
         font-family: Inter;
         font-size: 1rem;
-        font-weight: 700;
-        line-height: 1.5rem;
+        font-weight: 600;
+        line-height: 1.2rem;
         color: #1A1A1A;
     }
 
@@ -134,7 +134,7 @@
         font-family: Inter;
         font-size: 14px;
         font-weight: 400;
-        line-height: 1.1rem;
+        line-height: 1rem;
         gap: 12px;
         display: flex;
         flex-direction: row;
@@ -157,22 +157,14 @@
         line-height: 1.1rem;
     }
 
-    /* @media  (max-width: 1055px) {
-        .card-container {
-            gap: 2.1rem;  
-        }
-
-        .product-container {
-            max-height: 9rem;
+    @media  (max-width: 1050px) {
+        .card-container { 
+            flex: 0 0 32%;
+            max-width: 32%;
         }
 
         .available {
-            width: 7.2rem;
             font-size: 0.7rem;
-            top: 1px;
-            right:1px;
-            padding: 1px 3px;
-            border-radius: 4px 8px 4px 4px;
         }
 
         .available i {
@@ -180,22 +172,18 @@
             margin-right: 4px;
         }
 
-        .description {
-            padding: 8px 9px 8px 12px;
-        }
-
         .description h3 {
             font-size: 1rem;
             line-height: 13px;
         }
 
-        .description > div:nth-child(2) {
+        /* .description > div:nth-child(2) {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             text-align: left;
             height: 70%;
-        }
+        } */
 
         .description .price,
         .description .location,
@@ -203,5 +191,6 @@
             font-size: 0.9rem;
             line-height: 1.2rem;
         }
-    } */
+    } 
+
 </style>

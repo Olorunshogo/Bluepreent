@@ -150,14 +150,18 @@
         border-top: 1px solid #D8D8D873;
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
         width: 100%;
+        height: 100%;
+        max-height: 1100px;
+        margin-bottom: 1.5rem;
     }
 
     .items-container .side-bar {
         border-top: 1px solid #D8D8D873;
         display: flex;
         flex-direction: row;
-        max-width: 30%;
+        max-width: 25%;
         width: 240px;
         height: 100%;
     }
@@ -167,6 +171,8 @@
         display: flex;
         flex-direction: row;
         justify-items: left;
+        max-width: 80%;
+        width: calc(100%-240px);
         height: 100%;
     }
 
@@ -287,10 +293,6 @@
         .top .search {
             color: #969696;
             font-size: 0.9rem;
-        }
-
-        .items-container .side-bar {
-            width: 200px;
         }
 
         .pagination {
