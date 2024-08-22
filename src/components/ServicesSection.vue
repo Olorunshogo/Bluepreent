@@ -89,24 +89,21 @@
 <style lang="css" scoped>
     .page-container {
         width: 100%;
-        max-width: 1440px;
         height: 100%;
-        height: 600px;
         display: flex;
         flex-direction: column;
-
+        padding: 2rem 0;
     }
 
     .container {
         width: 90%;
-        max-width: 1310px;
-        height: 60%;
-        max-height: 340px;
+        height: 70%;
         gap: 2rem;
         display: flex;
         flex-direction: column;
         justify-self: space-between;
         margin: auto;
+        padding: 6rem 0;
     }
 
     .container h2 {
@@ -123,13 +120,12 @@
     }
 
     .container h2 span {
-        width: 1rem;
-        height: 1rem;
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         line-height: 2.05rem;
         display: flex;
         align-items: center;
         margin-left: 4px;
+        margin-bottom: 4px;
     }
 
     .services-container {
@@ -137,25 +133,49 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        gap: 5rem;
+        gap: 4rem;
         width: 100%;
-        max-width: 1310px;
-        max-height: 220px;
         height: 50%;
         margin: auto;
     }
 
     .service {
-        max-width: 390px;
-        width: 33%;
+        width: 33.33%;
         height: 100%;
-        max-height: 340px;
     }
 
     .service #easy-cash {
         font-size: 1.25rem;
         font-weight: 700;
     }
+
+     @media (max-width: 1050px) {
+
+        .container {
+            width: 95%;
+            padding: 4rem 0;
+        }
+
+        .container h2 {
+            font-family: Inter;
+            font-size: 1.6rem;
+            line-height: 1.5rem;
+        }
+
+        .container h2 span {
+            font-size: 1.2rem;
+            line-height: 1.5rem;
+        }
+
+        .services-container {
+            gap: 2.5rem;
+            height: 60%;
+        }
+
+        .service #easy-cash {
+            font-size: 1.15rem;
+        }
+     }
 
     
 </style>

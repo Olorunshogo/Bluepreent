@@ -56,9 +56,8 @@
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
-        max-height: 100%;
-        height: 432px;
         width: 100%;
+        height: 100%;
         position: relative;
     }
 
@@ -74,11 +73,9 @@
     .container {
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        height: 100%;
-        max-height: 408px;
+        justify-content: space-between;
         width: 100%;
+        height: 100%;
         padding: 76px;
         flex: 0 0 100%;
         max-width: 0 0 100%;
@@ -95,9 +92,8 @@
         display: flex;
         flex-direction: column;
         justify-items: space-evenly;
-        max-width: 350px;
         width: 100%;
-        /* width: 342px; */
+        max-width: 350px;
         max-height: 198px;
         height: 100%;
     }
@@ -191,7 +187,22 @@
     .information .location {
         height: 67px;
     }
-
     
+    @media (max-width: 1050px) {
+
+        .information {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-content: center;
+            height: 100%;
+        }
+
+        .information > div {
+            width: 50%;
+            flex: 0 0 50%;
+            max-width: 0 0 50%;
+        }
+    }
 
 </style>

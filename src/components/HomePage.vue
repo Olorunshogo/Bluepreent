@@ -35,25 +35,25 @@
                 </div>
             </div>
 
-            <div class="section-width" title="Trending Posts">
+            <div class="width" title="Trending Posts">
                 <div class="trending-posts">
                     <TrendingPosts />
                 </div>
             </div>
 
-            <div class="section-width" title="Services Offered">
+            <div class="width" title="Services Offered">
                 <div class="services-section">
                     <ServicesSection />
                 </div>
             </div>
 
-            <div class="section-width" title="Shop. Sell. Excel.">
+            <div class="width" title="Shop. Sell. Excel.">
                 <div class="shop-sell">
                     <ShopSell />
                 </div>
             </div>
 
-            <div class="section-width" title="Shop. Sell. Excel.">
+            <div class="width" title="Shop. Sell. Excel.">
                 <div class="footer">
                     <FooTer />
                 </div>
@@ -86,11 +86,6 @@
         margin: 0 auto;
     }
 
-    .section-width {
-        margin: 0 auto;
-        width: 90%;
-    }
-
     .categories {
         margin: 7rem 0 3rem 0;
     }
@@ -111,7 +106,7 @@
         display: none;
     }
 
-    @media (max-width: 1000px) {
+    @media (max-width: 700px) {
         .container {
             display: none;
         }
