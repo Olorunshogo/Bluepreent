@@ -131,4 +131,41 @@
 
     }
 
+    @media (max-width: 400px) {
+        .container {
+            padding: 1rem;
+        }
+
+        .icon {
+            width: 60px;
+            height: auto;
+            padding: 1rem;
+        }
+
+        .icon i {
+            width: 25px;
+            height: 25px;
+            font-size: 1rem;
+        }
+
+        .icon i > span {
+            width: 20px;
+            height: 20px;
+        }
+
+        .heading-description {
+            margin: 8px 0;
+        }
+
+        .heading h3 {
+            font-size: 1.1rem;
+        }
+
+        .description p {
+            font-size: 0.9rem;
+            line-height: 24px;
+        }
+
+    }
+
 </style>

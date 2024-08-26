@@ -189,13 +189,15 @@
         color: var(--secondary-blue);
         font-weight: 600;
         font-size: 14px;
-        font-family: Inter
+        font-family: Inter;
     }
 
     .nav .link-container #sell i {
         color: var(--secondary-blue);
         width: 25px;
         height: 25px;
+        display: flex;
+        align-items: center;
     }
 
     .nav .link-container #register {
@@ -241,7 +243,7 @@
     @media  (max-width: 950px) {
         .top-nav {
             margin: 1rem 0;
-            min-width: 100%;
+            width: 100%;
             height: 55px;
         }
 
@@ -320,16 +322,7 @@
 
     @media  (max-width: 760px) {
         .nav .link-container a {        
-            width: 7rem;
-        }
-
-    }
-
-    @media (max-width: 600px) {
-        .top-nav {
-            margin: 0rem 0;
-            height: 65px;
-            padding: 11px 0px 11px 16px;
+            width: 6.7rem;
         }
 
         .nav {
@@ -339,6 +332,23 @@
         .open-close {
             display: block;
         }
+
+        .top-nav {
+            /* margin: 0rem 0; */
+            height: 65px;
+            padding: 11px 0px 11px 16px;
+        }
+
+    }
+
+    @media (max-width: 650px) {
+        .top-nav {
+            margin: 0rem 0;
+            height: 65px;
+            padding: 11px 0px 11px 16px;
+        }
+
+        
     }
 
 </style>

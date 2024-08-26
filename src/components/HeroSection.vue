@@ -125,9 +125,7 @@
         display: flex;
         flex-direction: column;
         align-self: center;
-        margin: 0 auto;
         position: relative;
-        top: 0px;
     }
 
     .mobile-hero {
@@ -166,7 +164,7 @@
 
         .hero-search {
             height: 80px;
-            top: -20px;
+            top: -15px;
         }
 
         .mobile-hero {
@@ -200,6 +198,60 @@
 
         .hero-texts p {
             font-size: 1.3rem;
+        }
+    } 
+
+    @media (max-width:760px) {
+        .container {
+            width: 100%;
+            height: 350px;
+            position: relative;
+            background-color: var(--primary-blue);
+        }
+
+        .desktop-hero {
+            display: flex;
+            justify-items: space-between;
+        }
+
+        .hero-section {
+            width: 100%;
+            height: 70%;
+            max-height: 200px;
+        }
+
+        .hero-texts {
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-texts h1 {
+            font-size: 2.5rem;
+            line-height: 50px;
+        }
+
+        .hero-texts h1 .e-logo {
+            width: 1.2rem;
+        }
+
+        .hero-texts p {
+            font-size: 1.3rem;
+            line-height: 40px;
+        }
+
+        .hero-img {
+            display: none;
+        }
+
+        .hero-search {
+            width: 100%;
+            height: 30%;
+            max-height: 150px;
+            display: flex;
+            align-self: center;
+            margin: auto;
+            position: relative;
+            top: 0px;
         }
     }
 </style>

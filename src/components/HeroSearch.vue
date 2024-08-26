@@ -211,11 +211,6 @@
         cursor: text;
     }
 
-    input[type=text]:focus {
-        width: 85%;
-        /* box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; */
-    }
-
     input[type=text]::placeholder {
         color: #B0B8C2;
         font-size: 14px;
@@ -244,6 +239,8 @@
         align-items: center;
         width: 100%;
         height: auto;
+        display: flex;
+        justify-items: flex-end;
     }
 
     /* === SEARCH RESULT SECTION === */
@@ -256,13 +253,13 @@
         justify-content: space-between;
         align-items: center;
     }
+
     .search-result .result-input {
         display: flex;
         flex-direction: row;
         justify-content: left;
         align-items: center;
-        width: 80%;
-        max-width: 350px;
+        width: 100%;
     }
 
     .search-result .result-input div {
@@ -420,7 +417,7 @@
         }
 
         input[type=text]::placeholder {
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 400;
         }
 
@@ -492,6 +489,98 @@
             font-weight: 500;
         }
         
+    }
+
+    @media (max-width: 760px) {
+        .hero-search-container { 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-content: center;
+            padding: 10px;  
+        }
+
+        .hero-search-container i { 
+            padding: 0 20px;
+        }
+
+        .search-input {
+            height: 50px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            border-right: none;
+        }
+
+        .graduation {
+            left: 0px;        
+        }
+
+        .search-input input[type=text] {
+            width: 90%;
+            padding: 0 0 0 1rem;
+            height: 40px;
+            font-size: 13px;
+            border: 1px solid #eee;
+        }
+
+        input[type=text]::placeholder {
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .search-input .button-container{
+            width: 25px;
+        }
+
+        .search-input button {
+            width: 100%;
+        }
+
+        .search-icon {
+            width: 100%;
+            font-weight: 500;
+        }
+
+
+        .search-result {
+            height: 50px;
+            width: 100%;
+            padding: 0 4px 0 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;            
+        }
+        .search-result .result-input {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .search-result .result-input div {
+            width: 100%;
+            margin: 0 0px;
+        }
+
+        .search-result input[type=text] {
+            width: 100%;
+            height: 40px;
+        }
+
+        .search-result i {
+            font-size: 0.9rem;
+        }
+
+        .search-result .times {
+            display: flex;
+            justify-content: flex-end;
+            position: relative;
+            right: 40px;
+        }
+
+
     }
 
     

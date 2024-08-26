@@ -179,5 +179,54 @@
         }
      }
 
+    @media (max-width: 400px) {
+        .page-container {
+            width: 100%;
+            height: 789px;
+            display: flex;
+            flex-direction: column;
+            padding: 0rem 0;
+        }
+
+        .container {
+            width: 100%;
+            padding: 0rem 0;
+            width: 100%;
+            height: 100%;
+            gap: 2.5rem;
+        }
+
+        .container h2 {
+            font-size: 1.5rem;
+            line-height: 2.05rem;
+        }
+
+        .container h2 span {
+            font-size: 1.2rem;
+            line-height: 1rem;
+        }
+
+        .services-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+
+        .service {
+            width: 100%;
+            height: 100%;
+            max-height: 100%;
+        }
+
+        .service #easy-cash {
+            font-size: 1.15rem;
+        }
+     }
+
     
 </style>

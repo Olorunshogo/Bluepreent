@@ -106,23 +106,19 @@
         display: none;
     }
 
-    /* @media (max-width: 1200px) {
+    @media (max-width: 1200px) {
         .width {
             width: 90%;
             margin: 0 auto;
         }
 
-    } */
+    }
 
     @media (max-width: 700px) {
-        .container {
+        /* .container {
             display: none;
-        }
+        } */
 
-        .width {
-            width: 90%;
-            margin: 0 auto;
-        }
 
 
         .mobile {
