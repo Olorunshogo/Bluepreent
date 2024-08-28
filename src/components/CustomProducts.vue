@@ -13,26 +13,24 @@
 </script>
 
 <template>
-<div class="card-container"> 
-    <div class="product-container">
-        <TelevisionProduct />
-    </div>
+    <div class="card-container"> 
+        <div class="product-container">
+            <TelevisionProduct />
+        </div>
 
-    <div class="description">
-        <h3>{{ product.name }}</h3>  
-        <p class="condition">
-            <span>{{ product.name }}</span>
-            <span>{{ product.condition }}</span>
-        </p>
-        <p class="price"><span class="naira">₦</span>{{ product.price }}</p>
-        <p class="details">{{ product.description }}</p>
-        <p class="location"><i><LocationIcon /></i>{{ product.location }}</p>
+        <div class="description">
+            <h3>{{ product.name }}</h3>  
+            <p class="condition">
+                <span>{{ product.name }}</span>
+                <span>{{ product.condition }}</span>
+            </p>
+            <p class="price"><span class="naira">₦</span>{{ product.price }}</p>
+            <p class="details">{{ product.description }}</p>
+            <p class="location"><i><LocationIcon /></i>{{ product.location }}</p>
+        </div>
     </div>
-</div>
 
 </template>
-
-
 
 <style lang="css" scoped>
     .card-container {
@@ -41,7 +39,7 @@
         align-items: center;
         flex: 0 0 23%;
         max-width: 25%;
-        height: 400px;
+        height: 420px;
         max-height: 100%;
         gap: 2rem;
         padding: 1rem;
@@ -58,6 +56,7 @@
 
     .product-container {
         width: 100%;
+        height: auto;
         max-height: 160px;
         background-color: #C1C1C133;
         border-radius: 8px;
@@ -77,7 +76,7 @@
         font-family: Inter;
         font-size: 1.1rem;
         font-weight: 600;
-        line-height: 1.4rem;
+        line-height: 1.5rem;
         text-align: left;
         letter-spacing: -1%;
         color: var(--black-text);
@@ -127,7 +126,7 @@
         font-family: Inter;
         font-size: 1.5rem;
         font-weight: 700;
-        line-height: 1.9rem;
+        line-height: 2rem;
         color: #1A1A1A;
     }
 
@@ -144,7 +143,7 @@
         font-family: Inter;
         font-size: 14px;
         font-weight: 400;
-        line-height: 1rem;
+        line-height: 1.2rem;
         text-align: left;
         color: #112347;
         display: flex;
@@ -160,21 +159,146 @@
         height: 15px;
     }
 
-    @media  (max-width: 1055px) {
+    @media  (max-width: 1050px) {
         .card-container {
-            flex: 0 0 33%;
-            max-width: 34%;
-            gap: 1.5rem;
+            height: 340px;
+            gap: 1.2rem;
             padding: 12px; 
+            flex: 0 0 33%;
+            max-width: 35%;
         }
 
         .product-container {
-        width: 100%;
-        max-height: 160px;
-        background-color: #C1C1C133;
-        border-radius: 8px;
+            max-height: 140px;
+        }  
+
+        .description h3 {
+            font-size: 1.3rem;
+        }
+
+        .description > p {
+            margin-top: 8px;
+        }
+
+        .description .condition {
+            font-size: 13px;
+            max-width: 190px;
+        }
+
+        .description .condition > span:nth-child(1),
+        .description .condition > span:nth-child(2) {
+            width: 45%;
+            padding: 6px;
+        } 
+
+
+        .description .price {
+            font-size: 1.3rem;
+            line-height: 1.5rem;
+        }
+
+        .description .location,
+        .description .details {
+            font-size: 13px;
+            line-height: 1.1rem;      
+        }
+
+        .description .location i {
+            font-size: 12px;
+            width: 13px;
+            height: 13px;
+        }
     }
 
-        
+    @media  (max-width: 760px) {
+        .card-container {
+            height: 330px;
+            gap: 1rem;
+            flex: 0 0 48%;
+            max-width: 50%;
+            padding: 8px;
+        }
+
+        .description h3 {
+            font-size: 1.2rem;
+        }
+
+        .description .condition {
+            font-size: 12px;
+        }
+
+        .description .condition > span:nth-child(1),
+        .description .condition > span:nth-child(2) {
+            width: 48%;
+            padding: 4px;
+        } 
+
+
+        .description .price {
+            font-size: 1.2rem;
+            line-height: 1.5rem;
+        }
+
+        .description .location,
+        .description .details {
+            font-size: 12px;
+        }
     }
+
+    @media  (max-width: 450px) {
+        .card-container {
+            flex: 0 0 80%;
+            max-width: 85%;
+            height: 330px;
+            gap: 1rem;
+        }
+
+        .description h3 {
+            font-size: 1.1rem;
+        }
+
+        /* .description .condition {
+            font-size: 12px;
+        } */
+
+        /* .description .condition > span:nth-child(1),
+        .description .condition > span:nth-child(2) {
+            width: 48%;
+        }  */
+
+
+        .description .price {
+            font-size: 1.1rem;
+            line-height: 1.2rem;
+        }
+    }
+
+    @media  (max-width: 380px) {
+        .card-container {
+            flex: 0 0 100%;
+            max-width: 100%;
+            height: 330px;
+            gap: 1rem;
+        }
+
+        .description h3 {
+            font-size: 1.1rem;
+        }
+
+        /* .description .condition {
+            font-size: 12px;
+        } */
+
+        /* .description .condition > span:nth-child(1),
+        .description .condition > span:nth-child(2) {
+            width: 48%;
+        }  */
+
+
+        .description .price {
+            font-size: 1.1rem;
+            line-height: 1.2rem;
+        }
+    }
+
 </style>

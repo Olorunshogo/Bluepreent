@@ -47,11 +47,6 @@
         width: 100%;
         background-color: var(--primary-blue);
         opacity: 94%;
-        /* background-image: url(../images/Shop_Sell_Bg.png); */
-        /* background-repeat: no-repeat;
-        background-size: cover; */
-        /* background: #0E78B98C; */
-
     }
 
     .container {
@@ -107,7 +102,7 @@
         align-items: center;
         width: 100%;
         max-width: 250px;
-        max-height: 50%;
+        /* max-height: 100%; */
         /* transform: rotate( 21.56 deg); */
     }
 
@@ -116,7 +111,7 @@
         flex-direction: column;
         justify-content: center;
         align-self: center;
-        gap: 32px;
+        gap: 2rem;
         height: 220px;
         color: var(--white-text)
     }
@@ -148,6 +143,7 @@
         border-radius: 8px;
         display: flex;
         justify-content: center;
+        cursor: pointer;
     }
 
     .container .shop-sell button > div {
@@ -160,6 +156,7 @@
         align-items: center;
         margin: auto;
         gap: 11px;
+        border-radius: 8px;
     }
 
     .container .shop-sell button > div > span {
@@ -178,19 +175,101 @@
         font-size: 1.5rem;
     }
 
-    @media (max-width: 400px) {
+    @media (max-width: 1050px) {
         .page-container {
-            height: 455px;
+            height: 300px;
         }
 
-        .container {
-            margin: auto;
+        .container .images {
+            width: 95%;
+        }
+
+        .container .shop-sell {
+            gap: 1.5rem;
+            height: 180px;
+        }
+
+        .container .shop-sell h2 {
+            width: 90%;
+            height: 60px;
+            font-size: 1.6rem;
+            line-height: 35px;
+        }
+
+        .container .shop-sell p {
+            font-size: 1.1rem;
+            line-height: 1.2rem;
+        }
+
+        .container .shop-sell button {
+            width: 180px;
+            height: 50px;
+        }
+
+        .container .shop-sell button > div {
+            width: 140px;
+            height: 40px;
+        }
+
+        .container .shop-sell button .text {
+            font-size: 1.2rem;
+            line-height: 2.1rem;
+        }
+
+        .container .shop-sell button .icon {
+            font-size: 1.4rem;
+        }
+    }
+
+    @media (max-width: 760px) {
+        .page-container {
+            height: 250px;
+        }
+
+        .container .shop-sell {
+            gap: 1rem;
+            height: 80%;
+        }
+
+        .container .shop-sell h2 {
+            font-size: 1.2rem;
+            line-height: 2.6rem;
+        }
+
+        .container .shop-sell p {
+            font-size: 1rem;
+            line-height: 1rem;
+        }
+
+        .container .shop-sell button {
+            width: 160px;
+            height: 45px;
+        }
+
+        .container .shop-sell button > div {
+            width: 130px;
+        }
+
+        .container .shop-sell button .text {
+            font-size: 1.1rem;
+            line-height: 2rem;
+        }
+
+        .container .shop-sell button .icon {
+            font-size: 1.2rem;
+        }
+    }
+
+    @media (max-width: 450px) {
+        .page-container {
+            height: 340px;
+            opacity: 94%;
         }
 
         .container > div {
-            flex: 0 0 100%;
-            max-width: 100%;
-            height: 100%;
+            flex: 0 0 90%;
+            max-width: 90%;
+            height: 50%;
         }
 
         .container .image-container {
@@ -198,39 +277,50 @@
         }
 
         .container .shop-sell {
-            width: 100%;
-            height: 220px;
-            gap: 2rem;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            justify-content: space-evenly;
             align-items: center;
-            margin: auto;
+            gap: 1rem;
+            text-align: center;
+            height: 100%;
         }
 
         .container .shop-sell h2 {
-            width: 100%;
-            height: 2.25rem;
-            /* font-size: 30px; */
-            font-size: 2.4rem;
-            line-height: 2.25rem;
-            text-align: center;
+            font-size: 1.2rem;
+            line-height: 2.2rem;
         }
 
         .container .shop-sell p {
-            width: 100%;
-            font-size: 1rem;
-            line-height: 1.25rem;
-            text-align: center;
+            font-size: 0.9rem;
+            line-height: 1.2rem;            
+        }
+
+        .container .shop-sell button {
+            width: 160px;
+            height: 40px;
+        }
+
+        .container .shop-sell button > div {
+            width: 120px;
         }
 
         .container .shop-sell button .text {
-            font-family: Inter;
-            line-height: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.7rem;
         }
 
         .container .shop-sell button .icon {
-            font-size: 1.2rem;
-        }     
+            font-size: 1.1rem;
+        }    
+    }
+
+    @media (max-width: 360px) {
+        .page-container {
+            height: 290px;
+        }
+
+
     }
 
 </style>

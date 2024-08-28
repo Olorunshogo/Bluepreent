@@ -32,6 +32,8 @@
     .page-wrapper {
         height: 100%;
         width: 100%; 
+        flex: 0 0 100%;
+        max-width: 100%;
     }
 
     .container {
@@ -52,11 +54,11 @@
     }
 
     .center {
-        width: 50%;
+        width: 60%;
         max-width: 550px;
         height: 50%;
         max-height: 200px;
-        gap: 2rem;
+        gap: 1.5rem;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -92,7 +94,7 @@
 
     .sell-button-container {
         gap: 1.5rem;
-        width: 100%;
+        width: 80%;
         height: 40%;
         max-height: 4.1rem;
         display: flex;
@@ -118,16 +120,18 @@
     }
 
     .sell-button-container button:hover {
-        box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-        transform: scale(1.03);
+        /* box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px; */
+        box-shadow: rgba(0, 170, 246, 0.9) 2px 1px 4px 0px, rgba(0, 170, 246, 0.9) -2px -1px 4px 0px;
+        transform: scale(1.04);
     }
 
     .sell-button-container button:focus {
         transform: scale(0.98);
+        opacity: 1;
     }
 
     .sell-button-container button > span {
-        width: 5rem;
+        width: 3rem;
         height: 2rem;
         display: flex;
         flex-direction: row;
@@ -159,7 +163,8 @@
         }
 
         .center {
-            max-width: 450px;
+            width: 65%;
+            max-width: 550px;
             height: 60%;
             gap: 1.5rem;
         }
@@ -169,17 +174,17 @@
         }
 
         .declutter-earn-container h2 {
-            font-size: 1.5rem;
-            line-height: 2rem;
+            font-size: 1.6rem;
+            line-height: 1.8rem;
         }
 
         .declutter-earn-container p {
-            font-size: 0.9rem;
-            line-height: 1.1rem;
+            font-size: 1rem;
+            line-height: 1.2rem;
         }
 
         .sell-button-container {
-            gap: 1.5rem;
+            gap: 1.2rem;
             height: 40%;
             max-height: 3.5rem;   
         }
@@ -199,11 +204,59 @@
         .sell-button-container button > span:nth-child(1) i {
             width: 1.1rem;
             height: 1.1rem;
-            /* font-size: 1rem; */
         }
 
         .sell-button-container button > span:nth-child(2) {
             font-size: 1.1rem;
+        }
+    }
+
+    @media (max-width: 760px) {
+        .container {
+            height: 300px;
+        }
+
+        .center {
+            width: 70%;
+            max-width: 600px;
+            height: 70%;
+            gap: 1rem;
+        }
+
+        .declutter-earn-container h2 {
+            font-size: 1.4rem;
+            line-height: 1.4rem;
+        }
+
+        .declutter-earn-container p {
+            font-size: 0.9rem;
+            line-height: 1rem;
+        }
+
+        .sell-button-container {
+            gap: 1rem;
+            height: 30%;
+            max-height: 3rem;   
+        }
+
+        .sell-button-container button {
+            width: 100%;
+            height: 2.5rem;
+        }
+
+        .sell-button-container button > span {
+            width: 4rem;
+            gap: 0.5rem;
+        }
+
+        .sell-button-container button > span:nth-child(1) i {
+            width: 1rem;
+            height: 1rem;
+            font-size: 1rem;
+        }
+
+        .sell-button-container button > span:nth-child(2) {
+            font-size: 1rem;
         }
     }
 

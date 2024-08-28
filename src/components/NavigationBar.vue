@@ -2,22 +2,26 @@
 <script setup>
     import { ref } from 'vue'
 
-    import BluepreentLogo from '../assets/BluepreentLogo.vue'
-    import PhoneIcon from './icons/PhoneIcon.vue'
-    import NotificationIcon from './icons/NotificationIcon.vue'
-    import SellIcon from './icons/SellIcon.vue'
-    
-    import ChevrondownIcon from './icons/ChevrondownIcon.vue'
+    import BluepreentLogo from '../assets/BluepreentLogo.vue';
 
-    import BarsIcon from './icons/BarsIcon.vue'
-    import TimesIcon from './icons/TimesIcon.vue'
+    import PhoneIcon from './icons/PhoneIcon.vue';
+    import NotificationIcon from './icons/NotificationIcon.vue';
+    import SellIcon from './icons/SellIcon.vue';
+    import DashboardIcon from './icons/DashboardIcon.vue';
 
-    const open = ref(true)
-    const close = ref(false)
-    function openClose() {
-        open.value = !open.value
-        close.value = !close.value
+    import PlusCircleIcon from './icons/PlusCircleIcon.vue';
+    import LoginIcon from './icons/LoginIcon.vue';
+    import LogoutIcon from './icons/LogoutIcon.vue';
+    import RegisterIcon from './icons/RegisterIcon.vue';
+
+    import ChevrondownIcon from './icons/ChevrondownIcon.vue';
+
+    const isSidebarOpen = ref(false);
+
+    function toggleSidebar() {
+        isSidebarOpen.value = !isSidebarOpen.value;
     }
+
 </script>
 
 <template>
@@ -33,22 +37,7 @@
                     <div class="bluepreent-logo">
                         <BluepreentLogo />
                     </div>
-                </div>
-
-                <div class="open-close">
-                    <button v-on:click="openClose">
-                        <span v-show="open">
-                            <i>
-                                <BarsIcon />
-                            </i>
-                        </span>
-                        <span v-show="close">
-                            <i>
-                                <TimesIcon />
-                            </i>
-                        </span>
-                    </button>                     
-                </div>
+                </div>       
 
                 <!-- Nav Links container -->
                 <nav class="nav" role="navigation">
@@ -95,6 +84,79 @@
                         </div>
                     </div>
                 </nav>
+
+                <div class="menu-container" title="Menu">
+                    <button class="menu-toggle" v-on:click="toggleSidebar">
+                        <span :class="['hamburger-icon', { 'active': isSidebarOpen }]">
+                            <i v-if="!isSidebarOpen" class="fas fa-bars" title="Hamburger"></i>
+                            <i v-else class="fas fa-times" title="Close"></i>
+                        </span>
+                    </button>                     
+                </div>
+
+                <div class="sidebar-container" :class="{ 'open': isSidebarOpen }" title="Sidebar">
+                    <div class="sidebar-header">
+                        <div class="sidebar-logo" title="Bluepreent">
+                            <img src="../images/Bluepreent.png" alt="Bluepreent Image">
+                        </div>
+
+                        <button class="close-btn" @click="toggleSidebar" title="Close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+
+                    <div class="sidebar-body">
+                        <ul>
+                            <li title="Help/Contact">
+                                <a href="#" target="_blank">
+                                    <span><i><PhoneIcon /></i></span>
+                                    <span>Help/Contact</span>
+                                </a>
+                            </li>
+                            <li title="Notifications">
+                                <a href="#" target="_blank">
+                                    <span><i><NotificationIcon /></i></span>
+                                    <span>Notification</span>
+                                </a>
+                            </li>
+                            <li title="Dashboard">
+                                <a href="#" target="_blank">
+                                    <span><i><DashboardIcon /></i></span>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <li title="Post ad">
+                                <a href="#" target="_blank">
+                                    <span><i><PlusCircleIcon /></i></span>
+                                    <span>Post ad</span>
+                                </a>
+                            </li>
+                        </ul>
+                        
+                        <ul>
+                            <li title="LogIn">
+                                <a href="#" target="_blank" id="login">
+                                    <span><i><LoginIcon /></i></span>
+                                    <span>LogIn</span>
+                                </a>
+                            </li>
+                            <li title="Register">
+                                <a href="#" target="_blank" id="register">
+                                    <span><i><RegisterIcon /></i></span>
+                                    <span>Register</span>
+                                </a>
+                            </li>
+                            <li title="Logout">
+                                <a href="#" target="_blank" id="logout">
+                                    <span><i><LogoutIcon /></i></span>
+                                    <span>Logout</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="overlay" :class="{ 'active': isSidebarOpen }" @click="toggleSidebar"></div>
+                
+                </div>
             </div>
         </div>
     </header>
@@ -109,6 +171,7 @@
         margin: 1.5rem 0;
         width: 100%;
         height: 60px;
+        position: relative;
     }
 
     /* === Container for both the Logo and Navigation */
@@ -221,12 +284,12 @@
     }
 
     /* === TOGGLE BUTTON +++ */
-    .open-close {
+    .menu-container {
         display: none;
         transition: all 0.5s ease-in-out;
     }
 
-    .open-close button {
+    .menu-container button {
         outline: none;
         border: none;
         height: 32px;
@@ -234,10 +297,14 @@
         background-color: transparent;;
     }
 
-    .open-close span i {
+    .menu-container span i {
         font-weight: 700;
-        font-size: 100%;
+        font-size: 1.25rem;
         color: var(--primary-blue);
+    }
+
+    .sidebar-container {
+        display: none;
     }
 
     @media  (max-width: 950px) {
@@ -260,7 +327,7 @@
 
         /* .nav-one,
         .nav-two {
-            miwidth: 50%;
+            midwidth: 50%;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
@@ -326,12 +393,15 @@
         }
 
         .nav {
+            width: 50%;
+            max-width: 50%;
             display: none;
         }
 
-        .open-close {
-            display: block;
-        }
+        .nav-one,
+        .nav-two {
+            display: none;
+        }        
 
         .top-nav {
             /* margin: 0rem 0; */
@@ -339,13 +409,179 @@
             padding: 11px 0px 11px 16px;
         }
 
+        .menu-container {
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-container .menu-toggle {
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .menu-container .hamburger-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .hamburger-icon.active {
+            transform: rotate(90deg);
+        }
+
+        .sidebar-container {
+            display: flex;
+            position: fixed;
+            top: 0;
+            right: -200px;
+            width: 200px;
+            height: 100%;
+            background-color: #fff;
+            transition: right 0.3s ease;
+            z-index: 1000;
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid #eee;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+        }
+
+        .sidebar-header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 50px;
+            border-bottom: 1px solid #ddd;
+            padding: 12px;
+        }
+
+        .sidebar-header .sidebar-logo {
+            width: 60%;
+        }
+
+        .sidebar-header .sidebar-logo img {
+            width: 80px;
+        }
+
+        .sidebar-header .close-btn {
+            width: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        .sidebar-header .close-btn i {
+            color: var(--primary-blue);
+            font-size: 10px;
+        }
+
+        .sidebar-container.open {
+            right: 0;
+        }
+
+        .sidebar-body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-body ul {
+            list-style: none;
+            margin: 0;
+            padding: 12px;
+        }
+
+        .sidebar-body ul:nth-child(1) {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .sidebar-body ul li {
+            display: flex;
+            align-items: center;
+            width: 100px;
+            height: 30px;
+            margin-bottom: 2px;
+        }
+
+        .sidebar-body ul li a {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            text-decoration: none;
+            font-size: 10px;
+            color: #111;
+            cursor: pointer;
+        }
+
+        .sidebar-body ul li a i {
+            margin-right: 8px;
+            font-size: 8px;
+        }
+
+        .sidebar-body ul li a > span:nth-child(1) {
+            display: flex;
+            align-items: center;
+        }
+
+        .sidebar-body ul li #login {
+            color: lightgreen;
+        }
+
+        .sidebar-body ul li #register {
+            color: var(--primary-blue);
+        }
+
+        .sidebar-body ul li #logout {
+            color: red
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(246, 246, 246, 0.3);
+            transition: opacity 0.3s ease;
+            opacity: 0.5;
+            filter: blur(4px);
+            -webkit-filter: blur(4px);
+            visibility: hidden;
+            z-index: 20;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        
+
     }
 
-    @media (max-width: 650px) {
+    @media (max-width: 450px) {
         .top-nav {
-            margin: 0rem 0;
+            margin: 0rem 0 1rem 0;
             height: 65px;
             padding: 11px 0px 11px 16px;
+        }
+
+        .logo-container,
+        .nav {
+            width: 50%;
+            max-width: 250px;
+        }
+
+        .sidebar-container {
+            width: 150px;
+        }
+
+        .sidebar .navbar {
+            font-size: 14px;
         }
 
         

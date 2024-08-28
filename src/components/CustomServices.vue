@@ -30,7 +30,7 @@
         display: flex;
         flex-direction: column;
         width: 100%;
-        height: 100%;
+        max-height: 100%;
         height: 250px;
         border-radius: 8px;
         padding: 1.2rem;
@@ -131,7 +131,39 @@
 
     }
 
-    @media (max-width: 400px) {
+    @media (max-width: 760px) {
+        .container {
+            padding: 12px;
+            height: 240px;
+        }
+
+        .icon {
+            width: 50px;
+            height: 50px;
+            padding: 12px;
+        }
+
+        .icon i {
+            font-size: 0.9rem;
+        }
+
+        .heading-description {
+            margin: 8px 0;
+            max-height: 100%;
+        }
+
+        .heading h3 {
+            font-size: 1.1rem;
+        }
+
+        .description p {
+            font-size: 1rem;
+            line-height: 24px;
+        }
+
+    }
+
+    @media (max-width: 450px) {
         .container {
             padding: 1rem;
         }
@@ -155,6 +187,7 @@
 
         .heading-description {
             margin: 8px 0;
+            gap: 1rem;
         }
 
         .heading h3 {

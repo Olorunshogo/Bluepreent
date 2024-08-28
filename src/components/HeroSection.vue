@@ -204,9 +204,8 @@
     @media (max-width:760px) {
         .container {
             width: 100%;
-            height: 350px;
-            position: relative;
-            background-color: var(--primary-blue);
+            height: 400px;
+            margin-top: 1rem;
         }
 
         .desktop-hero {
@@ -216,13 +215,14 @@
 
         .hero-section {
             width: 100%;
-            height: 70%;
+            height: 50%;
             max-height: 200px;
         }
 
         .hero-texts {
             width: 100%;
             height: 100%;
+            gap: 0.6rem;
         }
 
         .hero-texts h1 {
@@ -245,13 +245,76 @@
 
         .hero-search {
             width: 100%;
-            height: 30%;
-            max-height: 150px;
+            height: 50%;
+            max-height: 250px;
             display: flex;
             align-self: center;
             margin: auto;
             position: relative;
             top: 0px;
+        }
+    }
+
+    @media (max-width:450px) {
+        .container {
+            max-height: 390px;
+            height: 380px;
+            margin-top: 1rem;
+        }
+
+        .hero-section {
+            width: 100%;
+            height: 50%;
+            max-height: 170px;
+        }
+
+        .hero-texts {
+            gap: 0.25rem;
+        }
+
+        .hero-texts h1 {
+            font-size: 1.6rem;
+            line-height: 4rem;
+        }
+
+        .hero-texts h1 .e-logo {
+            width: 1rem;
+        }
+
+        .hero-texts p {
+            font-size: 1rem;
+            line-height: 1rem;
+        }
+
+        .hero-search {
+            height: 50%;
+            max-height: 250px;
+            top: 30px;
+        }
+    }
+
+    @media (max-width:300px) {
+        .container {
+            max-height: 420px;
+            height: 340px;
+        }
+
+        .hero-texts h1 {
+            font-size: 1.3rem;
+            line-height: 3rem;
+        }
+
+        .hero-texts h1 .e-logo {
+            width: 0.6rem;
+        }
+
+        .hero-texts p {
+            font-size: 0.9rem;
+            line-height: 1rem;
+        }
+
+        .hero-search {
+            top: 20px;
         }
     }
 </style>

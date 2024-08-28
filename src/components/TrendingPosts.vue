@@ -59,7 +59,6 @@
 </template>
 
 
-
 <style lang="css" scoped>
     .container {
         display: flex;
@@ -149,6 +148,7 @@
         border-radius: 4px;
         background-color: #CED6F0;
         position: relative;
+        cursor: pointer;
         transition: all 0.5s ease-in-out;
     }
 
@@ -169,7 +169,7 @@
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        width: 130px;
+        max-width: 130px;
         height: 50px;
     }
 
@@ -179,7 +179,7 @@
         align-items: center;
         justify-content: center;
         width: 50px;
-        height: 100%;
+        height: 50px;
         border-radius: 50%;
         /* background-color: #CED6F0; */
         position: relative;
@@ -195,6 +195,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        cursor: pointer;
+        font-size: 80%;
     }
 
     .slides-container .chevron > span:nth-child(2) i {
@@ -227,7 +229,141 @@
 
         .slides-container {
             margin-top: 3rem;
+            height: 40px;
         }
+
+        .slides-container .span {
+            width: 100%;
+            max-width: 230px;
+        }
+
+        .slides-container .span > span {
+            width: 90%;
+            max-width: 50px;
+            height: 3px;
+        }
+        .slides-container .chevron {
+            width: 90px;
+            height: 45px;
+        }
+
+        .slides-container .chevron span {
+            width: 40px;
+            height: 40px;
+        }
+
+        .slides-container .chevron > span i {
+            height: 38px;
+            width: 38px;
+        }
+
+    }
+
+    @media (max-width: 760px) {
+        .header h2 {
+            font-size: 1.4rem;
+        }
+
+        .header p {
+            font-size: 0.9rem;
+        }
+
+        .product-container {
+            gap: 1.5rem;
+        }
+
+        .slides-container .span {
+            max-width: 200px;
+        }
+
+        .slides-container .span > span {
+            max-width: 45px;
+        }
+        .slides-container .chevron {
+            width: 80px;
+            height: 35px;
+        }
+
+        .slides-container .chevron span {
+            width: 30px;
+            height: 30px;
+        }
+
+        .slides-container .chevron > span i {
+            height: 25px;
+            width: 25px;
+        }
+
+    }
+
+    @media (max-width: 450px) {
+        .header h2 {
+            font-size: 1.25rem;
+        }
+
+        .header p {
+            font-size: 0.8rem;
+        }
+
+        .product-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
+            height: 100%;
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        .slides-container .span {
+            max-width: 150px;
+        }
+
+        .slides-container .span > span {
+            max-width: 30px;
+            height: 2px;
+        }
+        .slides-container .chevron {
+            width: 70px;
+            height: 30px;
+        }
+
+        .slides-container .chevron span {
+            width: 26px;
+            height: 26px;
+        }
+
+        .slides-container .chevron > span i {
+            height: 20px;
+            width: 20px;
+        }
+
+    }
+
+    @media (max-width: 360px) {
+        .slides-container .span {
+            max-width: 150px;
+        }
+
+        .slides-container .span > span {
+            max-width: 30px;
+            height: 2px;
+        }
+        .slides-container .chevron {
+            width: 70px;
+            height: 30px;
+        }
+
+        .slides-container .chevron span {
+            width: 26px;
+            height: 26px;
+        }
+
+        .slides-container .chevron > span i {
+            height: 20px;
+            width: 20px;
+        }
+
     }
 
 </style>

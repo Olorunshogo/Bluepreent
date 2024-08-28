@@ -14,27 +14,27 @@
 </script>
 
 <template>
-<div class="card-container"> 
-    <div class="product-container">
-        <MattrassImage class="product"/>
-        <p class="available">
-            <i>
-                <CalendarIcon />
-            </i>
-            <span>{{ item.available }}</span>
-        </p>
-    </div>
+    <div class="card-container"> 
+        <div class="product-container">
+            <MattrassImage class="product"/>
+            <p class="available">
+                <i>
+                    <CalendarIcon />
+                </i>
+                <span>{{ item.available }}</span>
+            </p>
+        </div>
 
-    <div class="description">
-        <h3>{{ item.name }}</h3> 
-        <p class="price"><span class="naira">₦</span>{{ item.price }}</p>
-        <p class="location">
-            <span><i><LocationIcon /></i></span>
-            <span>{{ item.location }}</span>
-        </p>
-        <p class="condition">{{ item.condition }}</p>
+        <div class="description">
+            <h3>{{ item.name }}</h3> 
+            <p class="price"><span class="naira">₦</span>{{ item.price }}</p>
+            <p class="location">
+                <span><i><LocationIcon /></i></span>
+                <span>{{ item.location }}</span>
+            </p>
+            <p class="condition">{{ item.condition }}</p>
+        </div>
     </div>
-</div>
 
 </template>
 
@@ -48,7 +48,6 @@
         flex: 0 0 23%;
         max-width: 25%;
         height: 100%;
-        max-height: 350px;
         gap: 1rem;
         border: 1px solid #F0F0F0;
         border-radius: 8px;
@@ -79,19 +78,18 @@
         width: fit-content;
         min-width: 6.9rem;
         max-width: 8rem;
-        height: 1.5rem;
+        height: fit-content;
         font-family: Satoshi;
         font-size: 9px;
         font-weight: 400;
-        line-height: 8px;
         text-align: left;
         position: absolute;
-        top: 10%;
+        top: 4px;
         right: 4px;
         display: flex;
         flex-direction: row;
         align-items: center;
-        padding: 1.5px 4px;
+        padding: 2px 4px;
         border-radius: 4px;
     }
 
@@ -159,8 +157,8 @@
 
     @media  (max-width: 1050px) {
         .card-container { 
-            flex: 0 0 32%;
-            max-width: 32%;
+            flex: 0 0 40%;
+            max-width: 45%;
         }
 
         .available {
@@ -177,13 +175,51 @@
             line-height: 13px;
         }
 
-        /* .description > div:nth-child(2) {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            text-align: left;
-            height: 70%;
-        } */
+        .description .price,
+        .description .location,
+        .description .condition {
+            font-size: 0.9rem;
+            line-height: 1.2rem;
+        }
+    } 
+
+    @media  (max-width: 760px) {
+        .card-container { 
+            flex: 0 0 45%;
+            max-width: 45%;
+        }
+
+        .available {
+            font-size: 0.6rem;
+        }
+
+        .available i {
+            font-size: 9px;
+        }
+    } 
+
+    @media  (max-width: 450px) {
+        .card-container { 
+            flex: 0 0 50%;
+            max-width: 400px;
+            width: 100%;
+            height: 400px;
+            margin-bottom: 1rem;
+        }
+
+        .available {
+            font-size: 0.7rem;
+        }
+
+        .available i {
+            font-size: 10px;
+            margin-right: 4px;
+        }
+
+        .description h3 {
+            font-size: 1rem;
+            line-height: 13px;
+        }
 
         .description .price,
         .description .location,

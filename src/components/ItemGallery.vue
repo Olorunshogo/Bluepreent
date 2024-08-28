@@ -3,8 +3,8 @@
     import { ref } from 'vue'
 
     const category = ref("Bed/Mattrass");
-    const minRange = ref(10);
-    const maxRange = ref(25000000);
+    const minRange = ref("₦" + 10);
+    const maxRange = ref("₦" + 25000000);
     const condition = ref("Brand New");
 
     // const avChecked = ref(false);
@@ -149,6 +149,8 @@
     .container {
         width: 100%;
         height: 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
         padding: 2rem 0 2rem 2rem;
         display: flex;
         flex-direction: column;
@@ -163,6 +165,7 @@
         margin-bottom: 1.5rem;
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
         align-items: center;
         color: #CACDD8;
     }
@@ -171,7 +174,7 @@
         font-family: Inter;
         font-size: 0.9rem;
         font-weight: 400;
-        line-height: 1.1rem;
+        line-height: 1.2rem;
         text-align: left;
         width: 65%;
     }
@@ -229,8 +232,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-between;
-        width: 75%;
+        width: 100%;
         height: 50px;
         margin-bottom: 1.5rem;
     }
@@ -238,13 +240,13 @@
     .sort-categories .sort-category {
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
         align-items: center;
         border-radius: 8px;
         padding: 10px 15px;
         font-size: 0.9rem;
         font-weight: 400;
         opacity: 0.9;
+        margin-right: 2rem;
         background-color: var(--light-blue-bg);
     }
 
@@ -299,6 +301,8 @@
         justify-content: space-between;
         width: 100%;        
         height: 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
     }
 
     .items {
@@ -308,6 +312,41 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+    }
+
+    @media (max-width: 1250px) {
+        .search-categories {
+            width: 100%;
+            height: 50px;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            color: #CACDD8;
+        }
+
+        .search-categories p {
+            width: 55%;
+        }
+
+        .search-categories .sort-buttons {
+            width: 45%;
+        }
+
+        .search-categories button {
+            width: 14rem;
+        }
+
+
+        /* === SORT CATEGORIES === */
+        .sort-categories {
+            width: 96%;
+        }
+
+        .sort-categories .sort-category {
+            margin-right: 1.5rem;
+        }
     }
 
     @media  (max-width: 1050px) {
@@ -339,14 +378,14 @@
 
         /* === SORT CATEGORIES === */
         .sort-categories {
-            height: 40px;
             margin-bottom: 1.45rem;
-            width: 95%;
+            width: 100%;
         }
 
         .sort-categories .sort-category {
             padding: 8px 12px;
             font-size: 0.7rem;
+            margin-right: 1rem;
         }
 
         .sort-categories .sort-buttons {
@@ -367,4 +406,79 @@
         }
 
     }
+
+    @media (max-width: 760px) {
+        .container {
+            width: 100%;
+            height: 100%;
+            padding: 2rem 0;
+        }
+
+        .search-categories {
+            /* height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-items: space-between;
+            align-items: flex-start; */
+            display: none;
+        }
+
+        /* .search-categories p {
+            width: 100%;
+            height: 40%;
+            margin-bottom: 1rem;
+        }
+
+        .search-categories .sort-buttons {
+            width: 50%;
+            height: 60%;
+        }
+
+        .search-categories button {
+            width: 9rem;
+            height: 40px;
+            line-height: 1.4rem;
+        } */
+
+        /* === SORT CATEGORIES === */
+        .sort-categories {
+            /* height: 40px;
+            margin-bottom: 2rem; */
+            display: none;
+        }
+
+        /* .sort-categories .sort-category {
+            padding: 8px 4px;
+            margin-right: 0.5rem;
+        } */
+    }
+
+    @media (max-width: 450px) {
+        .items-section {
+            margin-bottom: 3rem;
+        }
+        .items-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;        
+            height: 100%;
+        }
+
+        .items-container > div:nth-child(2),
+        .items-container > div:nth-child(3) {
+            display: none;
+        }
+
+        .items {
+            width: 100%;        
+            height: 30%;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    }
+
 </style>

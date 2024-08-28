@@ -76,12 +76,13 @@
         justify-content: space-between;
         width: 100%;
         height: 100%;
-        padding: 76px;
+        padding: 5rem 4rem;
         flex: 0 0 100%;
         max-width: 0 0 100%;
     }
 
-    .container > div {
+    .container > div:nth-child(1),
+    .container > div:nth-child(2) {
         width: 50%;
         height: 100%;
         flex: 0 0 50%;
@@ -126,6 +127,7 @@
         width: 100%;
         height: 100%;
         max-height: 45px;
+        margin-top: 0.4rem;
     }
 
     .information {
@@ -188,36 +190,91 @@
         height: 67px;
     }
     
+
     @media (max-width: 1050px) {
+        .container {
+            padding: 4.5rem 3rem;
+        }
 
         .information {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-content: center;
-            height: 100%;
-        }
-
-        .information > div {
-            width: 50%;
-            flex: 0 0 50%;
-            max-width: 0 0 50%;
         }
     }
 
-    @media (max-width: 400px) {
+    @media (max-width: 760px) {
+        .container {
+            padding: 5rem 2rem;
+        }
 
+        .container > div:nth-child(1),
+        .container > div:nth-child(2) {
+            width: 50%;
+            height: 100%;
+            flex: 0 0 50%;
+            max-width: 0 0 50%;
+        }
+
+        .container > div:nth-child(1),
+        .container > div:nth-child(2) {
+            width: 60%;
+            height: 100%;
+            flex: 0 0 50%;
+            max-width: 0 0 50%;
+        }
+
+
+        .logo-copyright .logo img {
+            width: 95%;
+            height: 30px;
+        }
+
+        .logo-copyright .copyright {
+            font-size: 12px;
+            margin-top: 0.4rem;
+        }
+
+        .information > div h4 {
+            font-size: 13px;
+        }
+
+        .information > div p {
+            font-size: 14px;
+        }
+
+        .information .contacts {
+            max-height: 180px;
+        }
+
+        .information .contacts > div,
+        .information .location {
+            margin-bottom: 1.2rem;
+        }
+
+        .information .contacts > div {
+            height: 40px;
+        }
+
+        .information .location {
+            height: 50px;
+        }
+    }
+
+    @media (max-width: 450px) {
         .container {
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
+            justify-content: space-evenly;
             width: 100%;
             height: 100%;
-            padding: 5rem 1rem;
+            padding: 5rem 1rem 0 0;
             gap: 2rem;
         }
 
-        .container > div {
+        .container > div:nth-child(1),
+        .container > div:nth-child(2) {
             width: 100%;
             height: 100%;
             flex: 0 0 100%;
@@ -230,17 +287,11 @@
             justify-content: space-between;
             align-content: center;
             height: 100%;
-        }
-
-        .information > div {
-            width: 100%;
-            flex: 0 0 100%;
-            max-width: 0 0 100%;
         }
 
         .information > div h4 {
             font-size: 12px;
-            line-height: 1rem;
+            line-height: 1.5rem;
         }
 
         .information > div p {

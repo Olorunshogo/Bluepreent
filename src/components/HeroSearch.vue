@@ -2,13 +2,14 @@
 <script setup>
     import { ref, computed, onMounted, onUnmounted } from 'vue'
 
-
     import GraduationIcon from './icons/GraduationIcon.vue'
     import LocationIcon from './icons/LocationIcon.vue'
     import TimesIcon from './icons/TimesIcon.vue'
     import SearchIcon from './icons/SearchIcon.vue'
     import ChevrondownIcon from './icons/ChevrondownIcon.vue'
     import PlusIcon from './icons/PlusIcon.vue'
+
+    const selectedOption = ref("")
 
     // DROPDOWN
 
@@ -110,7 +111,7 @@
                 <div class="result-input">
                     <i><LocationIcon class="icons location" /></i>
                     <div>
-                        <input type="text" />
+                        <input type="text" v-model="selectedOption" />
                         <i class="icons times"><TimesIcon /></i>    
                     </div>
                 </div>
@@ -119,6 +120,17 @@
                     <i class="icons chev-down"><ChevrondownIcon /></i>
                 </div> 
             </div>
+        </div>
+
+        <div class="hero-select-container">
+            <select v-model="selectedOption">
+                <option value="" disabled>Please select one option</option>
+                <option value="Option 1">Option 1</option>
+                <option value="Option 2">Option 2</option>
+                <option value="Option 3">Option 3</option>
+                <option value="Option 4">Option 4</option>
+                <option value="Option 5">Option 5</option>
+            </select>
         </div>
 
         <div class="dropdown-container">
@@ -183,13 +195,6 @@
         justify-content: center;
         align-self: center;
         border-right: 2px solid #ddd;
-    }
-
-    .graduation {
-        /* position: absolute;
-        top: 35%; */
-        position: relative;
-        left: 8px;        
     }
 
     .search-input input[type=text] {
@@ -263,15 +268,16 @@
     }
 
     .search-result .result-input div {
-        width: 90%;
+        width: 80%;
         display: flex;
         flex-direction: row;
-        margin: 0 8px;
+        border-radius: 8px;
+        background-color: var(--light-blue-bg);
     }
 
     .search-result input[type=text] {
         width: 100%;
-        height: 40px;
+        height: 45px;
         border: none;
         border-radius: 8px;
         outline: none;
@@ -282,30 +288,24 @@
         color: black;
         caret-color: var(--primary-blue);
         font-size: 14px;
-        background-color: var(--light-blue-bg);
+        background: transparent;
         transition: all 0.5s ease-in-out;
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-    }
-
-    .search-result i {
-        display: flex;
-        align-items: center;
-        font-size: 1.4rem;
-        font-weight: 400;
-        color: var(--icon-grey);
-    }
-
-    .search-result .location {
-        display: flex;
-        justify-self: left;
-        align-items: left;
+        /* box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; */
     }
 
     .search-result .times {
         display: flex;
         justify-content: flex-end;
-        position: relative;
-        right: 40px;
+    }
+
+    .search-result .chev-down {
+        display: flex;
+        justify-items: flex-end;
+    }
+
+    /* === HERO SELECT === */
+    .hero-select-container {
+        display: none;
     }
 
 
@@ -318,11 +318,11 @@
         position: relative;
         top: -5px;
         left: 2%;
-        border-radius: 2px;
+        border: none;
         cursor: default;
-        border: 1px solid #F2F4F7;
         z-index: 3;
         font-size: 14px;
+        background-color: var(--primary-bg-colour);
     }
 
     .dropdown-container .dropdown {
@@ -387,7 +387,7 @@
         font-weight: 600;
     }
     
-    @media  (max-width: 1055px) {
+    @media  (max-width: 1050px) {
         .hero-search-container { 
             padding: 7px 5px; 
         }
@@ -399,11 +399,6 @@
 
         .search-input {
             height: 54px;
-        }
-
-        .graduation {
-            position: relative;
-            left: 6px;        
         }
 
         .search-input input[type=text] {
@@ -446,11 +441,6 @@
         .search-result i {
             font-size: 1rem;
         }
-
-        .search-result .times {
-            right: 40px;
-        }
-
 
         /* === DROPDOWN SECTION === */
         .dropdown-container {
@@ -496,90 +486,210 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            align-content: center;
-            padding: 10px;  
+            padding: 0; 
+            background-color: var(--primary-blue);
         }
 
         .hero-search-container i { 
-            padding: 0 20px;
+            padding: 0 8px;
+            font-size: 0.9rem;
+            width: 40px;
         }
 
         .search-input {
-            height: 50px;
+            height: 58px;
             width: 100%;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            margin-bottom: 0.5rem;
             display: flex;
-            flex-direction: row;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            border-right: none;
-        }
-
-        .graduation {
-            left: 0px;        
+            background-color: var(--primary-bg-colour);
         }
 
         .search-input input[type=text] {
-            width: 90%;
-            padding: 0 0 0 1rem;
-            height: 40px;
-            font-size: 13px;
-            border: 1px solid #eee;
+            width: 100%;
+            /* height: 46px; */
+            height: 90%;
+            padding: 0 12px 0 16px;
+            margin-left: 0px;
+            margin-bottom: 8px;
+            margin: 0 auto;
         }
 
-        input[type=text]::placeholder {
-            font-size: 14px;
+        .search-input input[type=text]::placeholder {
             font-weight: 400;
+        }
+
+        .search-input .button-container{
+            width: 30px;
+        }
+
+        .search-icon {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-items: flex-end;
+        }
+
+        /* === SEARCH RESULT SECTION === */
+        .search-result {
+            height: 58px;
+            width: 100%;
+            padding: 0 0 0 0;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background-color: var(--primary-bg-colour);
+        }
+
+        .search-result .result-input {
+            width: 100%;
+        }
+
+        .search-result .result-input div {
+            width: 100%;
+            background-color: transparent;
+        }
+
+        .search-result input[type=text] {
+            width: 100%;
+            height: 46px;
+        }
+
+        .search-result .chev-down {
+            display: flex;
+            justify-items: flex-end;
+        }
+
+        /* === HERO SELECT === */
+        .hero-select-container {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 50px;
+            outline: none;
+            border: none;
+            margin-top: 1rem;
+        }
+
+        .hero-select-container select {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            height: 50px;
+            outline: none;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 10px 12px 10px 1rem;
+        }
+
+        .hero-select-container select option {
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+            padding: 8px 0;
+            border-bottom: 1px solid #F2F4F7;
+            padding: 10px 12px 10px 16px;
+            margin-bottom: 1rem;
+        }
+
+
+        /* === DROPDOWN SECTION === */
+        .dropdown-container {
+            max-width: 100%;
+            width: 90%;         
+        }
+
+        .dropdown-container .enter-state {
+            max-width: 100%;
+            width: 90%;
+            max-height: 70px;
+        }
+
+        .dropdown-container .enter-state input[type=text] {
+            height: 40px;
+            margin-left: 15px;
+        } 
+
+    }
+
+    @media (max-width: 450px) {
+        .hero-search-container { 
+            padding: 0.25rem;  
+        }
+
+        .hero-search-container i { 
+            padding: 0 4px;
+            font-size: 0.8rem;
+            width: 30px;
+        }
+
+        .search-input {
+            height: 40px;
         }
 
         .search-input .button-container{
             width: 25px;
         }
 
-        .search-input button {
-            width: 100%;
-        }
-
-        .search-icon {
-            width: 100%;
-            font-weight: 500;
-        }
-
-
+        /* === SEARCH RESULT SECTION === */
         .search-result {
-            height: 50px;
+            height: 40px;
             width: 100%;
-            padding: 0 4px 0 0;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;            
+            padding: 0 0 0 0;
+            border: 1px solid #eee;
         }
+
         .search-result .result-input {
             width: 100%;
-            max-width: 100%;
         }
 
         .search-result .result-input div {
             width: 100%;
-            margin: 0 0px;
+            display: flex;
+            flex-direction: row;
+            border-radius: 8px;
+            /* background-color: var(--light-blue-bg); */
+            background-color: transparent;
         }
 
         .search-result input[type=text] {
             width: 100%;
-            height: 40px;
+            height: 45px;
         }
 
-        .search-result i {
-            font-size: 0.9rem;
-        }
-
-        .search-result .times {
+        .search-result .chev-down {
             display: flex;
-            justify-content: flex-end;
-            position: relative;
-            right: 40px;
+            justify-items: flex-end;
         }
 
+        .hero-select-container select {
+            height: 40px;
+            font-size: 12px;
+            padding: 8px 10px 8px 12px;
+        }
+
+
+        /* === DROPDOWN SECTION === */
+        .dropdown-container {
+            max-width: 100%;
+            width: 90%;         
+        }
+
+        .dropdown-container .enter-state {
+            max-width: 100%;
+            width: 90%;
+            max-height: 70px;
+        }
+
+        .dropdown-container .enter-state input[type=text] {
+            height: 40px;
+            margin-left: 15px;
+        } 
 
     }
 
