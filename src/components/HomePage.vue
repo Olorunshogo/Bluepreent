@@ -1,14 +1,16 @@
 
 <script setup>
-    import NavigationBar from '../components/NavigationBar.vue';
-    import HeroSection from '../components/HeroSection.vue';
-    import CategoriesSection from '../components/CategoriesSection.vue';
-    import DeclutterSell from '../components/DeclutterSell.vue';
+    import NavigationBar from './NavigationBar.vue';
+    import HeroSection from './HeroSection.vue';
+    import CategoriesSection from './CategoriesSection.vue';
+    import DeclutterSell from './DeclutterSell.vue';
 
     import TrendingPosts from '../components/TrendingPosts.vue';
     import ServicesSection from '../components/ServicesSection.vue';
     import ShopSell from '../components/ShopSell.vue';
-    import FooTer from '../components/FooTer.vue'
+    import FooTer from '../components/FooTer.vue';
+
+    import LoginPage from '../components/LoginPage.vue';
 </script>
 
 <template>
@@ -59,18 +61,28 @@
                 </div>
             </div>
 
+            <!-- <div class="width" title="LogIn">
+                <div class="Login">
+                    <LogIn />
+                </div>
+            </div> -->
+
+            <div class="width" title="LogIn">
+                <div class="LoginPage">
+                    <LoginPage />
+                </div>
+            </div>
+
         </div>
         
     </div>
 
-    <div class="mobile">
+    <!-- <div class="mobile">
         <h1>Well &#129320;&#129320;&#129320;</h1>
         <p>This website is only cool to view at precisely <b>max-width: 1050px</b> screen size. Anything in between that and <b>1500px</b> would not look good.</p>
         <h3><b>Ire o.</b>&#128524;</h3>
-    </div>
+    </div> -->
 </template>
-
-
 
 <style lang="css" scoped>
     .container {
