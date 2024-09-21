@@ -79,6 +79,50 @@
                                 </div>
                             </template>
                         </CustomServices>
+                    </div>  
+
+                    <div class="service" title="Easy Cash">
+                        <CustomServices>
+                            <template v-slot:icon>
+                                <div>
+                                    <PayIcon />
+                                </div>
+                            </template>
+
+                            <template #heading>
+                                <div id="easy-cash">
+                                    Easy Cash:
+                                </div>
+                            </template>
+
+                            <template #description>
+                                <div>
+                                    Turn your unused items into money for your next adventure.
+                                </div>
+                            </template>
+                        </CustomServices>
+                    </div>  
+
+                    <div class="service" title="Easy Cash">
+                        <CustomServices>
+                            <template v-slot:icon>
+                                <div>
+                                    <PayIcon />
+                                </div>
+                            </template>
+
+                            <template #heading>
+                                <div id="easy-cash">
+                                    Easy Cash:
+                                </div>
+                            </template>
+
+                            <template #description>
+                                <div>
+                                    Turn your unused items into money for your next adventure.
+                                </div>
+                            </template>
+                        </CustomServices>
                     </div>                    
                 </div>
             </div>
@@ -133,23 +177,25 @@
     }
 
     .services-container {
-        display: flex;
+        /* display: flex;
         flex-direction: row;
         justify-items: space-between;
-        align-items: center;
-        gap: 3rem;
-        flex: 0 0 100%;
-        max-width: 100%;
-        width: 100%;
-        height: 50%;
-        margin: auto;
+        align-items: center; */
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        /* flex: 0 0 100%;
+        max-width: 100%; */
+        /* width: 100%;
+        height: 60%;
+        margin: auto; */
     }
 
     .service {
-        display: flex;
+        /* display: flex;
         flex: 0 0 30%;
         max-width: 30%;
-        height: 100%;
+        height: 100%; */
         border-radius: 8px;
         transition: all 0.5s ease-in-out;
     }
@@ -164,7 +210,7 @@
         font-weight: 700;
     }
 
-    @media (max-width: 1050px) {
+    /* @media (max-width: 1050px) {
 
         .container {
             width: 95%;
@@ -257,7 +303,7 @@
             flex: 0 0 100%;
             max-width: 100%;
         }
-    }
+    } */
 
     
 </style>

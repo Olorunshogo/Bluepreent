@@ -2,14 +2,14 @@
 <script setup>
     import { ref } from 'vue';
 
-    const email = ref("");
-    const password = ref("");
-
     const showPassword = ref(true);
     const slashEye = ref(true); 
 
     const showText = ref(false); 
-    const showEye = ref(false);   
+    const showEye = ref(false);  
+
+    const email = ref("");
+    const password = ref("");
      
 
     function toggleShow() {
@@ -18,6 +18,48 @@
         showEye.value = !showEye.value;
         slashEye.value = !slashEye.value;
     }
+
+    // const emailInput = document.querySelector('name="email');
+    
+    // emailInput.addEventListener('invalid', () => {
+    //     emailInput.setCustomValidity('Please enter your email');
+    // });
+
+    // const emit = defineEmits({
+    //     login: ({ email, password }) => {
+    //         if ( email && password ) {
+    //             console.log('Invalid submit event!');
+    //             return true
+    //         } else {
+    //             console.warn('Invalid submit event!')
+    //             return false
+    //         }
+    //     }
+    // })
+
+    // SUBMIT FORM
+
+    // (email, password async(newEmail, newPassword) => {
+    //     if (email.value.includes('@')) {
+    //         console.log('Autneticated')
+    //     } else {
+    //         console.log('Please input a valid email')
+    //     }
+    // })
+
+    // const emit = defineEmits({
+    //     login: ({ email, password }) => {
+    //         // if ( email && password) {
+    //         //     console.log('authenticated')
+    //         // } else {
+    //         //     console.log("Username and Password can not be empty")
+    //         // }
+    //         if (email.value != && email.value != ) {
+    //             console.log('Input valid email')
+    //         }
+    //     }
+    // });
+
 
 
 </script>
@@ -45,55 +87,73 @@
                             </div>
 
                             <div class="login-form">
-                                <form action="" method="post" title="Login Form">
+                                <!-- "enctype" is used for forms to submit files using the POST method. Else, it won't in its absence except using the GET method -->
+                                <!-- "enterkeyhin="done" or "next" would change the icon of the type=tel when done in mobile screens. -->
+                                <form 
+                                    action="../assets/action.php" method="post" 
+                                    title="Login Form" id="loginForm" autocomplete="on"
+                                    name="login-form" @submit.prevent="submitForm"
+                                >
                                     <div class="e-mail-container" title="E-mail">
-                                        <span class="icons" title="Envelope">
-                                            <i class="fa-regular fa-envelope"></i>
-                                        </span>
+                                        <label for="email">
+                                            <span class="icons" title="Envelope">
+                                                <i class="fa-regular fa-envelope"></i>
+                                            </span>
 
-                                        <input 
-                                            class="input" type="email" 
-                                            id="email" v-model="email" 
-                                            placeholder="Email"
-                                        />
+                                            <input required
+                                                class="input" type="email" 
+                                                id="email" name="Email" v-model="email" 
+                                                placeholder="Email (required)" autocomplete="new-email"
+                                            />
+                                        </label>
                                     </div>
 
                                     <div class="password-container" title="Password">
-                                        <span class="icons" title="Square Check">
-                                            <i class="fa-regular fa-square-check"></i>
-                                            <!-- <i class="fa-regular fa-circle-check"></i> -->
-                                        </span>
+                                        <label for="password">
+                                            <span class="icons" title="Square Check">
+                                                <i class="fa-regular fa-square-check"></i>
+                                                <!-- <i class="fa-regular fa-circle-check"></i> -->
+                                            </span>
 
-                                        <input
-                                            v-show="showText" type="text" 
-                                            id="textPassword" class="input" 
-                                            v-model="password" placeholder="Password" 
-                                            title="Password"
-                                        />
+                                            <input required minlength="8" aria-describedby="password-minlength"
+                                                v-show="showText" type="text" 
+                                                id="textPassword" name="Password" class="input" 
+                                                v-model="password" placeholder="Password (required)" 
+                                                autocomplete="new-password" title="Password"
+                                            />
 
-                                        <input 
-                                            v-show="showPassword" type="password" 
-                                            id="password" class="input" 
-                                            v-model="password" placeholder="Password" 
-                                            title="Password"
-                                        />
+                                            <input required minlength="8" aria-describedby="password-minlength"
+                                                v-show="showPassword" type="password" 
+                                                id="password" name="Password" class="input" 
+                                                v-model="password" placeholder="Password (required)" 
+                                                title="Password" autocomplete="new-password"
+                                            />
+                                            <p id="password-minlength">Enter at least 8 characters.</p>
 
-                                        <span v-on:click="toggleShow" class="icons">
-                                            <i v-show="showEye" class="fa-regular fa-eye"></i>
-                                            <i v-show="slashEye" class="fa-regular fa-eye-slash"></i>
-                                        </span>
+                                            <span v-on:click="toggleShow" class="icons">
+                                                <i v-show="showEye" class="fa-regular fa-eye"></i>
+                                                <i v-show="slashEye" class="fa-regular fa-eye-slash"></i>
+                                            </span>
+
+                                            <!-- Making sure the "aria-describedby" in the input field value is the same as the "aria-live" value in the actual error message -->
+                                            <!-- <span id="email-validation" aria-live="assertive"></span> -->
+                                        </label>
                                     </div>
 
                                     <p class="forgotten-password">Forgot Password?</p>
+
+                                    <div class="login-footer">
+                                        <button type="button" id="login-form" 
+                                            formmethod="post" title="Submit Button"
+                                        >
+                                            <span>Login</span>
+                                        </button>
+                                        <p>Don’t have an account? <a href="http://" target="_blank" rel="noopener noreferrer">Register</a></p>
+                                    </div>
                                 </form>
                             </div>
 
-                            <div class="login-footer">
-                                <button title="Submit Button">
-                                    <span>Login</span>
-                                </button>
-                                <p>Don’t have an account? <a href="http://" target="_blank" rel="noopener noreferrer">Register</a></p>
-                            </div>
+                            
                         </div>
                     </div>
 
@@ -115,7 +175,7 @@
                                 <div class="ellipse"></div>
                             </div>
 
-                            <div class="arc">Ellipse</div>
+                            <div class="arc"></div>
                         </div>
 
                         <div class="bottom">
@@ -132,6 +192,7 @@
                 <div class="terms-condition">
                     <p>By clicking on the “Create Account” button, you indicate that you agree to the <span><a href="http://" target="_blank" rel="noopener noreferrer">Terms of Service</a></span> and <span><a href="http://" target="_blank" rel="noopener noreferrer">Privacy Policy</a></span></p>
                 </div>
+                kwbk
             </div>
         </div>
     </div>
@@ -201,7 +262,8 @@
         max-width: 675px;
         height: 100%;
         max-height: 874px;
-        padding: 222px 83px 190px 84px;
+        padding: 222px 70px 190px 70px;
+        /* padding: 222px 84px 190px 84px; */
     }
 
     .login-content {
@@ -211,7 +273,7 @@
         align-items: center;
         width: 100%;
         max-width: 508px;
-        height: 462px;
+        max-height: 462px;
         padding-top: 48px;
         gap: 2rem;
         border-radius: 4px;
@@ -414,13 +476,7 @@
         width: 50%;
         max-width: 677px;
         height: 872px;
-        /* border-radius: 10px 0px 0px 0px; */
         background-color: var(--primary-blue);
-        /* background-image: url(../images/Courier_Man.png);
-        background-position-x: center;
-        background-position-y: bottom;
-        background-repeat: no-repeat;
-        background-size: 100%; */
     }
 
     .image-section .top {
@@ -428,13 +484,15 @@
         align-items: center;
         width: 46%;
         max-width: 280px;
-        height: 134px;
+        height: 100%;
+        max-height: 134px;
     }
 
     .image-section .top > div:nth-child(1){
         width: 50%;
         max-width: 157px;
-        height: 134px;
+        height: 100%;
+        max-height: 134px;
         background-color: #0F84CCCC;
         border-radius: 0 0 120px 0;
     }
@@ -442,7 +500,8 @@
     .image-section .top > div:nth-child(2) {
         width: 50%;
         max-width: 153px;
-        height: 134px;
+        height: 100%;
+        max-height: 134px;
         background-color: #34EDED66;
         clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
     }
@@ -450,7 +509,7 @@
     .image-section .middle {
         display: flex;
         align-items: center;
-        justify-content: space-around;
+        justify-content: space-between;
         position: relative;
         width: 100%;
         height: 258px;
@@ -462,22 +521,21 @@
         justify-content: center;
         align-items: center;
         position: absolute;
-        bottom: 0;
+        bottom: 0%;
     }
 
     .image img {
         width: 100%;
         max-width: 950px;
         height: auto;
-        z-index: 10;
+        z-index: 8;
     }
 
     .image-section .curve-triangle {
-        width: 109.48px;
-        height: 89.92px;
-        /* top: 377.03px; */
-        /* left: 54px; */
-        /* left: 5%; */
+        width: 100%;
+        max-width: 109.48px;
+        height: 100%;
+        max-height: 89.92px;
         background-color: #0F84CCCC;
         border-radius: 0 0 120px 0;
     }
@@ -488,11 +546,11 @@
         position: relative;
     }
 
-    .image-section .rectangle {
-        width: 332px;
-        height: 288px;
-        /* top: 258px; */
-        /* left: 222px; */
+    .middle .rectangle {
+        width: 100%;
+        max-width: 332px;
+        height: 100%;
+        max-height: 288px;
         border-radius: 200px 200px 0 0;
         width: 332px;
         background: #0F84CCCC;
@@ -501,39 +559,36 @@
     }
 
     .middle .ellipse {
-        width: 332px;
-        height: 305px;
+        width: 100%;
+        max-width: 332px;
+        height: 100%;
+        max-height: 305px;
         background-color: #0F84CCCC;
         position: relative;
         top: 40px;
         clip-path: ellipse(50% 50%);
-        z-index: 400;
+        z-index: 5;
     }
 
     .image-section .arc {
-        width: 119px;
-        height: 121px;
-        /* top: 377.03px; */
-        /* left: 54px; */
-        /* left: 5%; */
+        width: 100%;
+        max-width: 119px;
+        height: 100%;
+        max-height: 121px;
         background-color: #34EDED66;
         border-radius: 50%;
         transform: rotate(90deg);
         position: relative;
-        top: 2px;
-        right: 52px;
+        top: 15%;
+        right: 6%;
         overflow: hidden;
-        /* clip-path: inset(0 0 0 20%); */
         z-index: 2000000;
     }
 
-    .image-section .ac::before {
+    .image-section .arc::before {
         content: '';
         width: 50%;
         height: 50%;
-        /* top: 377.03px; */
-        /* left: 54px; */
-        /* left: 5%; */
         /* background-color: #34EDED66; */
         border-radius: 50%;
         background: var(--primary-blue);
@@ -542,7 +597,6 @@
         left: 25%;
         /* clip-path: outset(0 0 0 20%); */
         z-index: 2000000;
-        clip-path: inset circle(20%);
     }
 
     .image-section .bottom {
@@ -552,13 +606,16 @@
         width: 100%;
         height: 20%;
         max-height: 180px;
+        z-index: 9;
     }
 
     .bottom .left-polygon {
         display: flex;
         align-self: flex-end;
-        width: 154px;
-        height: 134px;
+        width: 100%;
+        max-width: 154px;
+        height: 100%;
+        max-height: 134px;
         border-radius: 0 120px 0 0;
         background-color: #0F84CCCC;
     }
@@ -567,24 +624,30 @@
         display: flex;
         flex-direction: row;
         align-self: flex-end;
-        width: 295px;
-        height: 169px;
+        width: 100%;
+        max-width: 295px;
+        height: 100%;
+        max-height: 169px;
     }
 
     .bottom .right-shapes .triangle {
         display: flex;
         flex-direction: row;
         align-self: flex-end;
-        width: 153px;
-        height: 127px;
+        width: 100%;
+        max-width: 153px;
+        height: 100%;
+        max-height: 127px;
         background-color: #0F84CC99;
         clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
         transform: rotate(180deg);
     }
 
     .bottom .right-shapes .polygon {
-        width: 142px;
-        height: 169px;
+        width: 100%;
+        max-width: 143px;
+        height: 100%;
+        max-height: 169px;
         background-color: #0C659CCC;
         clip-path: polygon(
             0% 0%, /* Top-left corner of the rectangle */

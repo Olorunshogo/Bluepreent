@@ -1,9 +1,8 @@
 
 <script setup>
 
-    import EeLogo from '../assets/EeLogo.vue'
-    //import YoungCouriers from '../assets/YoungCouriers.vue'
-    import HeroSearch from './HeroSearch.vue'
+    import EeLogo from '../assets/EeLogo.vue';
+    import HeroSearch from './HeroSearch.vue';
 
 </script>
 

@@ -14,6 +14,13 @@
   --trans-01-ease-out: all 0.1s ease-out;
   --trans-03-ease-in: all 0.3s ease-in;
   --trans-05-ease-in-out: all 0.5s ease-in-out;
+
+  /* NAV */
+  --nav-height: clamp(3rem, 12vh, 4rem);
+  --nav-margin: clamp(0.5rem, 1vh, 1.5rem);
+  --nav-link-size: clamp(0.75rem, 14px, 1rem);
+  --nav-link-width: clamp(6.7rem, 5vw 9.5rem);
+
 }
 
 *,
@@ -23,8 +30,6 @@
   margin: 0;
   padding: 0;
 }
-
-
 
 body {
   min-height: 100vh;
@@ -55,7 +60,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icons {
+/* .icons {
   color: black;
   height: auto;
   width: 35px;
@@ -64,23 +69,16 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-}
+} */
 
-#app {
+/* #app {
   max-width: 1800px;
   margin: 0 auto;
+} */
+
+.width {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 2500px;
 }
 
-
-/* @media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
-} */

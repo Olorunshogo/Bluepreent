@@ -1,6 +1,5 @@
 
 <script setup>
-    import NavigationBar from './NavigationBar.vue';
     import HeroSection from './HeroSection.vue';
     import CategoriesSection from './CategoriesSection.vue';
     import DeclutterSell from './DeclutterSell.vue';
@@ -9,17 +8,12 @@
     import ServicesSection from '../components/ServicesSection.vue';
     import ShopSell from '../components/ShopSell.vue';
     import FooTer from '../components/FooTer.vue';
-
-    import LoginPage from '../components/LoginPage.vue';
 </script>
 
 <template>
     <div class="container" title="Home Page">
         <div class="width">
             <div class="nav-hero-container section">
-                <div title="Navigation Bar">
-                    <NavigationBar />
-                </div>
                 <div title="Hero Section">
                     <HeroSection />
                 </div>
@@ -61,43 +55,12 @@
                 </div>
             </div>
 
-            <!-- <div class="width" title="LogIn">
-                <div class="Login">
-                    <LogIn />
-                </div>
-            </div> -->
-
-            <div class="width" title="LogIn">
-                <div class="LoginPage">
-                    <LoginPage />
-                </div>
-            </div>
-
         </div>
         
     </div>
-
-    <!-- <div class="mobile">
-        <h1>Well &#129320;&#129320;&#129320;</h1>
-        <p>This website is only cool to view at precisely <b>max-width: 1050px</b> screen size. Anything in between that and <b>1500px</b> would not look good.</p>
-        <h3><b>Ire o.</b>&#128524;</h3>
-    </div> -->
 </template>
 
 <style lang="css" scoped>
-    .container {
-        max-width: 1500px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        padding-bottom: 4rem;
-    }
-
-    .width {
-        width: 90%;
-        margin: 0 auto;
-    }
-
     .categories {
         margin: 7rem 0 3rem 0;
     }
