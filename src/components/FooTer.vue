@@ -10,7 +10,9 @@
             <div class="container">
                 <div class="logo-copyright">
                     <div class="logo">
-                        <img src="../images/Bluepreent.png" alt="Bluepreent Image">
+                        <RouterLink to="/">
+                            <img src="../images/Bluepreent.png" alt="Bluepreent Image">
+                        </RouterLink>
                     </div>
 
                     <div class="copyright">
@@ -21,23 +23,23 @@
                 <div class="information">
                     <div class="contacts">
                         <div class="phone">
-                            <h4>Phone</h4>
+                            <h2>Phone</h2>
                             <p>+234 8029 290 1100</p>
                         </div>
 
                         <div class="e-mail">
-                            <h4>E-mail</h4>
+                            <h2>E-mail</h2>
                             <p>support@bluepreent.com</p>
                         </div>
 
                         <div class="social">
-                            <h4>Social</h4>
+                            <h2>Social</h2>
                             <p>Twitter, Facebook</p>
                         </div>
                     </div>
 
                     <div class="location">
-                        <h4>Lagos, Nigeria</h4>
+                        <h2>Lagos, Nigeria</h2>
                         <p>Gabriel House, Victoria Island, 1102, NG</p>
                     </div>
                 </div>
@@ -71,22 +73,11 @@
     }
 
     .container {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         width: 100%;
         height: 100%;
         padding: 5rem 4rem;
-        flex: 0 0 100%;
-        max-width: 0 0 100%;
-    }
-
-    .container > div:nth-child(1),
-    .container > div:nth-child(2) {
-        width: 50%;
-        height: 100%;
-        flex: 0 0 50%;
-        max-width: 0 0 50%;
     }
 
     .logo-copyright {
@@ -97,6 +88,7 @@
         max-width: 350px;
         max-height: 198px;
         height: 100%;
+        margin-bottom: 1rem;
     }
 
     .logo-copyright .logo {
@@ -131,22 +123,15 @@
     }
 
     .information {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-content: center;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        width: 100%;
         height: 100%;
     }
 
-    .information > div {
-        width: 50%;
-        flex: 0 0 50%;
-        max-width: 0 0 50%;
-    }
-
-    .information > div h4 {
+    .information > div h2 {
         font-family: Inter;
-        font-size: 13px;
+        font-size: var(--footer-h2);
         font-weight: 400;
         line-height: 18px;
         letter-spacing: -0.10000000149011612px;
@@ -156,7 +141,7 @@
 
     .information > div p {
         font-family: Inter;
-        font-size: 15px;
+        font-size: var(--footer-p);
         font-weight: 400;
         line-height: 22px;
         letter-spacing: -0.20000000298023224px;
@@ -175,11 +160,8 @@
     .information .contacts > div,
     .information .location {
         width: 100%;
-        width: 100%;
-        margin-bottom: 1.5rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        height: 100%;
+        margin-bottom: 0.5rem;
     }
 
     .information .contacts > div {
@@ -187,133 +169,12 @@
     }
 
     .information .location {
-        height: 67px;
-    }
-    
-
-    @media (max-width: 1050px) {
-        .container {
-            padding: 4.5rem 3rem;
-        }
-
-        .information {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-content: center;
-        }
+        height: var(--footer-location-height);
     }
 
     @media (max-width: 760px) {
         .container {
             padding: 5rem 2rem;
-        }
-
-        .container > div:nth-child(1),
-        .container > div:nth-child(2) {
-            width: 50%;
-            height: 100%;
-            flex: 0 0 50%;
-            max-width: 0 0 50%;
-        }
-
-        .container > div:nth-child(1),
-        .container > div:nth-child(2) {
-            width: 60%;
-            height: 100%;
-            flex: 0 0 50%;
-            max-width: 0 0 50%;
-        }
-
-
-        .logo-copyright .logo img {
-            width: 95%;
-            height: 30px;
-        }
-
-        .logo-copyright .copyright {
-            font-size: 12px;
-            margin-top: 0.4rem;
-        }
-
-        .information > div h4 {
-            font-size: 13px;
-        }
-
-        .information > div p {
-            font-size: 14px;
-        }
-
-        .information .contacts {
-            max-height: 180px;
-        }
-
-        .information .contacts > div,
-        .information .location {
-            margin-bottom: 1.2rem;
-        }
-
-        .information .contacts > div {
-            height: 40px;
-        }
-
-        .information .location {
-            height: 50px;
-        }
-    }
-
-    @media (max-width: 450px) {
-        .container {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            width: 100%;
-            height: 100%;
-            padding: 5rem 1rem 0 0;
-            gap: 2rem;
-        }
-
-        .container > div:nth-child(1),
-        .container > div:nth-child(2) {
-            width: 100%;
-            height: 100%;
-            flex: 0 0 100%;
-            max-width: 0 0 100%;
-        }
-
-        .information {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-content: center;
-            height: 100%;
-        }
-
-        .information > div h4 {
-            font-size: 12px;
-            line-height: 1.5rem;
-        }
-
-        .information > div p {
-            font-size: 13px;
-            line-height: 1rem;
-        }
-
-        .information .contacts {
-            max-height: 160px;
-        }
-
-        .information .contacts > div,
-        .information .location {
-            margin-bottom: 1rem;
-        }
-
-        .information .contacts > div {
-            height: 40px;
-        }
-
-        .information .location {
-            height: 50px;
         }
     }
 

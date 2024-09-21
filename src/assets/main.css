@@ -14,13 +14,37 @@
   --trans-01-ease-out: all 0.1s ease-out;
   --trans-03-ease-in: all 0.3s ease-in;
   --trans-05-ease-in-out: all 0.5s ease-in-out;
+}
 
+:root {
   /* NAV */
   --nav-height: clamp(3rem, 12vh, 4rem);
   --nav-margin: clamp(0.5rem, 1vh, 1.5rem);
-  --nav-link-size: clamp(0.75rem, 14px, 1rem);
+  --nav-link-size: clamp(0.75rem, 2vw, 1rem);
   --nav-link-width: clamp(6.7rem, 5vw 9.5rem);
 
+  /* SERVICES */
+  --page-padding: clamp(1rem, 2vw, 2rem);
+  --services-h2: clamp(1.2rem, 5vw, 1.9rem);
+  --services-span: clamp(0.9rem, 4vw, 1.3rem);
+  --service-custom-height: clamp(120px, 35vh, 250px);
+  --service-i-width: clamp(50px, 10vw, 60px);
+  --service-h3-size: clamp(1rem, 7vw, 1.3rem);
+  --service-p-size: clamp(0.9rem, 5vw, 1rem);
+  --services-container-gap: clamp(1rem, 2vw, 2rem);
+
+  /* SHOP. SELL. EXCEL  */
+  --shop-section-height: clamp(300, 40vh, 400px);
+  --shop-h2: clamp(1.3rem, 4vw, 2rem);
+  --shop-p: clamp(1rem, 4vw, 1.2rem);
+  --shop-gap: clamp(1rem, 1.5rem, 2rem);
+  --shop-btn-i: clamp(1.2rem, 4vw, 1.5rem);
+  --shop-sell-height: clamp(160px, 15vh, 220px);
+
+  /* FOOTER */
+  --footer-h2: clamp(12px, 2vw, 14px);
+  --footer-p: clamp(13px, 2vw, 15px);
+  --footer-location-height: clamp(50px, 10vh, 65px);
 }
 
 *,

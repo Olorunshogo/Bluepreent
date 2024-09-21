@@ -28,15 +28,14 @@
 <style lang="css" scoped>
     .container {
         width: 100%;
-        height: 100%;
-        height: 250px;
+        height: var(--service-custom-height);
         border-radius: 8px;
-        padding: 1.2rem;
+        padding: 1rem;
         background-color: #C9DBE838;
     }
 
     .icon {
-        width: 68px;
+        width: var(--service-i-width);
         height: 60px;
         display: flex;
         justify-content: center;
@@ -75,7 +74,7 @@
 
     .heading h3 {
         font-family: Inter;
-        font-size: 1.25rem;
+        font-size: var(--service-h3-size);
         font-weight: 600;
         line-height: 1.5rem;
         text-align: left;
@@ -85,118 +84,10 @@
 
     .description p {
         font-family: Inter;
-        font-size: 1rem;
+        font-size: var(--service-p-size);
         font-weight: 400;
         line-height: 28px;
         text-align: left;
         color: #506683;
     }
-
-    /* @media (max-width: 1050px) {
-        .container {
-            padding: 1rem;
-        }
-
-        .icon {
-            width: 60px;
-            height: auto;
-            padding: 1rem;
-        }
-
-        .icon i {
-            width: 25px;
-            height: 25px;
-            font-size: 1rem;
-        }
-
-        .icon i > span {
-            width: 20px;
-            height: 20px;
-        }
-
-        .heading-description {
-            margin: 8px 0;
-        }
-
-        .heading h3 {
-            font-size: 1.1rem;
-        }
-
-        .description p {
-            font-size: 0.9rem;
-            line-height: 24px;
-        }
-
-    }
-
-    @media (max-width: 760px) {
-        .container {
-            padding: 12px;
-            height: 240px;
-        }
-
-        .icon {
-            width: 50px;
-            height: 50px;
-            padding: 12px;
-        }
-
-        .icon i {
-            font-size: 0.9rem;
-        }
-
-        .heading-description {
-            margin: 8px 0;
-            max-height: 100%;
-        }
-
-        .heading h3 {
-            font-size: 1.1rem;
-        }
-
-        .description p {
-            font-size: 1rem;
-            line-height: 24px;
-        }
-
-    }
-
-    @media (max-width: 450px) {
-        .container {
-            padding: 1rem;
-        }
-
-        .icon {
-            width: 60px;
-            height: auto;
-            padding: 1rem;
-        }
-
-        .icon i {
-            width: 25px;
-            height: 25px;
-            font-size: 1rem;
-        }
-
-        .icon i > span {
-            width: 20px;
-            height: 20px;
-        }
-
-        .heading-description {
-            margin: 8px 0;
-            gap: 1rem;
-        }
-
-        .heading h3 {
-            font-size: 1.1rem;
-        }
-
-        .description p {
-            font-size: 0.9rem;
-            line-height: 24px;
-        }
-
-    } */
-
 </style>

@@ -209,7 +209,7 @@
             height: 13px;
         }
     }
-
+/* 
     @media  (max-width: 760px) {
         .card-container {
             height: 330px;
@@ -257,14 +257,14 @@
             font-size: 1.1rem;
         }
 
-        /* .description .condition {
+        .description .condition {
             font-size: 12px;
-        } */
+        }
 
-        /* .description .condition > span:nth-child(1),
+        .description .condition > span:nth-child(1),
         .description .condition > span:nth-child(2) {
             width: 48%;
-        }  */
+        } 
 
 
         .description .price {
@@ -285,20 +285,20 @@
             font-size: 1.1rem;
         }
 
-        /* .description .condition {
+        .description .condition {
             font-size: 12px;
-        } */
+        }
 
-        /* .description .condition > span:nth-child(1),
+        .description .condition > span:nth-child(1),
         .description .condition > span:nth-child(2) {
             width: 48%;
-        }  */
+        }
 
 
         .description .price {
             font-size: 1.1rem;
             line-height: 1.2rem;
         }
-    }
+    }  */
 
 </style>

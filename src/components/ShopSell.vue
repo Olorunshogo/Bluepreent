@@ -30,10 +30,14 @@
                     <h2>Shop. Sell. Excel.</h2>
                     <p>Step into a world of student-centric buying and selling</p>
                     <button>
-                        <div>
-                            <span class="text">Get started</span>
-                            <span class="icon"><i class="fa-solid fa-arrow-right"></i></span>
-                        </div>
+                        <RouterLink to="shop" class="router-link">
+                            <div>
+                                <span class="text">
+                                    Get Started
+                                </span>
+                                <span class="icon"><i class="fa-solid fa-arrow-right"></i></span>
+                            </div>
+                        </RouterLink>
                     </button>
                 </div>
             </div>
@@ -43,7 +47,7 @@
 
 <style lang="css" scoped>
     .page-container {
-        height: 400px;
+        height: var(--shop-section-height);
         width: 100%;
         background-color: var(--primary-blue);
         opacity: 94%;
@@ -102,8 +106,6 @@
         align-items: center;
         width: 100%;
         max-width: 250px;
-        /* max-height: 100%; */
-        /* transform: rotate( 21.56 deg); */
     }
 
     .container .shop-sell {
@@ -111,8 +113,8 @@
         flex-direction: column;
         justify-content: center;
         align-self: center;
-        gap: 2rem;
-        height: 220px;
+        gap: var(--shop-gap);
+        height: var(--shop-sell-height);
         color: var(--white-text)
     }
 
@@ -121,14 +123,14 @@
         width: 276px;
         height: 60px;
         font-family: Inter;
-        font-size: 2.1rem;
+        font-size: var(--shop-h2);
         font-weight: 600;
         line-height: 57px;
     }
 
     .container .shop-sell p {
         font-family: Inter;
-        font-size: 1.25rem;
+        font-size: var(--shop-p);
         font-weight: 400;
         line-height: 1.5rem;
     }
@@ -138,12 +140,18 @@
         height: 76px;
         outline: none;
         border: none;
-        color: var(--primary-blue);
         background-color: var(--primary-bg-colour);
         border-radius: 8px;
         display: flex;
         justify-content: center;
         cursor: pointer;
+        text-decoration: none;
+    }
+
+    .container .shop-sell button .router-link {
+        margin: auto;
+        color: var(--primary-blue);
+        text-decoration: none;
     }
 
     .container .shop-sell button > div {
@@ -166,60 +174,36 @@
 
     .container .shop-sell button .text {
         font-family: Campton;
-        font-size: 1.25rem;
+        font-size: var(--shop-p);
         font-weight: 500;
         line-height: 2.3rem;
+        text-decoration: none;
     }
 
     .container .shop-sell button .icon {
-        font-size: 1.5rem;
+        font-size: var(--shop-btn-i);
     }
 
     @media (max-width: 1050px) {
-        .page-container {
-            height: 300px;
-        }
-
         .container .images {
             width: 95%;
-        }
-
-        .container .shop-sell {
-            gap: 1.5rem;
-            height: 180px;
         }
 
         .container .shop-sell h2 {
             width: 90%;
             height: 60px;
-            font-size: 1.6rem;
             line-height: 35px;
         }
 
         .container .shop-sell p {
-            font-size: 1.1rem;
             line-height: 1.2rem;
-        }
-
-        .container .shop-sell button {
-            width: 180px;
-            height: 50px;
         }
 
         .container .shop-sell button > div {
             width: 140px;
             height: 40px;
         }
-
-        .container .shop-sell button .text {
-            font-size: 1.2rem;
-            line-height: 2.1rem;
-        }
-
-        .container .shop-sell button .icon {
-            font-size: 1.4rem;
-        }
-    }
+    } 
 
     @media (max-width: 760px) {
         .page-container {
@@ -260,16 +244,10 @@
         }
     }
 
-    @media (max-width: 450px) {
-        .page-container {
-            height: 340px;
-            opacity: 94%;
-        }
-
+    @media (max-width: 550px) {
         .container > div {
             flex: 0 0 90%;
             max-width: 90%;
-            height: 50%;
         }
 
         .container .image-container {
@@ -287,12 +265,10 @@
         }
 
         .container .shop-sell h2 {
-            font-size: 1.2rem;
-            line-height: 2.2rem;
+            line-height: 2rem;
         }
 
         .container .shop-sell p {
-            font-size: 0.9rem;
             line-height: 1.2rem;            
         }
 
@@ -306,7 +282,6 @@
         }
 
         .container .shop-sell button .text {
-            font-size: 1rem;
             line-height: 1.7rem;
         }
 
@@ -319,8 +294,6 @@
         .page-container {
             height: 290px;
         }
-
-
     }
 
 </style>
