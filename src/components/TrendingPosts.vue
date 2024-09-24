@@ -7,10 +7,14 @@
     import ChevronRight from './icons/ChevronRight.vue';
 
     const products = ref([
-        { id: 1, name: 'Television', condition: 'Brand New', price: 1000, description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit!', location: 'Front of School, Minna Paiko' },
-        { id: 2, name: 'TV', condition: 'FairlyUsed', price: 1500, description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit!', location: 'Ibadan express way, Abuja' },
-        { id: 3, name: 'VDU', condition: 'Brand New', price: 2000, description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit!', location: "Shooting range road, Oyo"},
-        { id: 4, name: 'Electronics', condition: 'Fairly Used', price: 2500, description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit!', location: "Lagos, Nigeria" }
+        { id: 1, name: 'Electronics', condition: 'Fairly Used', price: 500, description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit!', location: 'Lagos, Nigeria' },
+        { id: 2, name: 'Television', condition: 'Brand New', price: 1000, description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit!', location: 'Front of School, Minna Paiko' },
+        { id: 3, name: 'TV', condition: 'FairlyUsed', price: 1500, description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit!', location: 'Ibadan express way, Abuja' },
+        { id: 4, name: 'VDU', condition: 'Brand New', price: 2000, description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit!', location: 'Shooting range road, Oyo' },
+        { id: 5, name: 'Electronics', condition: 'Fairly Used', price: 2500, description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit!', location: 'Lagos, Nigeria' },
+        { id: 6, name: 'Television', condition: 'Brand New', price: 3000, description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit!', location: 'Front of School, Minna Paiko' },
+        { id: 7, name: 'TV', condition: 'Fairly Used', price: 3500, description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit!', location: 'Ibadan express way, Abuja' },
+        { id: 8, name: 'VDU', condition: 'Brand New', price: 4000, description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit!', location: 'Shooting range road, Oyo' }
     ]);
 
 </script>
@@ -72,7 +76,7 @@
         width: 100%;
         height: 100%;
         font-size: 2rem;
-        gap: 2rem;
+        gap: var(--trending-posts-gap);
         display: flex;
         flex-direction: column;
         margin: 2rem 0;
@@ -80,7 +84,7 @@
 
     .header h2 {
         font-family: Inter;
-        font-size: 1.5rem;
+        font-size: var(--trending-posts-heading);
         font-weight: 600;
         line-height: 2.4rem;
         text-align: left;
@@ -89,7 +93,7 @@
 
     .header p {
         font-family: Inter;
-        font-size: 1rem;
+        font-size: var(--trending-posts-p);
         font-weight: 500;
         line-height: 1.1rem;
         letter-spacing: -0.20813153684139252px;
@@ -108,14 +112,9 @@
     }
 
     .product-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        width: 100%;
-        height: 100%;
-        flex: 0 0 100%;
-        max-width: 100%;
-        gap: 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: var(--trending-posts-gap);
     }
 
     .slides-container {
@@ -124,8 +123,9 @@
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        height: 50px;
-        margin-top: 4rem;
+        max-height: 50px;
+        height: 100%;
+        margin-top: var(--trending-slides-top);
     }
 
     .slides-container .span {
@@ -133,8 +133,7 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        width: 100%;
-        max-width: 400px;
+        width: 50%;
     }
 
     .slides-container .span > span {
@@ -142,9 +141,10 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        width: 95%;
-        max-width: 85px;
-        height: 4px;
+        width: 20%;
+        min-width: 30px;
+        height: 10px;
+        height: var(--trending-slides-height);
         border-radius: 4px;
         background-color: #CED6F0;
         position: relative;
@@ -168,9 +168,10 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        width: 100%;
+        width: 40%;
         max-width: 130px;
-        height: 50px;
+        height: 100%;
+        background: red;
     }
 
     .slides-container .chevron span {
@@ -178,10 +179,12 @@
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        width: 50px;
-        height: 50px;
+        width: 50%;
+        max-width: 50px;
+        height: 100%;
+        max-height: 50px;
         border-radius: 50%;
-        /* background-color: #CED6F0; */
+        background-color: #CED6F0;
         position: relative;
         transition: all 0.5s ease-in-out;
     }
@@ -189,14 +192,15 @@
     .slides-container .chevron > span i {
         color: var(--white-text);
         background-color: #1A438452;
+        width: 85%;
+        max-width: 42px;
         height: 42px;
-        width: 42px;
         border-radius: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
         cursor: pointer;
-        font-size: 80%;
+        font-size: 70%;
     }
 
     .slides-container .chevron > span:nth-child(2) i {
@@ -208,162 +212,6 @@
         align-items: center;
         background-color: var(--primary-blue);
         transform: scale(0.96);
-    }
-
-    @media (max-width: 1050px) {
-        .header {
-            gap: 1rem;
-        }
-
-        .header h2 {
-            font-size: 1.5rem;
-        }
-
-        .header p {
-            font-size: 0.9rem;
-        }
-
-        .product-container {
-            gap: 1.5rem;
-        }
-
-        .slides-container {
-            margin-top: 3rem;
-            height: 40px;
-        }
-
-        .slides-container .span {
-            width: 100%;
-            max-width: 230px;
-        }
-
-        .slides-container .span > span {
-            width: 90%;
-            max-width: 50px;
-            height: 3px;
-        }
-        .slides-container .chevron {
-            width: 90px;
-            height: 45px;
-        }
-
-        .slides-container .chevron span {
-            width: 40px;
-            height: 40px;
-        }
-
-        .slides-container .chevron > span i {
-            height: 38px;
-            width: 38px;
-        }
-
-    }
-
-    @media (max-width: 760px) {
-        .header h2 {
-            font-size: 1.4rem;
-        }
-
-        .header p {
-            font-size: 0.9rem;
-        }
-
-        .product-container {
-            gap: 1.5rem;
-        }
-
-        .slides-container .span {
-            max-width: 200px;
-        }
-
-        .slides-container .span > span {
-            max-width: 45px;
-        }
-        .slides-container .chevron {
-            width: 80px;
-            height: 35px;
-        }
-
-        .slides-container .chevron span {
-            width: 30px;
-            height: 30px;
-        }
-
-        .slides-container .chevron > span i {
-            height: 25px;
-            width: 25px;
-        }
-
-    }
-
-    @media (max-width: 450px) {
-        .header h2 {
-            font-size: 1.25rem;
-        }
-
-        .header p {
-            font-size: 0.8rem;
-        }
-
-        .product-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 100%;
-            height: 100%;
-            flex: 0 0 100%;
-            max-width: 100%;
-        }
-
-        .slides-container .span {
-            max-width: 150px;
-        }
-
-        .slides-container .span > span {
-            max-width: 30px;
-            height: 2px;
-        }
-        .slides-container .chevron {
-            width: 70px;
-            height: 30px;
-        }
-
-        .slides-container .chevron span {
-            width: 26px;
-            height: 26px;
-        }
-
-        .slides-container .chevron > span i {
-            height: 20px;
-            width: 20px;
-        }
-
-    }
-
-    @media (max-width: 360px) {
-        .slides-container .span {
-            max-width: 150px;
-        }
-
-        .slides-container .span > span {
-            max-width: 30px;
-            height: 2px;
-        }
-        .slides-container .chevron {
-            width: 70px;
-            height: 30px;
-        }
-
-        .slides-container .chevron span {
-            width: 26px;
-            height: 26px;
-        }
-
-        .slides-container .chevron > span i {
-            height: 20px;
-            width: 20px;
-        }
-
     }
 
 </style>

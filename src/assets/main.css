@@ -23,6 +23,17 @@
   --nav-link-size: clamp(0.75rem, 2vw, 1rem);
   --nav-link-width: clamp(6.7rem, 5vw 9.5rem);
 
+  /* TRENDING POSTS */
+  --trending-posts-gap: clamp(1rem, 2vw, 2rem);
+  --trending-posts-heading: clamp(1.25rem, 5vw, 2rem);
+  --trending-posts-p: clamp(0.75rem, 3vw, 1.2rem);
+  --trending-slides-top: clamp(1.5rem, 2vh, 4rem);
+  --trending-slides-height: clamp(2px, 0.6vh, 4px);
+  --trending-custom-padd: clamp(0.5rem, 2vh, 1rem);
+  --trending-custom-h: clamp(1.2rem, 2vw, 1.5rem);
+  --trending-custom-p: clamp(12px, 1vw, 0.8rem);
+  --trending-custom-i: clamp(10px, 1.5vw, 14px);
+
   /* SERVICES */
   --page-padding: clamp(1rem, 2vw, 2rem);
   --services-h2: clamp(1.2rem, 5vw, 1.9rem);
