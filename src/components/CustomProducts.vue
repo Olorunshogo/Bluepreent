@@ -38,6 +38,7 @@
         flex-direction: column;
         align-items: center;
         height: fit-content;
+        max-width: 300px;
         gap: var(--trending-posts-gap);
         padding: var(--trending-custom-padd);
         border: 1px solid #F0F0F0;
@@ -67,6 +68,7 @@
         align-items: left;
         justify-items: space-between;
         text-align: left;
+        gap: var(--trending-posts-gap)
     }
 
     .description h3 {

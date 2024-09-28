@@ -18,13 +18,61 @@
 
 :root {
   /* NAV */
-  --nav-height: clamp(3rem, 12vh, 4rem);
+  --nav-height: clamp(2.5rem, 10vh, 3rem);
   --nav-margin: clamp(0.5rem, 1vh, 1.5rem);
   --nav-link-size: clamp(0.75rem, 2vw, 1rem);
   --nav-link-width: clamp(6.7rem, 5vw 9.5rem);
 
+  /* HERO SECTION */
+  --hero-height: clamp(420px, 80vh, 700px);
+  --hero-padd: clamp(5%, 5vw, 10%);
+  --hero-texts-h1-size: clamp(2rem, 10vw, 5rem);
+  --hero-texts-h1-line-height: clamp(50px, 15vw, 90px);
+
+  --hero-texts-p-size: clamp(1.2rem, 2vw, 2.1rem);
+  --hero-texts-p-line-height: clamp(40px, 1.5vw, 50px);
+
+  --hero-search-container: clamp(45px, 3vh, 76px);
+  --hero-search-input: clamp(40px, 2vh, 45px);
+  --hero-font-size: clamp(12px, 1.3vw, 14px);
+
+  --hero-search-font-size: clamp(11px, 1.2vw, 13px);
+
+  /* CATEGORIES SECTION */
+
+  /* Sidebar */
+  --cat-side-h3: clamp(1rem, 2vw, 1.5rem);
+  --cat-side-h4: clamp(0.9rem, 1.5vw, 1.3rem);
+  --cat-side-label: clamp(12px, 1.3vw, 14px);
+  --cat-side-radio: clamp(12px, 1.2vw, 1rem);
+  --cat-side-input-height: clamp(40px, 10vh, 50px);
+  --cat-side-input-size: clamp(0.7rem, 1.4vw, 0.9rem);
+
+  /* Gallery */
+  --categories-h2: clamp(1.25rem, 5vw, 2rem);
+  --categories-p: clamp(0.8rem, 3vw, 1rem);
+  --categories-search-i: clamp(0.8rem, 2vw, 1.5rem);
+  --categories-input-height: clamp(40px, 8vh, 60px);
+
+  --cat-item-margin: clamp(1rem, 3vh, 1.5rem);
+  --cat-btn-width: clamp(8.5rem, 15vw, 10rem);
+  --cat-btn-height: clamp(40px, 5.6vh, 50px);
+  --cat-btn-font-size: clamp(12px, 1.5vw, 14px);
+  
+  --cat-item-padd: clamp(1rem, 2vw, 2rem);
+  --cat-item-desc-h3: clamp(1rem, 2vw, 1.1rem);
+  --cat-item-desc-p: clamp(13px, 1.5vw, 1rem);
+
+  --cat-pagination-height: clamp(45px,10vh, 68px);
+
+  /* DECCLUTTER and SELL */
+  --declutter-height: clamp(44vh, 46vh, 50vh);
+  --declutter-gap: clamp(1rem, 1.5vw, 1.5rem);
+  --declutter-h2: clamp(1.1rem, 5vw, 2rem);
+  --declutter-p: clamp(0.9rem, 2vw, 1.1rem);
+
   /* TRENDING POSTS */
-  --trending-posts-gap: clamp(1rem, 2vw, 2rem);
+  --trending-posts-gap: clamp(0.6rem, 1vw, 14px);
   --trending-posts-heading: clamp(1.25rem, 5vw, 2rem);
   --trending-posts-p: clamp(0.75rem, 3vw, 1.2rem);
   --trending-slides-top: clamp(1.5rem, 2vh, 4rem);
@@ -93,6 +141,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  cursor: default;
 }
 
 /* .icons {
@@ -114,6 +163,5 @@ body {
 .width {
   margin: 0 auto;
   width: 90%;
-  max-width: 2500px;
 }
 

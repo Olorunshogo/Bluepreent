@@ -45,8 +45,8 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        flex: 0 0 23%;
-        max-width: 25%;
+        width: 95%;
+        max-width: 250px;
         height: 100%;
         gap: 1rem;
         border: 1px solid #F0F0F0;
@@ -76,16 +76,14 @@
         background-color: var(--primary-blue);
         color: var(--primary-bg-colour);
         width: fit-content;
-        min-width: 6.9rem;
-        max-width: 8rem;
         height: fit-content;
         font-family: Satoshi;
         font-size: 9px;
         font-weight: 400;
         text-align: left;
         position: absolute;
-        top: 4px;
-        right: 4px;
+        top: 6px;
+        right: 6px;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -110,19 +108,19 @@
 
     .description h3 {
         font-family: Inter;
-        font-size: 1.1rem;
+        font-size: var(--cat-item-desc-h3);
         font-weight: 700;
         line-height: 1.4rem;
         text-align: left;
     }
 
     .description > p {
-        margin-top: 12px;
+        margin-top: 10px;
     }
 
     .description .price {
         font-family: Inter;
-        font-size: 1rem;
+        font-size: var(--cat-item-desc-p);
         font-weight: 600;
         line-height: 1.2rem;
         color: #1A1A1A;
@@ -130,7 +128,7 @@
 
     .description .location {
         font-family: Inter;
-        font-size: 14px;
+        font-size: var(--cat-item-desc-p);
         font-weight: 400;
         line-height: 1rem;
         gap: 12px;
@@ -151,82 +149,7 @@
     } 
 
     .description .condition {
-        font-size: 14px;
+        font-size: var(--cat-item-desc-p);
         line-height: 1.1rem;
     }
-
-    @media  (max-width: 1050px) {
-        .card-container { 
-            flex: 0 0 40%;
-            max-width: 45%;
-        }
-
-        .available {
-            font-size: 0.7rem;
-        }
-
-        .available i {
-            font-size: 10px;
-            margin-right: 4px;
-        }
-
-        .description h3 {
-            font-size: 1rem;
-            line-height: 13px;
-        }
-
-        .description .price,
-        .description .location,
-        .description .condition {
-            font-size: 0.9rem;
-            line-height: 1.2rem;
-        }
-    } 
-
-    @media  (max-width: 760px) {
-        .card-container { 
-            flex: 0 0 45%;
-            max-width: 45%;
-        }
-
-        .available {
-            font-size: 0.6rem;
-        }
-
-        .available i {
-            font-size: 9px;
-        }
-    } 
-
-    @media  (max-width: 450px) {
-        .card-container { 
-            flex: 0 0 50%;
-            max-width: 400px;
-            width: 100%;
-            height: 400px;
-            margin-bottom: 1rem;
-        }
-
-        .available {
-            font-size: 0.7rem;
-        }
-
-        .available i {
-            font-size: 10px;
-            margin-right: 4px;
-        }
-
-        .description h3 {
-            font-size: 1rem;
-            line-height: 13px;
-        }
-
-        .description .price,
-        .description .location,
-        .description .condition {
-            font-size: 0.9rem;
-            line-height: 1.2rem;
-        }
-    } 
-
 </style>

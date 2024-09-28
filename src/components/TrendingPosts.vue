@@ -113,7 +113,7 @@
 
     .product-container {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         gap: var(--trending-posts-gap);
     }
 
@@ -171,7 +171,6 @@
         width: 40%;
         max-width: 130px;
         height: 100%;
-        background: red;
     }
 
     .slides-container .chevron span {
@@ -184,7 +183,7 @@
         height: 100%;
         max-height: 50px;
         border-radius: 50%;
-        background-color: #CED6F0;
+        /* background-color: #CED6F0; */
         position: relative;
         transition: all 0.5s ease-in-out;
     }

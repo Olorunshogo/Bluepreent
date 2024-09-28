@@ -30,33 +30,29 @@
 
 <style lang="css" scoped>
     .page-wrapper {
-        height: 100%;
-        width: 100%; 
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
-
-    .container {
-        width: 100%;
-        height: 400px;
-        width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-content: center;
+        width: 100%; 
+        height: var(--declutter-height);
+        min-height: 280px;
+        background: linear-gradient(96deg, rgba(25, 46, 59, 0) -21.52%, rgba(7, 82, 126, 0.51) 21.03%, rgba(8, 49, 73, 0.799) 82.97%);        
+    }
+
+    .container {
+        width: 90%;
+        height: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         color: var(--white-text);
-        background-image: url(../images/Couriers_BlackWhite.png);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        /* background-color: linear-gradient(96.12deg, rgba(25, 46, 59, 0) -21.52%, rgba(7, 82, 126, 0.51) 21.03%, rgba(8, 49, 73, 0.799) 82.97%); */
-        background: linear-gradient(96deg, rgba(25, 46, 59, 0) -21.52%, rgba(7, 82, 126, 0.51) 21.03%, rgba(8, 49, 73, 0.799) 82.97%);
+        margin: auto;
     }
 
     .center {
-        width: 60%;
+        width: 90%;
         max-width: 550px;
-        height: 50%;
+        height: 80%;
         max-height: 200px;
         gap: 1.5rem;
         display: flex;
@@ -67,9 +63,9 @@
     }
 
     .declutter-earn-container {
-        gap: 1.5rem;
+        gap: var(--declutter-gap);
         width: 100%;
-        height: 60%;
+        height: 50%;
         display: flex;
         flex-direction: column;
         align-content: center;
@@ -78,7 +74,7 @@
 
     .declutter-earn-container h2 {
         font-family: Inter;
-        font-size: 2rem;
+        font-size: var(--declutter-h2);
         font-weight: 700;
         line-height: 2.1rem;
         text-align: center;
@@ -86,17 +82,17 @@
 
     .declutter-earn-container p {
         font-family: Inter;
-        font-size: 1rem;
+        font-size: var(--declutter-p);
         font-weight: 500;
         line-height: 1.25rem;
         text-align: center;
     }
 
     .sell-button-container {
-        gap: 1.5rem;
-        width: 80%;
-        height: 40%;
-        max-height: 4.1rem;
+        gap: var(--declutter-gap);
+        width: 70%;
+        height: 30%;
+        max-height: 4rem;
         display: flex;
         flex-direction: column;
         align-items: center;  
@@ -105,7 +101,7 @@
 
     .sell-button-container button {
         width: 80%;
-        height: 2.5rem;
+        height: 3rem;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -130,139 +126,31 @@
         opacity: 1;
     }
 
-    .sell-button-container button > span {
-        width: 3rem;
-        height: 2rem;
+    .sell-button-container button span {
+        width: 50%;
+        max-width: 5rem;
+        height: 100%;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
         text-align: center;
-        gap: 0.9rem;
         color: var(--white-text);
     }
 
-    .sell-button-container button > span:nth-child(1) i {
+    .sell-button-container button span > span:nth-child(1) i {
         width: 1.25rem;
         height: 1..25rem;
+        font-size: var(--declutter-p);
         display: flex;
         align-items: center;
     }
 
-    .sell-button-container button > span:nth-child(2) {
+    .sell-button-container button span > span:nth-child(2) {
         font-family: Inter;
-        font-size: 1.25rem;
+        font-size: var(--declutter-p);
         font-weight: 400;
         line-height: 1.5rem;
         text-align: left;
     }
-
-    @media (max-width: 1050px) {
-        .container {
-            height: 350px;
-        }
-
-        .center {
-            width: 65%;
-            max-width: 550px;
-            height: 60%;
-            gap: 1.5rem;
-        }
-
-        .declutter-earn-container {
-            gap: 1rem;
-        }
-
-        .declutter-earn-container h2 {
-            font-size: 1.6rem;
-            line-height: 1.8rem;
-        }
-
-        .declutter-earn-container p {
-            font-size: 1rem;
-            line-height: 1.2rem;
-        }
-
-        .sell-button-container {
-            gap: 1.2rem;
-            height: 40%;
-            max-height: 3.5rem;   
-        }
-
-        .sell-button-container button {
-            width: 80%;
-            height: 2.5rem;
-        }
-
-        .sell-button-container button > span {
-            width: 5rem;
-            height: 2rem;
-            gap: 0.8rem;
-            color: var(--white-text);
-        }
-
-        .sell-button-container button > span:nth-child(1) i {
-            width: 1.1rem;
-            height: 1.1rem;
-        }
-
-        .sell-button-container button > span:nth-child(2) {
-            font-size: 1.1rem;
-        }
-    }
-
-    @media (max-width: 760px) {
-        .container {
-            height: 300px;
-        }
-
-        .center {
-            width: 70%;
-            max-width: 600px;
-            height: 70%;
-            gap: 1rem;
-        }
-
-        .declutter-earn-container h2 {
-            font-size: 1.4rem;
-            line-height: 1.4rem;
-        }
-
-        .declutter-earn-container p {
-            font-size: 0.9rem;
-            line-height: 1rem;
-        }
-
-        .sell-button-container {
-            gap: 1rem;
-            height: 30%;
-            max-height: 3rem;   
-        }
-
-        .sell-button-container button {
-            width: 100%;
-            height: 2.5rem;
-        }
-
-        .sell-button-container button > span {
-            width: 4rem;
-            gap: 0.5rem;
-        }
-
-        .sell-button-container button > span:nth-child(1) i {
-            width: 1rem;
-            height: 1rem;
-            font-size: 1rem;
-        }
-
-        .sell-button-container button > span:nth-child(2) {
-            font-size: 1rem;
-        }
-    }
-
-    
-
-
-    
-
 </style>

@@ -1,6 +1,6 @@
 
 <script setup>
-    import { ref } from 'vue'
+    import { ref } from 'vue';
 
     const category = ref("Bed/Mattrass");
     const minRange = ref("₦" + 10);
@@ -17,10 +17,18 @@
 
 
     const collection = ref([
-        { id: 1, name: 'Bed/Mattrass', price: 1000, location: "Lagos, Nigeria", condition: 'Brand New', available: 'Available Now' },
-        { id: 2, name: 'Chairs', price: 1500, location: "Lagos, Nigeria", condition: 'Fairly Used', available: 'Available in 2 weeks' },
-        { id: 3, name: 'Furniture', price: 2000, location: "Lagos, Nigeria", condition: 'Brand New', available: 'Available Now' },
-        { id: 4, name: 'Mirrors', price: 2500, location: "Lagos, Nigeria", condition: 'Fairly Used', available: 'Available Now' }
+        { id: 1, name: 'Bed/Mattrass', price: 500, location: "Lagos, Nigeria", condition: 'Brand New', available: 'Available Now' },
+        { id: 2, name: 'Chairs', price: 1000, location: "Lagos, Nigeria", condition: 'Fairly Used', available: 'Available in 2 weeks' },
+        { id: 3, name: 'Furniture', price: 1500, location: "Lagos, Nigeria", condition: 'Brand New', available: 'Available Now' },
+        { id: 4, name: 'Mirrors', price: 2000, location: "Lagos, Nigeria", condition: 'Fairly Used', available: 'Available Now' },
+        { id: 1, name: 'Bed/Mattrass', price: 2500, location: "Lagos, Nigeria", condition: 'Brand New', available: 'Available Now' },
+        { id: 2, name: 'Chairs', price: 3000, location: "Lagos, Nigeria", condition: 'Fairly Used', available: 'Available in 2 weeks' },
+        { id: 3, name: 'Furniture', price: 3500, location: "Lagos, Nigeria", condition: 'Brand New', available: 'Available Now' },
+        { id: 4, name: 'Mirrors', price: 4000, location: "Lagos, Nigeria", condition: 'Fairly Used', available: 'Available Now' },
+        { id: 1, name: 'Bed/Mattrass', price: 4500, location: "Lagos, Nigeria", condition: 'Brand New', available: 'Available Now' },
+        { id: 2, name: 'Chairs', price: 5000, location: "Lagos, Nigeria", condition: 'Fairly Used', available: 'Available in 2 weeks' },
+        { id: 3, name: 'Furniture', price: 5500, location: "Lagos, Nigeria", condition: 'Brand New', available: 'Available Now' },
+        { id: 4, name: 'Mirrors', price: 600, location: "Lagos, Nigeria", condition: 'Fairly Used', available: 'Available Now' },
     ]);
 
 </script>
@@ -69,7 +77,9 @@
                         <span>
                             {{ minRange }}
                         </span>
+
                         &nbsp; - &nbsp;
+
                         <span>
                             {{ maxRange }}
                         </span>
@@ -123,20 +133,6 @@
                             :item="item"
                         />                        
                     </div>
-
-                    <div class="items">
-                        <CustomItem 
-                            v-for="item in collection" :key="item.id"
-                            :item="item"
-                        />                        
-                    </div>
-
-                    <div class="items">
-                        <CustomItem 
-                            v-for="item in collection" :key="item.id"
-                            :item="item" class="item"
-                        />                        
-                    </div>
                 </div>
             </div>
         </div>
@@ -149,62 +145,59 @@
     .container {
         width: 100%;
         height: 100%;
-        flex: 0 0 100%;
-        max-width: 100%;
-        padding: 2rem 0 2rem 2rem;
+        padding: var(--cat-item-padd) 0 var(--cat-item-padd) var(--cat-item-padd);
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        cursor: default;
     }
 
     .search-categories {
         width: 100%;
-        height: 50px;
+        height: fit-content;
         border-radius: 8px;
-        margin-bottom: 1.5rem;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+        margin-bottom: var(--cat-item-margin);
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
         color: #CACDD8;
     }
 
     .search-categories p {
         font-family: Inter;
-        font-size: 0.9rem;
+        font-size: var(--categories-p);
         font-weight: 400;
-        line-height: 1.2rem;
+        line-height: 1.5rem;
         text-align: left;
-        width: 65%;
+        margin: auto 0;
+        margin-bottom: 1rem;
     }
 
     .search-categories .sort-buttons {
-        width: 35%;
-        height: 100%;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-evenly;
         align-items: center;
+        margin: auto 0;
+        max-width: 350px;
     }
 
     .search-categories button {
-        width: 11rem;
-        height: 50px;
+        width: var(--cat-btn-width);
+        height: var(--cat-btn-height);
         border: 1px solid #CACDD8;
         outline: none;
         border-radius: 8px;
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
         padding: 12px 4px;
         color: #B0B8C2;
         font-family: Inter;
-        font-size: 0.8rem;
+        font-size: var(--cat-btn-font-size);
         font-weight: 600;
         line-height: 1.7rem;
         text-align: center;
+        cursor: pointer;
         background-color: var(--primary-bg-colour);
         transition: all 0.3s ease-out;
     }
@@ -233,8 +226,8 @@
         flex-direction: row;
         align-items: center;
         width: 100%;
-        height: 50px;
-        margin-bottom: 1.5rem;
+        height: var(--cat-btn-height);
+        margin-bottom: var(--cat-item-margin);
     }
 
     .sort-categories .sort-category {
@@ -242,12 +235,14 @@
         flex-direction: row;
         align-items: center;
         border-radius: 8px;
-        padding: 10px 15px;
-        font-size: 0.9rem;
+        padding: 10px;
+        font-size: var(--cat-btn-font-size);
         font-weight: 400;
         opacity: 0.9;
-        margin-right: 2rem;
+        cursor: default;
+        margin-right: 0.6rem;
         background-color: var(--light-blue-bg);
+        transition: var(--trans-03-ease-in);
     }
 
     .sort-categories .sort-category:focus,
@@ -263,7 +258,7 @@
     }
 
     .sort-categories .sort-buttons {
-        height: 50px;
+        max-height: 50px;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -271,7 +266,7 @@
     }
 
     .sort-categories button {
-        height: 40px;
+        height: var(--cat-btn-height);
         border: 1px solid #CACDD8;
         outline: none;
         border-radius: 8px;
@@ -281,7 +276,7 @@
         justify-content: center;
         padding: 12px 8px;
         font-family: Inter;
-        font-size: 0.8rem;
+        font-size: var(--cat-btn-font-size);
         font-weight: 600;
         line-height: 1.5rem;
         text-align: center;
@@ -301,184 +296,17 @@
         justify-content: space-between;
         width: 100%;        
         height: 100%;
-        flex: 0 0 100%;
-        max-width: 100%;
     }
 
     .items {
         width: 100%;        
-        height: 33.33%;
-        margin-bottom: 2rem;
+        height: fit-content;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-    }
-
-    @media (max-width: 1250px) {
-        .search-categories {
-            width: 100%;
-            height: 50px;
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            color: #CACDD8;
-        }
-
-        .search-categories p {
-            width: 55%;
-        }
-
-        .search-categories .sort-buttons {
-            width: 45%;
-        }
-
-        .search-categories button {
-            width: 14rem;
-        }
-
-
-        /* === SORT CATEGORIES === */
-        .sort-categories {
-            width: 96%;
-        }
-
-        .sort-categories .sort-category {
-            margin-right: 1.5rem;
-        }
-    }
-
-    @media  (max-width: 1050px) {
-        .container {
-            padding: 1.45rem 0 1.45rem 1.45rem;
-        }
-
-        .search-categories {
-            height: 40px;
-            margin-bottom: 1.45rem;
-        }
-
-        .search-categories p {
-            font-size: 0.8rem;
-            line-height: 0.9rem;
-        }
-
-        .search-categories button {
-            width: 9.5rem;
-            height: 40px;
-            padding: 8px 4px;
-            font-size: 0.7rem;
-            line-height: 1.2rem;
-        }
-
-        .highlight {
-            line-height: 0.9rem;
-        }
-
-        /* === SORT CATEGORIES === */
-        .sort-categories {
-            margin-bottom: 1.45rem;
-            width: 100%;
-        }
-
-        .sort-categories .sort-category {
-            padding: 8px 12px;
-            font-size: 0.7rem;
-            margin-right: 1rem;
-        }
-
-        .sort-categories .sort-buttons {
-            height: 40px;
-        }
-
-        .sort-categories button {
-            height: 40px;
-            padding: 8px 6px;
-            font-size: 0.7rem;
-            line-height: 1.1rem;
-        }
-
-        /* === ITEMS SECTION === */
-        .items {
-            margin-bottom: 1.55rem;
-            gap: 0.9rem;
-        }
-
-    }
-
-    @media (max-width: 760px) {
-        .container {
-            width: 100%;
-            height: 100%;
-            padding: 2rem 0;
-        }
-
-        .search-categories {
-            /* height: 100px;
-            display: flex;
-            flex-direction: column;
-            justify-items: space-between;
-            align-items: flex-start; */
-            display: none;
-        }
-
-        /* .search-categories p {
-            width: 100%;
-            height: 40%;
-            margin-bottom: 1rem;
-        }
-
-        .search-categories .sort-buttons {
-            width: 50%;
-            height: 60%;
-        }
-
-        .search-categories button {
-            width: 9rem;
-            height: 40px;
-            line-height: 1.4rem;
-        } */
-
-        /* === SORT CATEGORIES === */
-        .sort-categories {
-            /* height: 40px;
-            margin-bottom: 2rem; */
-            display: none;
-        }
-
-        /* .sort-categories .sort-category {
-            padding: 8px 4px;
-            margin-right: 0.5rem;
-        } */
-    }
-
-    @media (max-width: 450px) {
-        .items-section {
-            margin-bottom: 3rem;
-        }
-        .items-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;        
-            height: 100%;
-        }
-
-        .items-container > div:nth-child(2),
-        .items-container > div:nth-child(3) {
-            display: none;
-        }
-
-        .items {
-            width: 100%;        
-            height: 30%;
-            margin-bottom: 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+        gap: var(--trending-posts-gap);
     }
 
 </style>

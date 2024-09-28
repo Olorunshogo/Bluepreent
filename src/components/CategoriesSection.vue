@@ -18,7 +18,7 @@
             </div>
 
             <div class="top-input">
-                <i class="icons search"><SearchIcon /></i>
+                <i class="search"><SearchIcon /></i>
                 <input type="text" id="categories-search" placeholder="Bed/Mattrass">
             </div>        
         </div>
@@ -74,26 +74,23 @@
     }
 
     .top {
-        display: flex;
-        flex-direction: row;
-        justify-content: left;
-        align-content: center;
-        height: 100px;
-        margin: 8px 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        height: fit-content;
+        max-height: 150px;
+        gap: 8px;
+        margin: 1rem 0;
     }
 
-    .top .category-heading {
+    /* .top .category-heading {
         width: 60%;
-        display: flex;
-        flex-direction: column;
-        align-content: center;
-    }
+    } */
 
     .top .category-heading h2 {
         font-family: Inter;
-        font-size: 2rem;
+        font-size: var(--categories-h2);
         font-weight: 700;
-        line-height: 2.3rem;
+        line-height: 2rem;
         color: #021019;
         text-align: left;
         margin-bottom: 16px;
@@ -101,20 +98,21 @@
 
     .top .category-heading p {
         font-family: Inter;
-        font-size: 1.4rem;
+        font-size: var(--categories-p);
         font-weight: 500;
-        line-height: 29.05px;
+        line-height: 1.5rem;
         text-align: left;
         color: #1A1A1AA3;
     }
 
     .top .top-input {
-        width: 40%;
-        height: 64px;
+        width: 80%;
+        height: var(--categories-input-height);
+        max-height: 64px;
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
-        align-content: center;
+        align-items: center;
         border-radius: 8px;
         border: 1px solid #E5E5E5;
     }
@@ -123,19 +121,20 @@
         display: flex;
         justify-content: center;
         align-content: center;
-        width: 100%;
+        width: 90%;
         height: 100%;
         padding: 10px 12px 12px 16px;
         margin: 0;
-        /* transition: all 0.5s ease-in-out; */
         border: none;
         outline: none;
+        border-radius: 8px;
+        transition: all 0.5s ease-in-out;
     }
 
     .top .top-input input[type=text]::placeholder {
         font-family: Inter;
-        font-size: 1rem;
-        font-weight: 400;
+        font-size: 13px;
+        font-weight: 300;
         line-height: 24px;
         text-align: left;
         color: #04092152;
@@ -143,39 +142,33 @@
 
     .top .search {
         color: #969696;
-        font-size: 1.5rem;
+        font-size: var(--categories-search-i);
     }
 
     .items-container {
         border-top: 1px solid #D8D8D873;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: left;
         width: 100%;
         height: 100%;
-        max-height: 1100px;
         margin-bottom: 1.5rem;
     }
 
     .items-container .side-bar {
-        display: flex;
-        flex-direction: row;
-        max-width: 25%;
-        width: 240px;
+        flex: 0 0 20%;
+        max-width: 240px;
         height: 100%;
     }
 
     .items-container .gallery {
-        display: flex;
-        flex-direction: row;
-        justify-items: left;
-        max-width: 75%;
-        width: calc(100%-240px);
+        width: 100%;
+        max-width: calc(100%-240px);
         height: 100%;
     }
 
     .pagination {
-        height: 68px;
+        height: var(--cat-pagination-height);
         width: 100%;
         padding: 12px 16px;
         border: 1px solid #EAECF0;
@@ -187,7 +180,7 @@
 
     .pagination-btn-group {
         max-width: 640px;
-        width: 55%;
+        width: 100%;
         height: 40px;
         border-radius: 8px;
         border: 1px solid #D0D5DD;
@@ -253,264 +246,9 @@
         align-items: center;
     }
 
-    @media (max-width: 1250px) {
-        .top .category-heading h2 {
-            font-size: 1.8rem;
-            line-height: 2.1rem;
-        }
-
-        .top .category-heading p {
-            font-size: 1.2rem;
-            line-height: 24px;
-        }
-
-        .top .top-input {
-            width: 40%;
-            height: 64px;
-        }
-
-        .top .top-input input[type=text]::placeholder {
-            line-height: 20px;
-        }
-
-        .top .search {
-            font-size: 1.4rem;
-        }
-    }
-
-    @media  (max-width: 1050px) {
-        .categories {
-            margin: 5rem 0 0 0;
-        }
-
-        .top {
-            height: 72px;
-        }
-
-        .top .category-heading h2 {
-            font-size: 1.5rem;
-            line-height: 1.7rem;
-            margin-bottom: 12px;
-        }
-
-        .top .category-heading p {
-            font-size: 1.1rem;
-            line-height: 20px;
-            width: 100%;
-        }
-
-        .top .top-input {
-            width: 40%;
-            height: 45px;
-        }
-
-        .top .top-input input[type=text] {
-            padding: 8px 9px 8px 12px;
-            margin: 0;
-        }
-
-        .top .top-input input[type=text]::placeholder {
-            font-size: 0.8rem;
-            line-height: 18px;
-        }
-
-        .top .search {
-            font-size: 1rem;
-        }
-
-        .pagination {
-            height: 50px;
-            padding: 9px 12px;
-        }
-
-        .pagination-btn-group {
-            width: 60%;
-            height: 40px;
-        }
-
-        .pagination-btn-group i {
-            font-size: 10px;
-        }   
-            
-        .pagination-btn-group #previous,
-        .pagination-btn-group #next {
-            font-size: 10px;
-        }
-    }
-
     @media (max-width: 760px) {
-        .top {
-            display: flex;
-            flex-direction: column;
-            margin: 8px 0 2rem 0;
-            justify-content: space-between;
-            height: 160px;
-        }
-
-        .top .category-heading {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-content: center;
-         }
-
-        .top .category-heading h2 {
-            font-size: 1.4rem;
-        }
-
-        .top .category-heading p {
-            font-size: 1rem;
-            line-height: 20px;
-        }
-
-        .top .top-input {
-            width: 90%;
-            height: 50px;
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            align-content: center;
-            border-radius: 8px;
-            border: 1px solid #E5E5E5;
-            margin: 1rem 0;
-        }
-
-        .top .top-input input[type=text] {
-            margin: 0;
-        }
-
-        .top .top-input input[type=text]::placeholder {
-            font-size: 0.9rem;
-        }
-
-        .top .search {
-            font-size: 0.9rem;
-        }
-
-        .item-container {
-            display: grid;
-            grid-template-columns: 240px 75%;
-            width: 100%;
-            height: 100%;
-            max-height: 1100px;
-            margin-bottom: 1.5rem;
-        }
-
         .items-container .side-bar {
             display: none;
         }
-
-        .items-container .gallery {
-            display: flex;
-            flex-direction: row;
-            justify-items: left;
-            /* max-width: 80%;
-            width: calc(100%-240px);
-            height: 100%; */
-        }
-
-        .pagination {
-            height: 60px;
-            padding: 8px;
-        }
-
-        .pagination-btn-group {
-            width: 100%;
-        }
-
-        .pagination-btn-group > span button {
-            padding: 6px;
-        }
-
-        .pagination-btn-group #previous {
-            font-size: 10px;
-            margin-right: 5px;
-        }
-
-        .pagination-btn-group #next {
-            font-size: 10px;
-            margin-left: 6px;
-        }
-
-    }
-
-    @media (max-width: 450px) {
-        .top {
-            display: flex;
-            flex-direction: column;
-            margin: 8px 0 1rem 0;
-            justify-content: space-between;
-            height: 100px;
-        }
-
-        .top .category-heading {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-content: center;
-         }
-
-        .top .category-heading h2 {
-            font-size: 1.2rem;
-        }
-
-        .top .category-heading p {
-            font-size: 0.75rem;
-        }
-
-        .top .top-input {
-            /* width: 90%;
-            height: 50px;
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            align-content: center;
-            border-radius: 8px;
-            border: 1px solid #E5E5E5;
-            margin: 1rem 0; */
-            display: none;
-        }
-
-        /* .top .top-input input[type=text] {
-            margin: 0;
-        }
-
-        .top .top-input input[type=text]::placeholder {
-            font-size: 0.9rem;
-        }
-
-        .top .search {
-            font-size: 0.9rem;
-        } */
-
-        .items-container .side-bar {
-            display: none;
-        }
-
-        .items-container .gallery {
-            display: flex;
-            flex-direction: row;
-            justify-items: left;
-            /* max-width: 80%;
-            width: calc(100%-240px);
-            height: 100%; */
-        }
-
-        .pagination {
-            display: none;
-        }
-
-    }
-
-    @media (max-width: 350px) {
-        .top .category-heading h2 {
-            font-size: 1.1rem;
-        }
-
-        .top .category-heading p {
-            font-size: 0.7rem;
-        }
-    }
-
-    
+    }    
 </style>
