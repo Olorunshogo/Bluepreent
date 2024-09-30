@@ -36,17 +36,23 @@
         width: 100%; 
         height: var(--declutter-height);
         min-height: 280px;
-        background: linear-gradient(96deg, rgba(25, 46, 59, 0) -21.52%, rgba(7, 82, 126, 0.51) 21.03%, rgba(8, 49, 73, 0.799) 82.97%);        
+        background: linear-gradient(96deg, rgba(25, 46, 59, 0) -21.52%, rgba(7, 82, 126, 0.51) 21.03%, rgba(8, 49, 73, 0.799) 82.97%);  
+        width: 100%;  
+        border-radius: 1rem;   
     }
 
     .container {
         width: 90%;
-        height: 90%;
+        height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         color: var(--white-text);
         margin: auto;
+        background-image: url("../images/Declutter.png");
+        background-position: 40% bottom;
+        background-repeat: no-repeat;
+        background-size: clamp(300px, 50vw, 700px); 
     }
 
     .center {
@@ -101,7 +107,7 @@
 
     .sell-button-container button {
         width: 80%;
-        height: 3rem;
+        height: var(--declutter-btn-height);
         display: flex;
         flex-direction: row;
         align-items: center;

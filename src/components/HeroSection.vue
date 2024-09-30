@@ -5,16 +5,16 @@
 </script>
 
 <template>
-    <div class="container">
+    <div class="container width">
         <section class="desktop-hero">
-            <div class="hero-texts" title="Hero Section">
+            <div class="hero-texts">
                 <h1>Zero Inspection Fee</h1>
                 <p>and reduced agent fees for all properties for rent</p>
             </div>
 
-            <div class="hero-search" title="Search Bar">
+            <div class="hero-search">
                 <HeroSearch />
-            </div>           
+            </div>        
             
         </section>
         
@@ -32,14 +32,18 @@
         background-position: 95% bottom;
         background-repeat: no-repeat;
         background-size: clamp(400px, 80vw, 700px);
+        margin-top: var(--nav-height);
     }
 
     .desktop-hero {
         display: flex;
         flex-direction: column; 
+        justify-content: space-between;
+        align-items: center;
         margin: 0 auto;
         height: 100%;
-        padding: var(--hero-padd);
+        /* padding: var(--hero-padd); */
+        width: var(--hero-width);
     }
 
     .hero-texts {
@@ -51,10 +55,6 @@
     }
 
     .hero-texts h1 {
-        display: flex;
-        flex-direction: row;
-        justify-items: center;
-        align-items: center;
         font-size: var(--hero-texts-h1-size);
         font-weight: 700;
         font-family: Campton;
@@ -84,7 +84,7 @@
         position: relative;
     }
 
-    @media (max-width:760px) {
+    @media (max-width: 760px) {
         .container {
             background-image: none;
         }
@@ -92,6 +92,13 @@
         .hero-texts h1,
         .hero-texts p {
             text-align: center;
+        }
+    }
+
+    @media (max-width: 700px) {
+        .hero-texts h1 {
+            text-align: center;
+            font-size: var(--hero-texts-h1-size);
         }
     }
 </style>

@@ -1,6 +1,7 @@
 
 <script setup>
     import { ref } from 'vue';
+    // import 'boxicons';
     import { RouterLink } from 'vue-router';
 
     import BluepreentLogo from '../assets/BluepreentLogo.vue';
@@ -15,9 +16,9 @@
     import LogoutIcon from './icons/LogoutIcon.vue';
     import RegisterIcon from './icons/RegisterIcon.vue';
 
-    import ChevrondownIcon from './icons/ChevrondownIcon.vue';
+    import UserIcon from './icons/UserIcon.vue';
 
-    const isSidebarOpen = ref(false);
+    const isSidebarOpen = ref(true);
 
     function toggleSidebar() {
         isSidebarOpen.value = !isSidebarOpen.value;
@@ -26,10 +27,10 @@
 </script>
 
 <template>
-    <!-- === HEADER === -->
-    <header class="width" id="header">
+    <!-- === NAVIGATION === -->
+    <nav class="width">
         <!-- === Top Nav === -->
-        <div class="top-nav">
+        <div class="nav-container">
             <!-- === Occupy 90% width container === -->
             <div class="navigation-bar">
                 <!-- Logo Container -->
@@ -43,67 +44,80 @@
                 </div>
 
                 <!-- Nav Links container -->
-                <nav class="nav" role="navigation">
-                    <div class="nav-one">
-                        <div title="Help/Contact" class="link-container">
-                            <RouterLink to="/contact" class="link">
-                                <i>
-                                    <PhoneIcon class="icons" />
-                                </i>
-                                <span>Help/Contact</span>
-                            </RouterLink>
-                        </div>
+                <nav class="nav-link-container" role="navigation">
+                    <div title="Help/Contact" class="link-container">
+                        <RouterLink to="/contact" class="link">
+                            <i>
+                                <PhoneIcon class="icons" />
+                            </i>
+                            <span>Help/Contact</span>
+                        </RouterLink>
+                    </div>
 
-                        <div title="Notification" class="link-container">
-                            <RouterLink to="/notification" class="link">
-                                <i>
-                                    <NotificationIcon class="icons" />
-                                </i>
+                    <div title="Notification" class="link-container">
+                        <RouterLink to="/notification" class="link">
+                            <i>
+                                <NotificationIcon class="icons" />
+                            </i>
                                 <span>Notification</span>
-                            </RouterLink>                     
-                        </div>
-                    </div>                    
+                        </RouterLink>                     
+                    </div>
 
-                    <div class="nav-two">
-                        <div title="Sell" class="link-container">
-                            <RouterLink class="link" to="/sell" id="sell">
-                                <i>
-                                    <SellIcon class="icons" />
-                                </i>
-                                <span>Sell</span>
-                            </RouterLink>
-                        </div> 
+                    <div title="Sell" class="link-container">
+                        <RouterLink class="link" to="/sell" id="sell">
+                            <i>
+                                <PlusCircleIcon class="icons" />
+                            </i>
+                            <span>Post ad</span>
+                        </RouterLink>
+                    </div> 
 
-                        <div title="Register" class="link-container">
-                            <RouterLink class="link" to="/register" id="register">
-                                <div>
-                                    <span>Register</span>
-                                </div>
-                                <i>
-                                    <ChevrondownIcon class="icons register" />
-                                </i>
-                            </RouterLink>                         
-                        </div>
+                    <div class="link-container">
+                        <RouterLink class="link" to="/login" id="sell">
+                            <i>
+                                <LoginIcon class="icons" />
+                            </i>
+                            <span>Login</span>
+                        </RouterLink>
+                    </div> 
+
+                    <div title="Register" class="link-container">
+                        <RouterLink class="link" to="/register" id="register">
+                            <i>
+                                <UserIcon class="icons register" />
+                            </i>
+                            <div>
+                                <span>Register</span>
+                            </div>
+                        </RouterLink>                         
                     </div>
                 </nav>
 
-                <div class="menu-container" title="Menu">
+                <!-- <div class="menu-container" title="Menu">
                     <button class="menu-toggle" v-on:click="toggleSidebar">
                         <span :class="['hamburger-icon', { 'active': isSidebarOpen }]">
-                            <i v-if="!isSidebarOpen" class="fas fa-bars" title="Hamburger"></i>
+                            <i v-if="!isSidebarOpen" class="fas fa-bars"></i>
                             <i v-else class="fas fa-times" title="Close"></i>
-                            Open
+                        </span>
+                    </button>                     
+                </div> -->
+
+                <div class="menu-container" title="Menu">
+                    <button class="menu-toggle" v-on:click="toggleSidebar">
+                        <span>
+                            <i class='bx bx-menu-alt-right'></i>
+                            <!-- <i class='bx bx-menu'></i> -->
                         </span>
                     </button>                     
                 </div>
 
-                <div class="sidebar-container" :class="{ 'open': isSidebarOpen }" title="Sidebar">
+                <div class="sidebar-container" :class="{ 'open': isSidebarOpen }">
                     <div class="sidebar-header">
                         <div class="sidebar-logo" title="Bluepreent">
-                            <img src="../images/Bluepreent.png" alt="Bluepreent Image">
+                            <BluepreentLogo />
                         </div>
 
-                        <button class="close-btn" @click="toggleSidebar" title="Close">
+                        <button class="close-btn" @click="toggleSidebar()" title="Close">
                             <i class="fas fa-times"></i>
                         </button>
                     </div>
@@ -174,21 +188,19 @@
                 </div>
             </div>
         </div>
-    </header>
+    </nav>
     <!-- === END OF HEADER === -->
 </template>
 
 
 <style lang="css" scoped>
-
     /* === TOP NAV: Overall container ===  */
-    .top-nav {
-        margin: var(--nav-margin) 0;
+    .nav-container {
         width: 100%;
-        height: var(--nav-height);
-        position: relative;
-        top: 0;
+        height: 100%;
         cursor: default;
+        display: flex;
+        align-items: center;
     }
 
     /* === Container for both the Logo and Navigation */
@@ -196,8 +208,9 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
         width: 100%;
-        height: auto;
+        height: 100%;
     }
 
     /* === Logo Container === */
@@ -212,89 +225,68 @@
 
     /* === BluepreentLogo Component Container === */
     .bluepreent-logo {
-        width: 100%;
+        width: max(20%, 200px);
         height: auto;
     }
 
     /* === The Container for all the links in the NavBar === */
-    .nav {
+    .nav-link-container {
         display: flex;
         flex-direction: row;
         align-items: right;
-        justify-content: flex-start;
-        width: 620px;
-        max-width: 70%;
+        justify-content: space-around;
+        width: max(50%, 600px);
     }
 
-    .nav-one,
-    .nav-two {
-        width: 50%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    } 
-
     /* === Individual link container === */
-    .nav .link-container {
-        width: 100%;
-        height: auto;
+    .link-container {
+        width: var(--nav-link-width);
+        height: 35px;
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
         text-decoration: none;
     }
 
-    .nav .link-container .link {
+    .link-container .link {
         display: flex;
         flex-direction: row;
-        justify-content: center;
         align-items: center;
         color: var(--secondary-blue);
         font-size: var(--nav-link-size);
-        line-height: 1.05rem;        
-        width: var(--nav-link-width);
-        height: 3rem;
-        padding: 0.5rem 1rem;
+        line-height: 1.05rem;  
+        width: 100%;      
+        height: 100%;
+        padding: 0.5rem 0 0.5rem 0.5rem;
         border-radius: 8px;
+        border: 1px solid transparent;
+        outline: none;
         cursor: pointer;
         text-decoration: none;
-        transition: all 0.5s ease-in-out;
-        box-shadow: rgba(10, 10, 1, 0.25) 0px 10px 10px -10px, 0px 10px -2px -4px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;    
+        opacity: 0.9;
+        transition: all 0.4s ease-out;
     }
 
-    .nav .link-container #sell {
-        background-color: rgba(14, 120, 185, 0.08);
-        color: var(--secondary-blue);
-        font-weight: 600;
+    .link-container .link:hover {
+        opacity: 1;
+        border: 1px solid var(--light-blue-bg);
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
     }
 
-    .nav .link-container #sell i {
-        color: var(--secondary-blue);
-        width: 25px;
-        height: 25px;
-        display: flex;
-        align-items: center;
-    }
-
-    .nav .link-container #register {
+    .link-container #register {
         background-color: var(--primary-blue);
         color: white;
-        font-weight: 700;
-        font-size: 1rem;
-        line-height: 1.1rem;
-        font-family: SF Pro Text;
     }
 
-    .nav .register {
+    .register {
         color: var(--white-text);
     } 
 
-    /* === Link Title === */
-    .nav span {
-        font-size: 12px;
+    /* === Link Name === */
+    .link span {
+        font-size: 11px;
         font-weight: 400;
-        margin: 0 10px;
+        margin: 0 8px;
     }
 
     /* === TOGGLE BUTTON +++ */
@@ -324,16 +316,11 @@
     /* === MEDIA QUERIES === */
     /* === Respinsiveness for max-width: 760px === */
     @media  (max-width: 760px) {
-        .nav {
-            width: 50%;
-            max-width: 50%;
+        .nav-link-container {
             display: none;
-        }
-
-        .nav-one,
-        .nav-two {
-            display: none;
-        }        
+            background: red;
+            overflow-x: scroll;
+        }       
 
         .menu-container {
             display: flex;
@@ -359,13 +346,15 @@
             flex-direction: column;
             position: fixed;
             top: 0;
-            right: -200px;
-            width: 200px;
+            right: var(--sidebar-width);
+            width: var(--sidebar-width);
             max-width: 50%;
             height: 100%;
             background-color: #fff;
             transition: right 0.3s ease;
             z-index: 1000;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+            transform: translateX(100%);
         }
 
         .sidebar-header {
@@ -399,7 +388,7 @@
 
         .sidebar-header .close-btn i {
             color: var(--primary-blue);
-            font-size: 10px;
+            font-size: 12px;
         }
 
         .sidebar-container.open {
@@ -466,19 +455,20 @@
             position: fixed;
             top: 0;
             left: 0;
+            width: calc(100% - var(--sidebar-width));
             width: 100%;
             height: 100%;
-            background-color: rgba(100, 100, 100, 0.25);
+            background-color: rgba(0, 0, 0, 0.25);
             transition: opacity 0.3s ease;
-            opacity: 0.5;
-            filter: blur(4px);
-            -webkit-filter: blur(4px);
-            visibility: hidden;
+            opacity: 0.1;
+            filter: blur(5px);
+            -webkit-filter: blur(5px);
+            /* visibility: hidden; */
             z-index: 20;
         }
 
         .overlay.active {
-            opacity: 1;
+            opacity: 0.5;
             visibility: visible;
         }
 

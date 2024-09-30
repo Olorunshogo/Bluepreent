@@ -1,6 +1,8 @@
 
 :root {
   --primary-bg-colour: #fff;
+  --secondary-bg: #eeeeff;
+
   --primary-blue: #0E78B9;
   --secondary-blue: #506683;
 
@@ -8,6 +10,7 @@
 
   --white-text: #FFFFFF;
   --black-text: #000;
+  --black-text-soft: #333;
 
   --icon-grey: #515456;
 
@@ -18,20 +21,22 @@
 
 :root {
   /* NAV */
-  --nav-height: clamp(2.5rem, 10vh, 3rem);
-  --nav-margin: clamp(0.5rem, 1vh, 1.5rem);
+  --nav-height: 50px;
   --nav-link-size: clamp(0.75rem, 2vw, 1rem);
-  --nav-link-width: clamp(6.7rem, 5vw 9.5rem);
+  --nav-link-width: clamp(18%, 12vw 20%);
+  --sidebar-width: 200px;
 
   /* HERO SECTION */
   --hero-height: clamp(420px, 80vh, 700px);
-  --hero-padd: clamp(5%, 5vw, 10%);
-  --hero-texts-h1-size: clamp(2rem, 10vw, 5rem);
-  --hero-texts-h1-line-height: clamp(50px, 15vw, 90px);
+  --hero-width: clamp(300px, 90%, 2000px);
+  /* --hero-padd: clamp(5%, 8vw, 10%); */
+  /* --hero-texts-h1-size: clamp(2.5rem, 8vw, 4rem); */
+    /* --hero-texts-h1-size: 3.5rem; */
+  --hero-texts-h1-size: clamp(2.5rem, 15vw, 3.5rem);
+  --hero-texts-h1-line-height: clamp(40px, 12vw, 90px);
 
-  --hero-texts-p-size: clamp(1.2rem, 2vw, 2.1rem);
-  --hero-texts-p-line-height: clamp(40px, 1.5vw, 50px);
-
+  --hero-texts-p-size: clamp(1.25rem, 1.5vw, 1.5rem);
+  --hero-texts-p-line-height: clamp(30px, 1.2vw, 50px);
   --hero-search-container: clamp(45px, 3vh, 76px);
   --hero-search-input: clamp(40px, 2vh, 45px);
   --hero-font-size: clamp(12px, 1.3vw, 14px);
@@ -41,23 +46,28 @@
   /* CATEGORIES SECTION */
 
   /* Sidebar */
-  --cat-side-h3: clamp(1rem, 2vw, 1.5rem);
-  --cat-side-h4: clamp(0.9rem, 1.5vw, 1.3rem);
-  --cat-side-label: clamp(12px, 1.3vw, 14px);
-  --cat-side-radio: clamp(12px, 1.2vw, 1rem);
+  --cat-side-width: 270px;
+  --cat-side-h3: 1.1rem;
+  --cat-side-h4: 14px;
   --cat-side-input-height: clamp(40px, 10vh, 50px);
   --cat-side-input-size: clamp(0.7rem, 1.4vw, 0.9rem);
+  --cat-side-label-bg: #fff;
 
   /* Gallery */
-  --categories-h2: clamp(1.25rem, 5vw, 2rem);
-  --categories-p: clamp(0.8rem, 3vw, 1rem);
+  /* --categories-h2: clamp(1.25rem, 5vw, 2rem);
+  --categories-p: clamp(0.8rem, 3vw, 1rem); */
+  --cat-side-search-height: 48px;
   --categories-search-i: clamp(0.8rem, 2vw, 1.5rem);
   --categories-input-height: clamp(40px, 8vh, 60px);
+  --cat-hover: #eee;
+
+  --cat-p: 13px;
+  --cat-colour: #B0B8C2;
 
   --cat-item-margin: clamp(1rem, 3vh, 1.5rem);
-  --cat-btn-width: clamp(8.5rem, 15vw, 10rem);
-  --cat-btn-height: clamp(40px, 5.6vh, 50px);
-  --cat-btn-font-size: clamp(12px, 1.5vw, 14px);
+  --cat-btn-width: 190px;
+  --cat-btn-height: 40px;
+  --cat-btn-size: 13px;
   
   --cat-item-padd: clamp(1rem, 2vw, 2rem);
   --cat-item-desc-h3: clamp(1rem, 2vw, 1.1rem);
@@ -66,10 +76,11 @@
   --cat-pagination-height: clamp(45px,10vh, 68px);
 
   /* DECCLUTTER and SELL */
-  --declutter-height: clamp(44vh, 46vh, 50vh);
+  --declutter-height: clamp(44vh, 55vh, 60vh);
   --declutter-gap: clamp(1rem, 1.5vw, 1.5rem);
   --declutter-h2: clamp(1.1rem, 5vw, 2rem);
-  --declutter-p: clamp(0.9rem, 2vw, 1.1rem);
+  --declutter-p: clamp(1rem, 2.5vw, 1.1rem);
+  --declutter-btn-height: 4.5rem;
 
   /* TRENDING POSTS */
   --trending-posts-gap: clamp(0.6rem, 1vw, 14px);
@@ -93,12 +104,15 @@
   --services-container-gap: clamp(1rem, 2vw, 2rem);
 
   /* SHOP. SELL. EXCEL  */
-  --shop-section-height: clamp(300, 40vh, 400px);
-  --shop-h2: clamp(1.3rem, 4vw, 2rem);
+  /* --shop-section-height: clamp(44vh, 55vh, 60vh); */
+  --shop-section-height: clamp(50vh, 50vh, 60vh);
+  --shop-sell-height: clamp(180px, 30vh, 250px);
+  --shop-h2: clamp(1.3rem, 5vw, 2.5rem);
   --shop-p: clamp(1rem, 4vw, 1.2rem);
-  --shop-gap: clamp(1rem, 1.5rem, 2rem);
-  --shop-btn-i: clamp(1.2rem, 4vw, 1.5rem);
-  --shop-sell-height: clamp(160px, 15vh, 220px);
+  --shop-gap: clamp(1.5rem, 2rem, 2.5rem);
+  --shop-btn-height: 4.5rem;
+  --shop-btn-i: clamp(1.2rem, 2vw, 1.3rem);
+  
 
   /* FOOTER */
   --footer-h2: clamp(12px, 2vw, 14px);
@@ -143,22 +157,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   cursor: default;
 }
-
-/* .icons {
-  color: black;
-  height: auto;
-  width: 35px;
-  z-index: 2;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-} */
-
-/* #app {
-  max-width: 1800px;
-  margin: 0 auto;
-} */
 
 .width {
   margin: 0 auto;

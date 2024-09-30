@@ -30,13 +30,11 @@
                     <h2>Shop. Sell. Excel.</h2>
                     <p>Step into a world of student-centric buying and selling</p>
                     <button>
-                        <RouterLink to="shop" class="router-link">
-                            <div>
-                                <span class="text">
-                                    Get Started
-                                </span>
-                                <span class="icon"><i class="fa-solid fa-arrow-right"></i></span>
-                            </div>
+                        <RouterLink to="/shop" class="router-link">
+                            <span class="text">
+                                Get Started
+                            </span>
+                            <span class="icon"><i class="fa-solid fa-arrow-right"></i></span>
                         </RouterLink>
                     </button>
                 </div>
@@ -105,22 +103,22 @@
         display: flex;
         align-items: center;
         width: 100%;
-        max-width: 250px;
+        max-width: 350px;
+        height: 40%;
     }
 
     .container .shop-sell {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-self: center;
+        margin: auto 0;
         gap: var(--shop-gap);
         height: var(--shop-sell-height);
-        color: var(--white-text)
+        color: var(--white-text);
     }
 
     .container .shop-sell h2 {
         font-family: Inter;
-        width: 276px;
+        width: 100%;
         height: 60px;
         font-family: Inter;
         font-size: var(--shop-h2);
@@ -137,7 +135,7 @@
 
     .container .shop-sell button {
         width: 220px;
-        height: 76px;
+        height: var(--shop-btn-height);
         outline: none;
         border: none;
         background-color: var(--primary-bg-colour);
@@ -152,24 +150,18 @@
         margin: auto;
         color: var(--primary-blue);
         text-decoration: none;
-    }
-
-    .container .shop-sell button > div {
-        width: 150px;
-        height: 40px;
-        color: var(--primary-blue);
+        height: 100%;
+        width: 100%;
         display: flex;
         flex-direction: row;
-        justify-content: center;
         align-items: center;
-        margin: auto;
-        gap: 11px;
-        border-radius: 8px;
+        justify-content: center;
     }
 
-    .container .shop-sell button > div > span {
+    .container .shop-sell button span:nth-child(1) {
         display: flex;
         align-items: center;
+        margin-right: 10px;
     }
 
     .container .shop-sell button .text {
@@ -188,63 +180,9 @@
         .container .images {
             width: 95%;
         }
-
-        .container .shop-sell h2 {
-            width: 90%;
-            height: 60px;
-            line-height: 35px;
-        }
-
-        .container .shop-sell p {
-            line-height: 1.2rem;
-        }
-
-        .container .shop-sell button > div {
-            width: 140px;
-            height: 40px;
-        }
     } 
 
-    @media (max-width: 760px) {
-        .page-container {
-            height: 250px;
-        }
-
-        .container .shop-sell {
-            gap: 1rem;
-            height: 80%;
-        }
-
-        .container .shop-sell h2 {
-            font-size: 1.2rem;
-            line-height: 2.6rem;
-        }
-
-        .container .shop-sell p {
-            font-size: 1rem;
-            line-height: 1rem;
-        }
-
-        .container .shop-sell button {
-            width: 160px;
-            height: 45px;
-        }
-
-        .container .shop-sell button > div {
-            width: 130px;
-        }
-
-        .container .shop-sell button .text {
-            font-size: 1.1rem;
-            line-height: 2rem;
-        }
-
-        .container .shop-sell button .icon {
-            font-size: 1.2rem;
-        }
-    }
-
-    @media (max-width: 550px) {
+    @media (max-width: 750px) {
         .container > div {
             flex: 0 0 90%;
             max-width: 90%;
@@ -257,43 +195,11 @@
         .container .shop-sell {
             display: flex;
             flex-direction: column;
-            justify-content: space-evenly;
+            justify-content: space-around;
             align-items: center;
-            gap: 1rem;
             text-align: center;
-            height: 100%;
-        }
-
-        .container .shop-sell h2 {
-            line-height: 2rem;
-        }
-
-        .container .shop-sell p {
-            line-height: 1.2rem;            
-        }
-
-        .container .shop-sell button {
-            width: 160px;
-            height: 40px;
-        }
-
-        .container .shop-sell button > div {
-            width: 120px;
-        }
-
-        .container .shop-sell button .text {
-            line-height: 1.7rem;
-        }
-
-        .container .shop-sell button .icon {
-            font-size: 1.1rem;
-        }    
-    }
-
-    @media (max-width: 360px) {
-        .page-container {
-            height: 290px;
-        }
+            height: 80%;
+        }   
     }
 
 </style>

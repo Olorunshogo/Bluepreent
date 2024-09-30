@@ -4,10 +4,8 @@
     <div class="container">
         <div class="logo">
             <img src="./logo/Logo.png" alt="Bluepreent Logo">
-        </div>
-
-        <div class="de-clutter">
-            DeClutter
+            <span>bluepreent</span>
+            <!-- <img src="./logo/Bluepreent.png" alt="Bluepreent Logo"> -->
         </div>
     </div>
 </template>
@@ -17,43 +15,32 @@
 <style lang="css" scoped>
     .container {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: left;
-        padding: 4px 8px;
+        align-items: center;
+        width: 100%;
+        height: 100%;
     }
 
     .logo {
-        width: 100%;
-        height: auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
     }
 
     .logo img {
-        width: 145px;
+        width: 36px;
         height: auto;
     }
 
-    .de-clutter {
+    span {
         /* font-family: SF Pro Text; */
         font-family: "Nunito Sans", sans-serif;
         font-optical-sizing: auto;
-        font-size: 12px;
-        line-height: 14px;
-        font-weight: 400;
+        font-size: 1.4rem;
+        font-weight: normal;
         font-variation-settings:
             "wdth" 100,
             "YTLC" 500;
         font-style: normal;
-        color: var(--secondary-blue);
-    }
-
-    @media (max-width: 600px) {
-        .logo {
-            width: 96px;
-        }
-
-        .logo img {
-            width: 100%;
-        }
+        color: var(--primary-blue);
     }
 </style>

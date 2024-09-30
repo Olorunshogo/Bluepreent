@@ -2,236 +2,285 @@
 <script setup>
     import { ref } from 'vue';
 
-    const category = ref("");
-    const minRange = ref(10);
-    const maxRange = ref(25000000);
-    const condition = ref("");
+    // CATEGORY SECTION
+    const categoryInput = ref("");
+    const showCategory = ref(true);
+    const toggleCategory = () => {
+        showCategory.value = !showCategory.value;
+    };
 
-    const avChecked = ref(false);
-    const locationChecked = ref();
+    // PRICE SECTION
+    const showPrice = ref(true);
+    const togglePrice = () => {
+        showPrice.value = !showPrice.value;
+    };
+    const minPrice = ref("");
+    const maxPrice = ref("");
 
-    import ChevrondownIcon from './icons/ChevrondownIcon.vue';
-    import LocationIcon from './icons/LocationIcon.vue';  
+    // CONDITION SECTION
+    const conditionInput = ref("");
+    const showCondition = ref(true);
+    const toggleCondition = () => {
+        showCondition.value = !showCondition.value;
+    }
 
+    // AVAILABILITY SECTION
+    const availabilityInput = ref("");
+    const showAvailability = ref(true);
+    const toggleAvailability = () => {
+        showAvailability.value = !showAvailability.value;
+    }
+
+    // LOCATION SECTION
+    const locationInput = ref("");
+    const showLocation = ref(true);
+    const toggleLocation = () => {
+        showLocation.value = !showLocation.value;
+    }
 
 </script>
 
+
 <template>
     <div class="container">
-        <div class="items-wrapper">
-            <div class="header">
-                <h3>Filters</h3>
-                <button class="reset-clear">Clear Filter</button>
+        <div class="header">
+            <h3>Filters</h3>
+            <button class="reset-clear">Clear Filters</button>
+        </div>
+
+        <div class="categories">
+            <div v-on:click="toggleCategory">
+                <h4>Categories</h4>
+                <i :class="['bx bx-chevron-up', {'rotate-icon': !showCategory}]"></i>
             </div>
 
-            <div class="categories">
+            <div class="radio" v-show="showCategory">
                 <div>
-                    <h4>Categories</h4>
-                    <i><ChevrondownIcon /></i>
+                    <input 
+                        type="radio" id="bed-mattrass" value="Bed/Mattrass" name="category" 
+                        v-model="categoryInput" @change="updateCategoryOutput"
+                    />
+                    <label for="bed-mattrass">Bed/Mattrass</label>
                 </div>
 
-                <div class="radio">
-                    <!-- <div>Category: {{ category }}</div> -->
+                <div>
+                    <input 
+                        type="radio" id="housing" value="Housing" name="category" 
+                        v-model="categoryInput" @change="updateCategoryOutput"
+                    />
+                    <label for="housing">Housing</label>
+                </div>
 
-                    <div>
-                        <input 
-                            type="radio" id="bed-mattrass" 
-                            value="Bed/Mattrass" v-model="category"
-                            @change="updateCategoryOutput"
-                        />
-                        <label for="bed-mattrass">Bed/Mattrass</label>
-                    </div>
-
-                    <div>
-                        <input 
-                            type="radio" id="housing" 
-                            value="Housing" v-model="category"
-                            @change="updateCategoryOutput"
-                        />
-                        <label for="housing">Housing</label>
-                    </div>
-
-                    <div>
-                        <input 
-                            type="radio" value="Kitchen Items" 
-                            id="kitchen" v-model="category"
-                            @change="updateCategoryOutput"
-                        />
-                        <label for="kitchen">Kitchen Items</label>
-                    </div>
+                <div>
+                    <input 
+                        type="radio" value="Kitchen Utensils" id="kitchen" name="category" 
+                        v-model="categoryInput" @change="updateCategoryOutput"
+                    />
+                    <label for="kitchen">Kitchen Utensils</label>
+                </div>
                     
+                <div>
+                    <input 
+                        type="radio" value="Furniture" id="furniture" name="category"
+                        v-model="categoryInput" @change="updateCategoryOutput"
+                    />
+                    <label for="furniture">Furniture</label>
+                </div>
+
+                <div>
+                    <input 
+                        type="radio" value="Electronics" id="electronics" name="category"
+                         v-model="categoryInput" @change="updateCategoryOutput"
+                    />
+                    <label for="electronics">Eletronics</label>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="price">
+            <div @click="togglePrice"> 
+                <h4>Price</h4>
+                <button class="reset-clear">Reset</button>
+            </div>
+
+            <div class="input" v-show="showPrice">
+                <div>
+                    <label for="minimum">Min</label>
                     <div>
+                        <span class="naira">₦</span>
                         <input 
-                            type="radio" value="Furniture" 
-                            id="furniture" v-model="category"
-                            @change="updateCategoryOutput"
+                            v-model="minPrice" type="text" name="price"
+                            id="maximum" placeholder="0"
                         />
-                        <label for="furniture">Furniture</label>
-                    </div>
+                    </div> 
+                </div>
 
+                <div>
+                    <label for="maximum">Max</label>
                     <div>
+                        <span class="naira">₦</span>
                         <input 
-                            type="radio" value="Electronics" 
-                            id="electronics" v-model="category"
-                            @change="updateCategoryOutput"
+                            v-model="maxPrice" type="text" name="price"
+                            id="maximum" placeholder="1000"
                         />
-                        <label for="electronics">Eletronics</label>
-                    </div>
+                    </div> 
                 </div>
             </div>
+        </div>
 
-            <div class="price">
-                <div>
-                    <h4>Price</h4>
-                    <button class="reset-clear">Reset</button>
-                </div>
-
-                <div class="range">
-                    <span>
-                        <input v-model="minRange" type="range" 
-                            id="range" min="10" max="2500000" value="500000"
-                            step="50" oninput="500000"
-                        > 
-                    </span>
-
-                    <span>
-                        <input v-model="maxRange" type="range" 
-                            id="range" min="2500000" max="5000000" value="1000000"
-                            step="50" oninput="1000000"
-                        > 
-                    </span>
-                </div>
-
-                <div class="min-max">
-                    <span><span class="naira-small">₦</span>10</span>
-                    <span><span class="naira-small">₦</span>5000000</span>
-                </div>
-
-                <div class="min-max-values">
-                    <span id="range-value"><span class="naira">₦</span> {{minRange }} &nbsp;-&nbsp;</span> 
-                    <span id="range-value"><span class="naira">₦</span> {{maxRange }}</span>
-                </div>
-
+        <div class="condition">
+            <div v-on:click="toggleCondition">
+                <h4>Condition</h4>
+                <i :class="['bx bx-chevron-up', {'rotate-icon': !showCondition}]"></i>
             </div>
 
-            <div class="condition">
+            <div class="radio" v-show="showCondition">
                 <div>
-                    <h4>Condition</h4>
-                    <i><ChevrondownIcon /></i>
+                    <input 
+                        type="radio" name="condition" id="brand-new" 
+                        value="Brand New" v-model="conditionInput"
+                    />
+                    <label for="brand-new">Brand New</label>
                 </div>
 
-                <div class="radio">
-                    <!-- <div>Condition: {{ condition }}</div> -->
+                <div>
+                    <input 
+                        type="radio" name="condition" id="fairly-used"
+                        value="Fairly Used" v-model="conditionInput" 
+                    />
+                    <label for="fairly-used">Fairly Used</label>
+                </div>
 
-                    <div>
-                        <input type="radio" id="brand-new" value="Brand New" v-model="condition" />
-                        <label for="brand-new">Brand New <span class="count">(234)</span></label>
-                    </div>
+                <div>
+                    <input 
+                        type="radio" name="condition" id="grade-new" 
+                        value="Grade New" v-model="conditionInput" 
+                    />
+                    <label for="grade-new">Grade New</label>
+                </div>
 
-                    <div>
-                        <input type="radio" id="fairly-used" value="Fairly Used" v-model="condition" />
-                        <label for="fairly-used">Fairly Used <span class="count">(23)</span></label>
-                    </div>
+                <div>
+                    <input 
+                        type="radio" name="condition" id="grade-used" 
+                        value="Grade Used" v-model="conditionInput" 
+                    />
+                    <label for="grade-used">Grade Used</label>
+                </div>
+
+                <div>
+                    <input 
+                        type="radio" name="condition" id="almost-new" 
+                        value="Almost New" v-model="conditionInput" 
+                    />
+                    <label for="almost-new">Almost New</label>
                 </div>
             </div>
+        </div>
 
-            <div class="availability">
-                <div>
-                    <h4>Availability</h4>
-                    <i><ChevrondownIcon /></i>
-                </div>
-
-                <div class="radio">
-                    <div>
-                        <input type="radio" id="available-now" value="Available Now" v-model="avChecked" />
-                        <label for="available-now">Available Now</label>
-                    </div>
-
-                    <div>
-                        <input type="date" id="date" v-model="avChecked"
-                             placeholder="Location" :disabled="avChecked"
-                             :class="{ 'disabled': avChecked, 'enabled': !avChecked }"
-                        />
-                    </div>
-                </div>
+        <div class="availability">
+            <div @click="toggleAvailability">
+                <h4>Availability</h4>
+                <i :class="['bx bx-chevron-up', {'rotate-icon': !showAvailability} ]"></i>
             </div>
 
-            <div class="location">
+            <div class="radio" v-show="showAvailability">
                 <div>
-                    <h4>Location</h4>
-                    <i><ChevrondownIcon /></i>
+                    <input 
+                        type="radio" name="availability" id="first-week" 
+                        value="First Week" v-model="availabilityInput" 
+                    />
+                    <label for="first-week">First Week</label>
                 </div>
 
-                <div class="radio">
-                    <div>
-                        <input v-model="locationChecked" type="radio" 
-                            id="location" value="Location" 
-                        />
-                        <label for="location">All <span class="count">(234)</span></label>
-                    </div>
+                <div>
+                    <input 
+                        type="radio" name="availability" id="second-week" 
+                        value="Second Week" v-model="availabilityInput" 
+                    />
+                    <label for="second-week">Second Week</label>
+                </div>
 
-                    <div class="location-text">
-                        <i><LocationIcon /></i>
-                        <input type="text" id="location" 
-                             placeholder="Location" :disabled="locationChecked"
-                             :class="{ 'disabled': locationChecked, 'enabled': !locationChecked }"
-                        />
-                    </div>
+                <div>
+                    <input 
+                        type="radio" name="availability" id="third-week" 
+                        value="Third Week" v-model="availabilityInput" 
+                    />
+                    <label for="third-week">Third Week</label>
+                </div>
 
+                <div>
+                    <input 
+                        type="radio" name="Availability" id="fourth-week" 
+                        value="Fourth Week" v-model="availabilityInput" 
+                    />
+                    <label for="fourth-week">Fourth Week</label>
+                </div>
+
+                <div>
+                    <input 
+                        type="radio" name="Availability" id="fifth-week" 
+                        value="Fifth Week" v-model="availabilityInput" 
+                    />
+                    <label for="fifth-week">Fifth Week</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="location">
+            <div v-on:click="toggleLocation">
+                <h4>Location</h4>
+                <i :class="['bx bx-chevron-up', {'rotate-icon': !showLocation} ]"></i>
+            </div>
+
+            <div class="radio" v-show="showLocation">
+                <div>                       
+                    <label for="location">
+                        <i class='bx bxs-graduation'></i>
+                        <input 
+                            type="text" name="Location" id="location"
+                            placeholder="Institution" v-model="locationInput"
+                        />
+                    </label>
+                </div>
                     
-                </div>
             </div>
-
         </div>
 
         <div class="apply-container">
-            <button>Apply Filters <span class="count">(4)</span></button>
-        </div>
+            <button>Apply Filters &nbsp;<span class="count">(4)</span></button>
+        </div>      
 
     </div>
 </template>
 
-
-
 <style lang="css" scoped>
     /* === THE WHOLE CONTAINER === */ 
     .container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
         color: var(--black-text);
-        background-color: #FAFBFF;
+        margin: 0.5rem 0 1rem 0;
+        padding: 1rem 10px 1rem 1rem;
         width: 100%;
-        height: 100%;
+        height: fit-content;
         padding-bottom: 1rem;
         position: relative;
-        left: 0;
-        top: 0;
-    } 
-
-    .items-wrapper {
-        display: flex;
-        flex-direction: column;        
-        padding: 2rem 10px 1rem 1rem;
-        width: 100%;       
     }
 
     /* === HEADER SECTION === */
-    .items-wrapper .header {
+    .header {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        align-self: center;
         width: 100%;
-        height: 100%;
-        max-height: 100px;
-        color: #F5F7FF;
+        /* color: #F5F7FF; */
+        margin-bottom: 1rem;
     }
 
-     .items-wrapper .header h3 {
+    .header h3 {
         font-family: Inter;
         font-size: var(--cat-side-h3);
-        font-weight: 700;
+        font-weight: 600;
         line-height: 20px;
         text-align: center;
         color: var(--black-text);
@@ -239,59 +288,45 @@
         align-self: center;
     } 
 
-    /* === The RESET and CLEAR BUTTON */
-    .items-wrapper .reset-clear {
+    /* === The RESET and CLEAR BUTTONS */
+    .reset-clear {
         font-family: Inter;
-        font-size: 12px;
+        font-size: 11px;
         font-weight: 500;
-        line-height: 15.68px;
         text-align: center;
         color: var(--primary-blue);
-        text-decoration: underline;
+        text-decoration: unone;
         display: flex;
         flex-direction: column;
         align-self: center;
         cursor: pointer;
         outline: none;
-        opacity: 0.9;
         border: none;
         background-color: transparent;
         transition: var(--trans-05-ease-in-out);
     }
 
-    .items-wrapper .reset-clear:hover {
-        opacity: 1;
-        transform: scale(0.97);
+    .reset-clear:hover {
+        text-decoration: underline;
     }
 
-    .items-wrapper label {
-        font-size: var(--cat-side-label);
+    label {
         cursor: pointer;
     }
 
-    .items-wrapper > div {
-        margin: 0.5rem 0;
-    }   
-
-    .items-wrapper i {
-        background-color: transparent;
-        color: #1A1A1A;
-        font-weight: 600;
-        font-size: 10px;
+    i {        
+        color: #515456;
         display: flex;
-        flex-direction: row;
         align-items: center;
-        justify-content: center;
         cursor: pointer;
-        outline: none;
-        border: none;
-        z-index: 4;
+        margin-right: 0.5rem;
+        font-size: 1.5rem;
     }
 
-    .items-wrapper h4 {
+    h4 {
         font-family: Inter;
         font-size: var(--cat-side-h4);
-        font-weight: 600;
+        font-weight: 500;
         line-height: 19px;
         text-align: left;
         color: var(--black-text);
@@ -301,234 +336,219 @@
         justify-content: center;
     }
 
-    /* === CATEGORY SECTION === */
-    .items-wrapper .categories {
+    .categories,
+    .price,
+    .condition,
+    .availability,
+    .location {
         display: flex;
         flex-direction: column;
+        align-content: center;
         justify-content: center;
         width: 100%;
         height: 100%;
+        margin: 1rem 0;
     }
 
-    .items-wrapper .categories > div:nth-child(1),
-    .items-wrapper .price > div:nth-child(1),
-    .items-wrapper .condition > div:nth-child(1),
-    .items-wrapper .availability > div:nth-child(1),
-    .items-wrapper .location > div:nth-child(1) {
+    .categories > div:nth-child(1),
+    .price > div:nth-child(1),
+    .condition > div:nth-child(1),
+    .availability > div:nth-child(1),
+    .location > div:nth-child(1) {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin: 8px 0;
+        margin-bottom: 1rem;
+        cursor: pointer;
     }
 
-    .items-wrapper .radio > div {
+    .radio div {
         display: flex;
+        flex-direction: row;
         align-items: center;
-        padding: 8px 4px;
-        color: #515456;
+        justify-items: center;
+        transition: all 0.3s ease;
     }
 
-    .items-wrapper .radio input[type=radio] {
+    .radio input[type=radio] {
         display: flex;
         align-items: center;
-        justify-content: center;
-        width: var(--cat-side-radio);
-        height: var(--cat-side-radio);
-        background-color: var(--primary-blue);
+        width: 15px;
+        height: 15px;
         margin-right: 8px;
         cursor: pointer;
     }
 
-    .disabled {
-        cursor: not-allowed;
-    }
-
-    .enabled {
-        cursor: text;
-    }
-
-    /* === PRICE SECTION === */
-    .items-wrapper .price {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .items-wrapper .price .range {
-        font-family: Inter;
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 14px;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-    }
-
-    .items-wrapper .price .range span {
-        max-width: 50%;
-        height: 2px;
-        background-color: transparent;
-        outline: none;
-        opacity: 0.9;
-        -webkit-transition: 0.2s;
-        transition: opacity 0.2s;
-        display: flex;
-        align-items: center;
-        margin: 8px 0;
-    }
-
-    .items-wrapper .price .range span input[type=range] {
-        width: 100%;
-        height: 2px;
-        background-color: var(--primary-blue);
-        outline: none;
-        opacity: 0.9;
-        -webkit-transition: 0.2s;
-        transition: opacity 0.2s;
+    .radio label {
+        font-size: 13px;
         cursor: pointer;
     }
 
-    .items-wrapper .price .range span,
-    .items-wrapper .price .range input[type=range]:hover {
-        opacity: 1;
+    .rotate-icon {
+        transition: transform 0.3s ease;
+        transform: rotate(-180deg); /* Rotate the icon */
     }
 
-    .items-wrapper .price .range input[type=range]::-webkit-slider-thumb {
-        width: 5px;
-        height: 2px;
-    }
-
-    .items-wrapper .price .range input[type=range]::-webkit-slider-moz {
-        width: 8px;
-        height: 2px;
-
-    }
-
-    .items-wrapper .price .min-max {
-        display: flex;
-        padding: 8px 16px;
-        font-size: 10px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .items-wrapper .price .min-max-values,
-    .items-wrapper .availability input[type=date],
-    .items-wrapper .location-text {
-        display: flex;
-        align-items: center;
-        margin: 8px 0;
-        border-radius: 8px;
-        border: 1px solid #E5E5E5;
-        outline: none;
-        background-color: #FFF;
-        color: #1A1A1A;
+    .price .input {
+        font-family: Inter;
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 14px;
         width: 100%;
-        padding: 10px 12px 10px 16px;
-        height: var(--cat-side-input-height);
-        font-size: var(--cat-side-input-size);
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        position: relative;
+    }
+
+    .price .input div {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        width: 50%;
+        height: 100%;
+    }
+
+    .price .input div label {
+        font-size: 12px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .price .input div div,
+    .location label {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 40px;
+        background-color: var(--cat-side-label-bg);
+        border-radius: 8px;
+        cursor: pointer;
+        padding-left: 0.3rem;
+        /* border: 1px solid #F5F5F7; */
+        border: 1px solid #CACDD8;
+    }
+
+    .price .input div div {
+        width: 100%;
+        max-width: 100px;
+    }
+
+    .price .input div div:hover,
+    .location label:hover {
+        background-color: var(--secondary-bg);
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    }
+
+    .price .input div div:focus,
+    .location label:focus {
+        background-color: var(--secondary-bg);
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
         cursor: text;
     }
 
-    .items-wrapper .price .min-max-values,
-    .items-wrapper .availability input[type=date] {
+    .price .input .naira {
+        font-family: Inter;
+        font-size: 1rem;
+        font-weight: 600;
+        width: 20px;
+        height: 100%;
         display: flex;
         align-items: center;
-        justify-content: space-between;
     }
 
-    .items .availability input[type=date]::placeholder,
-    .items-wrapper .location-input input[type=text]::placeholder {
+    .price input[type=text],
+    .location input[type=text] {
+        display: flex;
+        align-items: center;
+        background: transparent;
+        border: none;
+        outline: none;
+        height: 100%;
+        cursor: pointer;
+    }
+
+    .price input[type=text] {
+        width: 100%;
+        max-width: 100px;
+    }
+
+    .price input[type=text]:focus,
+    .location input[type=text]:focus {
+        cursor: text;
+    }
+
+    .price input[type=text]::placeholder,
+    .location input[type=text]::placeholder {
         font-family: Inter;
         font-size: 0.8rem;
         font-weight: 400;
-        line-height: 17px;
         text-align: left;
-        padding-left: 1rem;
+    } 
+
+    .location label {
+        width: 100%;
     }
 
-    .items-wrapper .price .min-max-values span {
+    .bxs-graduation {
+        font-size: 1.2rem;
+        height: 100%;
+        margin: auto;
         display: flex;
         align-items: center;
     }
 
-    .items-wrapper .price .min-max span {
-        display: flex;
-        align-items: center;
+    .location input[type=text] {
+        cursor: pointer;
+        transition: all 0.5s ease;
+        width: 100%;
     }
 
-    .items-wrapper .price .naira {
+    .location input[type=text]:focus {
+        background: transparent;
+        cursor: text;
+    }
+
+    .count {
         font-family: Inter;
-        font-weight: 700;
-        line-height: 1.5rem;
-        text-align: left;
-        color: #1A1A1A;
-        display: flex;
-        align-items: center;
-        margin-right: 2px;
-    }
-
-    .items-wrapper .price .naira-small {
-        font-family: Inter;
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 1.05rem;
-        text-align: left;
-        color: #1A1A1A;
-        display: flex;
-        align-items: center;
-    }
-
-    /* === LOCATION SECTION === */
-    .items-wrapper .location-input i {
-        padding-left: 2px;
-        width: 15px;
-    }
-
-    .items-wrapper .location-text input[type=text] {
-        border: none;
-    }
-
-    .items-wrapper span.count {
-        font-family: Inter;
-        font-size: 1rem;
+        /* font-size: 0.75rem;
         font-weight: 400;
-        line-height: 1.1rem;
-        text-align: left;
-        color: var(--primary-blue);
-
+        text-align: left; */
+        /* color: var(--primary-blue); */
+        position: relative;
     }
 
     /* === The APPLY FILTER BUTTON */
     .apply-container {
-        font-family: Inter;
-        font-size: 1rem;
-        font-weight: 600;
-        line-height: 1rem;
-        text-align: center;
-        padding: 1rem;
-        color: var(--white-text);
-        background-color: var(--primary-blue);
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        outline: none;
-        border: none;
-        border-radius: 8px;
+        margin-top: 2rem;
         width: 100%;
-        height: 50px;
-        cursor: pointer;
+        height: 36px;
+        position: relative;
+        display: flex;
+        align-items: center;   
     }
 
     .apply-container button {
         color: var(--white-text);
-        background-color: transparent;
+        background-color: var(--primary-blue);
         outline: none;
         border: none;
+        border-radius: 8px;
         width: 100%;
-        height: 100%;
-        margin: auto;
+        height: 36px;
+        font-family: Inter;
+        font-size: 11px;
+        font-weight: 500;
+        margin-top: 2rem;
+        cursor: pointer;
+        color: var(--white-text);
+        opacity: 0.9;
+        background-color: var(--primary-blue);
+        transition: opacity 0.3s ease;
+    }
+
+    .apply-container button:hover {
+        opacity: 1;
+        background-color: #093856;
     }
 </style>

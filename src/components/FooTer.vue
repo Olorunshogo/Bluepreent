@@ -1,4 +1,5 @@
 
+
 <template>
     <div>
         <div class="footer-container">
@@ -10,8 +11,9 @@
             <div class="container">
                 <div class="logo-copyright">
                     <div class="logo">
-                        <RouterLink to="/">
-                            <img src="../images/Bluepreent.png" alt="Bluepreent Image">
+                        <RouterLink to="/" class="logo-link">
+                            <img src="../assets/logo/Logo.png" />
+                            <span>bluepreent</span>
                         </RouterLink>
                     </div>
 
@@ -83,28 +85,41 @@
     .logo-copyright {
         display: flex;
         flex-direction: column;
-        justify-items: space-evenly;
         width: 100%;
         max-width: 350px;
-        max-height: 198px;
         height: 100%;
+        max-height: 80px;
         margin-bottom: 1rem;
     }
 
     .logo-copyright .logo {
-        max-width: 150px;
         width: 100%;
-        height: 32px;
+        height: 100%;
+    }
+
+    .logo-copyright .logo .logo-link {
         display: flex;
+        flex-direction: row;
         align-items: center;
+        text-decoration: none;
     }
 
     .logo-copyright .logo img {
-        max-width: 150px;
-        width: 100%;
-        height: 32px;
-        display: flex;
-        align-items: center;
+        width: 36px;
+        height: auto;
+    }
+
+    .logo .logo-link span {
+        /* font-family: SF Pro Text; */
+        font-family: "Nunito Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-size: 1.4rem;
+        font-weight: normal;
+        font-variation-settings:
+            "wdth" 100,
+            "YTLC" 500;
+        font-style: normal;
+        color: var(--primary-blue);
     }
 
     .logo-copyright .copyright {

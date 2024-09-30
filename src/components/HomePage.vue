@@ -70,7 +70,7 @@
     .declutter-sell,
     .trending-posts,
     .services-section {
-        margin-top: 3rem;
+        margin-top: 3.5rem;
     }
 
     .nav-hero-container {

@@ -3,8 +3,8 @@
     import { ref } from 'vue';
 
     const category = ref("Bed/Mattrass");
-    const minRange = ref("₦" + 10);
-    const maxRange = ref("₦" + 25000000);
+    const minRange = ref("₦" + 0);
+    const maxRange = ref("₦" + 1000);
     const condition = ref("Brand New");
 
     // const avChecked = ref(false);
@@ -17,10 +17,10 @@
 
 
     const collection = ref([
-        { id: 1, name: 'Bed/Mattrass', price: 500, location: "Lagos, Nigeria", condition: 'Brand New', available: 'Available Now' },
-        { id: 2, name: 'Chairs', price: 1000, location: "Lagos, Nigeria", condition: 'Fairly Used', available: 'Available in 2 weeks' },
-        { id: 3, name: 'Furniture', price: 1500, location: "Lagos, Nigeria", condition: 'Brand New', available: 'Available Now' },
-        { id: 4, name: 'Mirrors', price: 2000, location: "Lagos, Nigeria", condition: 'Fairly Used', available: 'Available Now' },
+        { id: 1, name: 'Bed/Mattrass', price: 500, location: "Lagos, Nigeria", condition: 'Brand New', available: 'Available Now', alt: 'Mattrass' },
+        { id: 2, name: 'Chairs', price: 1000, location: "Lagos, Nigeria", condition: 'Fairly Used', available: 'Available in 2 weeks', alt: 'Mattrass' },
+        { id: 3, name: 'Furniture', price: 1500, location: "Lagos, Nigeria", condition: 'Brand New', available: 'Available Now', alt: 'Mattrass' },
+        { id: 4, name: 'Mirrors', price: 2000, location: "Lagos, Nigeria", condition: 'Fairly Used', available: 'Available Now', alt: 'Mattrass' },
         { id: 1, name: 'Bed/Mattrass', price: 2500, location: "Lagos, Nigeria", condition: 'Brand New', available: 'Available Now' },
         { id: 2, name: 'Chairs', price: 3000, location: "Lagos, Nigeria", condition: 'Fairly Used', available: 'Available in 2 weeks' },
         { id: 3, name: 'Furniture', price: 3500, location: "Lagos, Nigeria", condition: 'Brand New', available: 'Available Now' },
@@ -35,22 +35,32 @@
 
 <template>
     <div>
-        <div class="container" title="Product Gallery">
-            <div class="search-categories">
-                <p>Showing 1-60 items out of a total of 1.2k for <span class="highlight">“Bed/Mattrass”</span></p>                   
+        <div class="container">
+            <div class="search-bar">
+                <label for="search-bar">
+                    <i class='bx bx-search'></i>
+                    <input
+                        type="text" name="search-bar" id="search-bar"
+                        placeholder="Search for an item"
+                    />
+                </label>
+            </div>
 
-                <div class="sort-buttons" title="Sort">
-                    <button title="Sort By Position">
+            <div class="search-categories">
+                <p>Showing 1-60 items out of a total of 1.2k for results</p>                   
+
+                <div class="sort-buttons">
+                    <button>
                         <span>
                             <span>Sort By:</span>
-                            <span class="highlight"> Position</span>
+                            <span> Select an option</span>
                         </span>
                         <i>
                             <ChevrondownIcon />
                         </i>
                     </button>
 
-                    <button title="Show"> 
+                    <button> 
                         <span>
                             <span>Show:</span>
                             <span class="highlight"> 24 per page</span>
@@ -63,6 +73,12 @@
             </div>
 
             <div class="sort-categories">
+                <div class="clear">
+                    <button>
+                        <span class="highlight"> Clear All</span>
+                    </button>                      
+                </div>
+
                 <div class="sort-category" title="Categories">
                     <span>
                         {{ category }}
@@ -99,16 +115,6 @@
                     </i>
                 </div>
 
-                <!-- COMMECT THIS PART OUT -->
-                <!-- <div class="sort-category" title="Availability">
-                    <span>
-                        {{ avChecked }}
-                    </span>
-                    <i>
-                        <TimesIcon />
-                    </i>
-                </div> -->
-
                 <div class="sort-category" title="Location">
                     <span>
                         {{ locationChecked }}
@@ -116,12 +122,6 @@
                     <i>
                         <TimesIcon />
                     </i>
-                </div>
-                    
-                <div class="sort-buttons">
-                    <button>
-                        <span class="highlight"> Clear All</span>
-                    </button>                      
                 </div>
             </div>
 
@@ -145,66 +145,147 @@
     .container {
         width: 100%;
         height: 100%;
-        padding: var(--cat-item-padd) 0 var(--cat-item-padd) var(--cat-item-padd);
+        padding: var(--cat-item-padd);
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
 
+    .container > div {
+        width: 100%;
+        height: 100%;
+        margin: var(--cat-item-padd) 0;
+        margin: 1rem auto;
+    }
+
+    /* === SEARCH BAR === */
+    .search-bar {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        height: fit-content;
+    }
+
+    .search-bar label i {
+        font-size: 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 100%;
+        color: var(--icon-grey);
+    }
+
+    .search-bar label {
+        border: 1px solid #CACDD8;
+        border-radius: 8px;
+        width: 196%;
+        height: var(--cat-side-search-height);
+        font-family: Inter;
+        font-size: 11px;
+        font-weight: 500;
+        margin: 2rem 0;
+        cursor: pointer;
+        margin: 0 auto;
+        background-color: var(--primary-bg-colour);
+        transition: opacity 0.3s ease;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .search-bar label:focus-within {
+        border: 1px solid var(--primary-blue);
+    }
+
+    .search-bar label:hover {
+        background-color: rgba(246, 246, 246, 0.95);
+    }
+
+    .search-bar label input[type=text] {
+        color: var(--black-text);
+        width: 100%;
+        height: 100%;
+        height: auto;
+        outline: none;
+        border: none;
+        font-size: 14px;
+        font-weight: 400;
+        background-color: transparent;
+    }
+
+    .search-bar label input[type=text]::placeholder {
+        color: #CACDD8;
+        font-weight: 500;
+    }
+
     .search-categories {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-content: center;
         width: 100%;
         height: fit-content;
         border-radius: 8px;
         margin-bottom: var(--cat-item-margin);
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-        color: #CACDD8;
     }
 
     .search-categories p {
         font-family: Inter;
-        font-size: var(--categories-p);
+        font-size: var(--cat-p);
         font-weight: 400;
-        line-height: 1.5rem;
-        text-align: left;
+        /* line-height: 1.5rem; */
         margin: auto 0;
         margin-bottom: 1rem;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        margin: auto 0;
+        color: var(--cat-colour);
     }
 
     .search-categories .sort-buttons {
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: space-between;
         align-items: center;
         margin: auto 0;
-        max-width: 350px;
+        width: 420px;
+        height: auto;
     }
 
     .search-categories button {
         width: var(--cat-btn-width);
         height: var(--cat-btn-height);
-        border: 1px solid #CACDD8;
         outline: none;
         border-radius: 8px;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
         padding: 12px 4px;
-        color: #B0B8C2;
+        color: var(--cat-colour);
         font-family: Inter;
-        font-size: var(--cat-btn-font-size);
-        font-weight: 600;
+        font-size: var(--cat-btn-size);
+        font-weight: 400;
         line-height: 1.7rem;
         text-align: center;
         cursor: pointer;
+        padding: 4px;
+        border: 1px solid #CACDD8;
         background-color: var(--primary-bg-colour);
         transition: all 0.3s ease-out;
     }
 
+    .search-categories button > span:nth-child(1) {
+        margin-right: 8px;
+    }
+
     .search-categories button:hover,
     .sort-categories button:hover {
-        background-color: #eee;
+        background-color: var(--cat-hover);
     }
 
     .search-categories button:focus,
@@ -215,8 +296,8 @@
     .highlight {
         color: var(--primary-blue);
         font-family: Inter;
-        font-weight: 700;
-        line-height: 1.2rem;
+        font-weight: 400;
+        /* line-height: 1.2rem; */
         text-align: left;
     }
 
@@ -225,40 +306,17 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        flex-wrap: wrap;
         width: 100%;
-        height: var(--cat-btn-height);
-        margin-bottom: var(--cat-item-margin);
+        height: fit-content;
     }
 
-    .sort-categories .sort-category {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        border-radius: 8px;
-        padding: 10px;
-        font-size: var(--cat-btn-font-size);
-        font-weight: 400;
-        opacity: 0.9;
-        cursor: default;
-        margin-right: 0.6rem;
-        background-color: var(--light-blue-bg);
-        transition: var(--trans-03-ease-in);
+    .sort-categories div {
+        margin-right: 1rem;
+        margin-top: 8px;
     }
 
-    .sort-categories .sort-category:focus,
-    .sort-categories .sort-category:hover {
-        opacity: 1.0;
-        border: 1px solid #CACDD8;
-    }
-
-    .sort-categories .sort-category i {
-        color: var(--icon-grey);
-        display: flex;
-        align-items: center;
-    }
-
-    .sort-categories .sort-buttons {
-        max-height: 50px;
+    .sort-categories .clear {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -273,14 +331,50 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
         padding: 12px 8px;
         font-family: Inter;
         font-size: var(--cat-btn-font-size);
-        font-weight: 600;
         line-height: 1.5rem;
         text-align: center;
         background-color: transparent;
+        border: 1px solid #CACDD8;
+    }
+
+    .sort-categories .sort-category {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 8px;
+        width: fit-content;
+        height: 35px;
+        padding: 10px;
+        font-size: var(--cat-btn-font-size);
+        font-weight: 400;
+        text-align: center;
+        cursor: pointer;
+        margin: auto 0;
+        background-color: var(--light-blue-bg);
+        transition: var(--trans-03-ease-in);
+    }
+
+    .sort-categories .sort-category:hover {
+        opacity: 1.0;
+        border: 1px solid #CACDD8;
+    }
+
+    .sort-category {
+        margin: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .sort-categories .sort-category i {
+        color: var(--icon-grey);
+        display: flex;
+        align-items: center;
+        margin-left: 8px;
     }
 
     /* === ITEMS SECTION === */
@@ -305,7 +399,7 @@
         flex-direction: row;
         justify-content: space-between;
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         gap: var(--trending-posts-gap);
     }
 
