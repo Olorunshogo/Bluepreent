@@ -1,17 +1,16 @@
 
 <script setup>
-    import { computed, defineProps } from 'vue';
+    import { computed } from 'vue';
 
     const props = defineProps({
         label: { type: String, default: '' },
         placeholder: String,
         modelValue: {
-            type: String,
+            type: [ String, Boolean, Number ],
             required: true,
         },
         type: {
             required: true,
-            type: String,
             default: 'text',
         },
         id: {
@@ -55,9 +54,9 @@
 
 <template>
     <div>
-        <label :for="id"></label>
+        <!-- <label :for="id">{{ label }}</label> -->
         <input
-            :placeholder="placeholder" :label="label"
+            :placeholder="placeholder"
             :type="type" v-model="proxyValue" :id="id" :name="name"
             :autocomplete="autocomplete" v-bind="inputAttributes"
         />
@@ -71,9 +70,6 @@
         height: 100%;
         outline: none;
         border: none;
-        /* font-size: 13px;
-        font-weight: 400; */
-        /* caret-color: #05283E; */
         cursor: pointer;
         display: flex;
         flex-direction: row;
@@ -86,9 +82,5 @@
         font-size: 14px;
         font-weight: 400;
         color: #98A2B3;
-    }
-
-    input:focus {
-        cursor: text;
     }
 </style>

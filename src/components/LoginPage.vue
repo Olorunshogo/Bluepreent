@@ -9,11 +9,11 @@
     const email = ref("");
     const password = ref("");
 
+    const passwordInput = ref(true);
     const showPassword = ref(true);
-    const showEye = ref(true);
 
-    const showText = ref(false); 
-    const slashEye = ref(false); 
+    const textInput = ref(false);     
+    const hidePassword = ref(false); 
     
 
     const emailError = ref("");
@@ -82,7 +82,7 @@
 
                         <div class="login-content">
                             <div class="login-header">
-                                <h2>Welcome Back,</h2>
+                                <h2>Welcome Back!</h2>
                                 <p>Elevate Your Student Commerce Experience!</p>
                             </div>
 
@@ -114,12 +114,11 @@
                                             <i class='bx bx-check-shield' ></i>
                                         </span>
 
-                                        <label for="password"></label>
                                         <CustomInput 
                                             label="Password" v-model="password" id="password"
-                                            placeholder="Password" type="password" class="input"
+                                            placeholder="**********" type="password" class="input"
                                             :required="true" autocomplete="new-password"
-                                            name="Password" v-show="showText"                                       
+                                            name="Password" v-show="passwordInput"                                       
                                         />
 
                                         <label for="textPassword"></label>
@@ -127,12 +126,12 @@
                                             label="Text Password" v-model="password" id="textPassword"
                                             placeholder="Password" type="text" class="input"
                                             :required="true" autocomplete="new-password"
-                                            name="text-password" v-show="showPassword"                                       
+                                            name="text-password" v-show="textPassword"                                       
                                         />
 
                                         <span v-on:click="toggleShow" class="icons eyes" >
-                                            <i v-show="showEye" class="fa-regular fa-eye"></i>
-                                            <i v-show="slashEye" class="fa-regular fa-eye-slash"></i>
+                                            <i v-show="showPassword" class="fa-regular fa-eye"></i>
+                                            <i v-show="hidePassword" class="fa-regular fa-eye-slash"></i>
                                         </span>
                                         <!-- <label for="password"> -->
                                             <!-- <p id="password-minlength">Enter at least 8 characters.</p> -->
@@ -235,7 +234,7 @@
 
     section {
         width: 48%;
-        max-width: 675px;
+        max-width: var(--section-max-width);
         height: auto;
         gap: 2.5rem;
         border-radius: 8px;
@@ -245,8 +244,8 @@
     section:nth-child(1) {
         display: flex;
         flex-direction: column;
+        justify-content: center; 
         gap: 4rem;
-        padding-top: 20%;
     }
 
     section:nth-child(1) > div {
@@ -278,7 +277,6 @@
         width: 100%;
         display: flex;
         flex-direction: column;
-        gap: 1rem;
     }
 
     .login-header h2 {
@@ -344,7 +342,7 @@
         align-items: center;
         justify-content: left;
         width: 100%;
-        height: 52px;
+        height: var(--input-height);
         padding: 8px;
         gap: 8px;
         border-radius: 4px;
@@ -400,21 +398,15 @@
         font-size: 12px;
     }
 
-    form .forgot {
-        text-decoration: none;
-        color: var(--primary-blue);
-    }
-
     /* === Login Footer === */
     .login-footer {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         margin: auto;
-        width: 85%;
+        width: 100%;
         max-width: 412px;
         height: 100%;
-        /* max-height: 86px; */
         gap: 1rem;
     }
 
@@ -427,7 +419,7 @@
         /* line-height: 1.125rem; */
         font-weight: 400;
         width: 100%;
-        height: 3rem;
+        height: 46px;
         border-radius: 4px;
         border: none;
         color: var(--white-text);
@@ -446,7 +438,6 @@
 
     .login-form p {
         width: 100%;
-        height: 1.4rem;
         font-family: Inter;
         font-size: 14px;
         font-weight: 400;
@@ -462,6 +453,11 @@
         font-weight: 600;
         line-height: 22px;
         text-align: center;
+        text-decoration: none;
+        color: var(--primary-blue);
+    }
+
+    form .forgot {
         text-decoration: none;
         color: var(--primary-blue);
     }

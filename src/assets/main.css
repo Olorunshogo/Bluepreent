@@ -153,8 +153,10 @@ html {
 /* LOGIN PAGE */
 :root {
   /* NAV */
+  --section-max-width: 675px;
   --form-focus-bg: #E8F6FF;
   --form-hover-bg: #EEEEEE;
+  --input-height: 46px;
 }
 
 body {
