@@ -89,8 +89,8 @@
     .container .outer {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+        justify-content: space-evenly;
+        /* align-items: center; */
         width: 100%;
         height: fit-content;
         border-radius: 8px;
@@ -111,7 +111,7 @@
         width: 100%;
         display: flex;
         flex-direction: column;
-        padding: 4px 4px 4px 8px;
+        padding: 6px;
         width: 100%;
         height: 56px;
         border-radius: 8px;
@@ -214,7 +214,7 @@
 
     label:focus-within {
         border: 1px solid var(--primary-blue);
-        background-color: var(--light-blue-bg);
+        background-color: var(--form-focus-bg);
     }
 
     .region {
@@ -228,7 +228,7 @@
     }
     
     .dropdown li:hover {
-        background-color: #eee;
+        background-color: var(--form-hover-bg);
         border-radius: 8px;
         opacity: 0.6;
     }
@@ -267,9 +267,22 @@
     }
 
     @media (max-width: 1020px) {
-         .container .region,
-         .container .state {
+        .container .region,
+        .container .state {
             width: 48%;
         }
-    }  
+    }
+
+    @media (max-width: 450px) {
+        .container .outer {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container .region,
+        .container .state {
+            width: 98%;
+            margin: auto;
+        }
+    }   
 </style>

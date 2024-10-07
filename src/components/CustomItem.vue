@@ -44,11 +44,10 @@
     .card-container {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        width: 95%;
-        max-width: 250px;
+        /* align-items: center; */
+        width: 100%;
         height: 100%;
-        gap: 1rem;
+        gap: var(--cat-item-gap);
         border: 1px solid #F0F0F0;
         border-radius: 8px;
         background-color: var(--primary-bg-colour);
@@ -57,12 +56,13 @@
     }
     
     .card-container:hover {
-        transform: scale(1.05)    ;  
+        transform: scale(1.05);  
     }
 
     .product-container {
         width: 100%;
-        max-height: 8rem;
+        max-height: 160px;
+        height: auto;
         position: relative;        
         background-color: var(--light-blue);
     }
@@ -102,14 +102,16 @@
         padding: 0 16px 8px 16px;
         display: flex;
         flex-direction: column;
+        gap: 0.25rem;
         justify-content: space-between;
         text-align: left;
+        margin-top: 8px;
     }
 
     .description h3 {
         font-family: Inter;
-        font-size: var(--cat-item-desc-h3);
-        font-weight: 700;
+        font-size: var(--cat-item-desc-h3p);
+        font-weight: 600;
         line-height: 1.4rem;
         text-align: left;
     }
@@ -120,7 +122,7 @@
 
     .description .price {
         font-family: Inter;
-        font-size: var(--cat-item-desc-p);
+        font-size: var(--cat-item-desc-h3p);
         font-weight: 600;
         line-height: 1.2rem;
         color: #1A1A1A;
@@ -151,5 +153,11 @@
     .description .condition {
         font-size: var(--cat-item-desc-p);
         line-height: 1.1rem;
+    }
+
+    @media (max-width: 400px) {
+        .container {
+            max-width: 350px;
+        }
     }
 </style>

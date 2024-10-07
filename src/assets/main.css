@@ -1,4 +1,29 @@
 
+/* GOOGLE FONT: INTER */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@font-face {
+  font-family: Campton;
+  src: url(./fonts/Campton/CamptonBlack.otf);
+}
+
+@font-face {
+  font-family: SF Pro;
+  src: url(./fonts/SFPro/SFProText-Regular.ttf);
+}
+
+html {
+  font-size: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 :root {
   --primary-bg-colour: #fff;
   --secondary-bg: #eeeeff;
@@ -19,26 +44,28 @@
   --trans-05-ease-in-out: all 0.5s ease-in-out;
 }
 
+/* NAVIGATION */
 :root {
-  /* NAV */
-  --nav-height: 50px;
+  --nav-height: clamp(45px, 6vh, 150px);
   --nav-link-size: clamp(0.75rem, 2vw, 1rem);
   --nav-link-width: clamp(18%, 12vw 20%);
-  --sidebar-width: 200px;
+  --sidebar-width: 220px;
+}
 
+/* HOMEPAGE */
+:root {
   /* HERO SECTION */
-  --hero-height: clamp(420px, 80vh, 700px);
+  --hero-height: clamp(420px, 40vh, 650px);
   --hero-width: clamp(300px, 90%, 2000px);
-  /* --hero-padd: clamp(5%, 8vw, 10%); */
-  /* --hero-texts-h1-size: clamp(2.5rem, 8vw, 4rem); */
-    /* --hero-texts-h1-size: 3.5rem; */
-  --hero-texts-h1-size: clamp(2.5rem, 15vw, 3.5rem);
-  --hero-texts-h1-line-height: clamp(40px, 12vw, 90px);
 
-  --hero-texts-p-size: clamp(1.25rem, 1.5vw, 1.5rem);
-  --hero-texts-p-line-height: clamp(30px, 1.2vw, 50px);
-  --hero-search-container: clamp(45px, 3vh, 76px);
-  --hero-search-input: clamp(40px, 2vh, 45px);
+  --hero-texts-h1-size: clamp(2rem, 6vw, 3.5rem);
+  --hero-texts-h1-line-height: clamp(50px, 4vw, 80px);
+
+  --hero-texts-p-size: clamp(1rem, 1.5vw, 2rem);
+  --hero-texts-p-line-height: clamp(40px, 2vw, 50px);
+
+  --hero-search-container: clamp(70px, 3vh, 72px);
+  --hero-search-input: clamp(46px, 3vh, 56px);
   --hero-font-size: clamp(12px, 1.3vw, 14px);
 
   --hero-search-font-size: clamp(11px, 1.2vw, 13px);
@@ -47,6 +74,7 @@
 
   /* Sidebar */
   --cat-side-width: 270px;
+
   --cat-side-h3: 1.1rem;
   --cat-side-h4: 14px;
   --cat-side-input-height: clamp(40px, 10vh, 50px);
@@ -65,18 +93,21 @@
   --cat-colour: #B0B8C2;
 
   --cat-item-margin: clamp(1rem, 3vh, 1.5rem);
+  --cat-item-gap: clamp(0.6rem, 1vw, 14px);
   --cat-btn-width: 190px;
   --cat-btn-height: 40px;
   --cat-btn-size: 13px;
   
   --cat-item-padd: clamp(1rem, 2vw, 2rem);
-  --cat-item-desc-h3: clamp(1rem, 2vw, 1.1rem);
-  --cat-item-desc-p: clamp(13px, 1.5vw, 1rem);
+  --cat-item-desc-h3p: clamp(1rem, 2vw, 1.1rem);
+  /* --cat-item-desc-p: clamp(13px, 1.5vw, 1rem); */
 
-  --cat-pagination-height: clamp(45px,10vh, 68px);
+  --cat-pagination-height: 38px;
+
+  /* SECTION */
+  --section-height: clamp(280px, 37vh, 380px);
 
   /* DECCLUTTER and SELL */
-  --declutter-height: clamp(44vh, 55vh, 60vh);
   --declutter-gap: clamp(1rem, 1.5vw, 1.5rem);
   --declutter-h2: clamp(1.1rem, 5vw, 2rem);
   --declutter-p: clamp(1rem, 2.5vw, 1.1rem);
@@ -88,7 +119,8 @@
   --trending-posts-p: clamp(0.75rem, 3vw, 1.2rem);
   --trending-slides-top: clamp(1.5rem, 2vh, 4rem);
   --trending-slides-height: clamp(2px, 0.6vh, 4px);
-  --trending-custom-padd: clamp(0.5rem, 2vh, 1rem);
+
+  --trending-custom-padd: 8px 4px;
   --trending-custom-h: clamp(1.2rem, 2vw, 1.5rem);
   --trending-custom-p: clamp(12px, 1vw, 0.8rem);
   --trending-custom-i: clamp(10px, 1.5vw, 14px);
@@ -104,8 +136,6 @@
   --services-container-gap: clamp(1rem, 2vw, 2rem);
 
   /* SHOP. SELL. EXCEL  */
-  /* --shop-section-height: clamp(44vh, 55vh, 60vh); */
-  --shop-section-height: clamp(50vh, 50vh, 60vh);
   --shop-sell-height: clamp(180px, 30vh, 250px);
   --shop-h2: clamp(1.3rem, 5vw, 2.5rem);
   --shop-p: clamp(1rem, 4vw, 1.2rem);
@@ -120,12 +150,11 @@
   --footer-location-height: clamp(50px, 10vh, 65px);
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/* LOGIN PAGE */
+:root {
+  /* NAV */
+  --form-focus-bg: #E8F6FF;
+  --form-hover-bg: #EEEEEE;
 }
 
 body {
@@ -138,20 +167,10 @@ body {
     background-color 0.5s;
   line-height: 1.6;
   font-weight: 400;
-  font-family:
-    Inter,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    'Fira Sans',
-    'Droid Sans',
-    'Helvetica Neue',
-    sans-serif;
-  font-size: 16px;
+  font-family: "Inter", system-ui;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 1rem;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -161,5 +180,14 @@ body {
 .width {
   margin: 0 auto;
   width: 90%;
+  max-width: 2000px;
 }
+
+@media print {
+  body {
+    background-color: transparent;
+  }
+}
+
+
 

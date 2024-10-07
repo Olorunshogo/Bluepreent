@@ -34,8 +34,7 @@
         flex-direction: column;
         justify-content: center;
         width: 100%; 
-        height: var(--declutter-height);
-        min-height: 280px;
+        height: var(--section-height);
         background: linear-gradient(96deg, rgba(25, 46, 59, 0) -21.52%, rgba(7, 82, 126, 0.51) 21.03%, rgba(8, 49, 73, 0.799) 82.97%);  
         width: 100%;  
         border-radius: 1rem;   

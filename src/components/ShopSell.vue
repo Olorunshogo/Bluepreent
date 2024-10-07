@@ -1,8 +1,4 @@
 
-<script setup>
-
-</script>
-
 <template>
     <div>
         <div class="page-container">
@@ -30,7 +26,7 @@
                     <h2>Shop. Sell. Excel.</h2>
                     <p>Step into a world of student-centric buying and selling</p>
                     <button>
-                        <RouterLink to="/shop" class="router-link">
+                        <RouterLink to="/sell" class="router-link">
                             <span class="text">
                                 Get Started
                             </span>
@@ -45,7 +41,7 @@
 
 <style lang="css" scoped>
     .page-container {
-        height: var(--shop-section-height);
+        height: var(--section-height);
         width: 100%;
         background-color: var(--primary-blue);
         opacity: 94%;

@@ -1,7 +1,6 @@
 
-
 <template>
     <div>
-        <i class='bx bx-x'></i>
+        <h1>Forgotten Password</h1>
     </div>
 </template>

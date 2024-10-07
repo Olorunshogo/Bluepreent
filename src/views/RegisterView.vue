@@ -4,7 +4,7 @@
 </script>
 
 <template>
-  <main>
+  <div>
     <RegisterPage />
-  </main>
+  </div>
 </template>

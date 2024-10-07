@@ -112,8 +112,9 @@
     }
 
     .product-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
         gap: var(--trending-posts-gap);
     }
 
@@ -211,6 +212,13 @@
         align-items: center;
         background-color: var(--primary-blue);
         transform: scale(0.96);
+    }
+
+    @media (max-width: 1050px) {
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));   
+        }
     }
 
 </style>

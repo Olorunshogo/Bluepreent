@@ -2,7 +2,7 @@
 <script setup>
     import { ref } from 'vue';
 
-    const category = ref("Bed/Mattrass");
+    const category = ref("Bed/Mattress");
     const minRange = ref("₦" + 0);
     const maxRange = ref("₦" + 1000);
     const condition = ref("Brand New");
@@ -15,27 +15,30 @@
     import ChevrondownIcon from './icons/ChevrondownIcon.vue'
     import TimesIcon from './icons/TimesIcon.vue';
 
+    import RightArrowIcon from './icons/RightArrowIcon.vue';
+    import LeftArrowIcon from './icons/LeftArrowIcon.vue';
+
 
     const collection = ref([
-        { id: 1, name: 'Bed/Mattrass', price: 500, location: "Lagos, Nigeria", condition: 'Brand New', available: 'Available Now', alt: 'Mattrass' },
-        { id: 2, name: 'Chairs', price: 1000, location: "Lagos, Nigeria", condition: 'Fairly Used', available: 'Available in 2 weeks', alt: 'Mattrass' },
-        { id: 3, name: 'Furniture', price: 1500, location: "Lagos, Nigeria", condition: 'Brand New', available: 'Available Now', alt: 'Mattrass' },
-        { id: 4, name: 'Mirrors', price: 2000, location: "Lagos, Nigeria", condition: 'Fairly Used', available: 'Available Now', alt: 'Mattrass' },
-        { id: 1, name: 'Bed/Mattrass', price: 2500, location: "Lagos, Nigeria", condition: 'Brand New', available: 'Available Now' },
-        { id: 2, name: 'Chairs', price: 3000, location: "Lagos, Nigeria", condition: 'Fairly Used', available: 'Available in 2 weeks' },
-        { id: 3, name: 'Furniture', price: 3500, location: "Lagos, Nigeria", condition: 'Brand New', available: 'Available Now' },
-        { id: 4, name: 'Mirrors', price: 4000, location: "Lagos, Nigeria", condition: 'Fairly Used', available: 'Available Now' },
-        { id: 1, name: 'Bed/Mattrass', price: 4500, location: "Lagos, Nigeria", condition: 'Brand New', available: 'Available Now' },
-        { id: 2, name: 'Chairs', price: 5000, location: "Lagos, Nigeria", condition: 'Fairly Used', available: 'Available in 2 weeks' },
-        { id: 3, name: 'Furniture', price: 5500, location: "Lagos, Nigeria", condition: 'Brand New', available: 'Available Now' },
-        { id: 4, name: 'Mirrors', price: 600, location: "Lagos, Nigeria", condition: 'Fairly Used', available: 'Available Now' },
+        { id: 1, name: 'Bed/Mattress', price: '500', location: "Lagos, Nigeria", condition: 'Brand New', available: 'Available Now', alt: 'Mattress' },
+        { id: 2, name: 'Chairs', price: '1,000', location: "Lagos, Nigeria", condition: 'Fairly Used', available: 'Available in 2 weeks', alt: 'Mattress' },
+        { id: 3, name: 'Furniture', price: '1,500', location: "Lagos, Nigeria", condition: 'Brand New', available: 'Available Now', alt: 'Mattress' },
+        { id: 4, name: 'Mirrors', price: '2,000', location: "Lagos, Nigeria", condition: 'Fairly Used', available: 'Available Now', alt: 'Mattress' },
+        { id: 5, name: 'Bed/Mattress', price: '2,500', location: "Lagos, Nigeria", condition: 'Brand New', available: 'Available Now' },
+        { id: 6, name: 'Chairs', price: '3,000', location: "Lagos, Nigeria", condition: 'Fairly Used', available: 'Available in 2 weeks' },
+        { id: 7, name: 'Furniture', price: '3,500', location: "Lagos, Nigeria", condition: 'Brand New', available: 'Available Now' },
+        { id: 8, name: 'Mirrors', price: '4,000', location: "Lagos, Nigeria", condition: 'Fairly Used', available: 'Available Now' },
+        { id: 9, name: 'Bed/Mattress', price: '4,500', location: "Lagos, Nigeria", condition: 'Brand New', available: 'Available Now' },
+        { id: 10, name: 'Chairs', price: '5,000', location: "Lagos, Nigeria", condition: 'Fairly Used', available: 'Available in 2 weeks' },
+        { id: 11, name: 'Furniture', price: '5,500', location: "Lagos, Nigeria", condition: 'Brand New', available: 'Available Now' },
+        { id: 12, name: 'Mirrors', price: '6,000', location: "Lagos, Nigeria", condition: 'Fairly Used', available: 'Available Now' },
     ]);
 
 </script>
 
 <template>
     <div>
-        <div class="container">
+        <section class="container">
             <div class="search-bar">
                 <label for="search-bar">
                     <i class='bx bx-search'></i>
@@ -47,7 +50,13 @@
             </div>
 
             <div class="search-categories">
-                <p>Showing 1-60 items out of a total of 1.2k for results</p>                   
+                <p>Showing 1-60 items out of a total of 1.2k for results</p>   
+                <button class="filter">
+                    <span>
+                        Filter
+                    </span>
+                    <i class='bx bx-filter' ></i>
+                </button>               
 
                 <div class="sort-buttons">
                     <button>
@@ -79,16 +88,16 @@
                     </button>                      
                 </div>
 
-                <div class="sort-category" title="Categories">
+                <div class="sort-category">
                     <span>
                         {{ category }}
                     </span>
                     <i>
-                        <TimesIcon />
+                        <TimesIcon class="times" />
                     </i>
                 </div>
 
-                <div class="sort-category" title="Price">
+                <div class="sort-category">
                     <div>
                         <span>
                             {{ minRange }}
@@ -102,7 +111,7 @@
 
                     </div>
                     <i>
-                        <TimesIcon />
+                        <TimesIcon class="times"/>
                     </i>
                 </div>
 
@@ -135,7 +144,31 @@
                     </div>
                 </div>
             </div>
-        </div>
+
+            <div>
+                <div class="pagination">                
+                    <span>
+                        <button>
+                            <span><i><LeftArrowIcon /></i></span>
+                            <span>Previous</span>                    
+                        </button>
+                    </span>
+                    <span><button class="center">1</button></span>
+                    <span><button>2</button></span>
+                    <span><button>3</button></span>
+                    <span><button>...</button></span>
+                    <span><button>8</button></span>
+                    <span><button>9</button></span>
+                    <span><button>10</button></span>
+                    <span>
+                        <button>
+                            <span>Next</span>
+                            <span><i><RightArrowIcon /></i></span>
+                        </button>
+                    </span>                
+                </div>
+            </div>
+        </section>
     </div>
 </template>
 
@@ -230,6 +263,7 @@
         height: fit-content;
         border-radius: 8px;
         margin-bottom: var(--cat-item-margin);
+        gap: 0.5rem;
     }
 
     .search-categories p {
@@ -244,6 +278,12 @@
         white-space: nowrap;
         margin: auto 0;
         color: var(--cat-colour);
+    }
+
+    .search-categories .filter {
+        display: none;
+        width: 80px;
+        color: var(--black-text);
     }
 
     .search-categories .sort-buttons {
@@ -309,6 +349,7 @@
         flex-wrap: wrap;
         width: 100%;
         height: fit-content;
+        gap: 0.25rem;
     }
 
     .sort-categories div {
@@ -337,8 +378,9 @@
         font-size: var(--cat-btn-font-size);
         line-height: 1.5rem;
         text-align: center;
+        font-size: 13px;
         background-color: transparent;
-        border: 1px solid #CACDD8;
+        border: 1px solid transparent;
     }
 
     .sort-categories .sort-category {
@@ -349,32 +391,45 @@
         border-radius: 8px;
         width: fit-content;
         height: 35px;
-        padding: 10px;
+        padding: 4px 10px;
         font-size: var(--cat-btn-font-size);
         font-weight: 400;
         text-align: center;
         cursor: pointer;
-        margin: auto 0;
         background-color: var(--light-blue-bg);
         transition: var(--trans-03-ease-in);
     }
 
-    .sort-categories .sort-category:hover {
-        opacity: 1.0;
-        border: 1px solid #CACDD8;
+    .sort-categories .sort-category span {
+        font-size: 13px;
     }
 
-    .sort-category {
-        margin: auto;
+    .sort-categories .sort-category div {
         display: flex;
+        flex-direction: row;
         align-items: center;
+        margin: auto;
+        width: 100%;
+        height: 100%;
+    }
+
+    .sort-categories .sort-category:hover {
+        background-color: #c6e3f4;
     }
 
     .sort-categories .sort-category i {
         color: var(--icon-grey);
         display: flex;
         align-items: center;
-        margin-left: 8px;
+        margin-left: 1rem;
+        margin: auto 0;
+    }
+
+    .sort-categories .sort-category .times {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: auto 0;
     }
 
     /* === ITEMS SECTION === */
@@ -393,14 +448,91 @@
     }
 
     .items {
-        width: 100%;        
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: var(--cat-item-gap);
+        width: 100%;
         height: fit-content;
+    }
+
+    .pagination {
+        max-width: 330px;
+        height: auto;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: var(--trending-posts-gap);
+        justify-self: flex-end;
+        align-items: center;
+        border: 1px solid #D0D5DD;
+        border-radius: 8px;
+        margin-left: auto;
+        overflow-x: hidden;
+    }
+
+    .pagination > span {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0 8px;
+        border-right: 1px solid #D0D5DD;
+        height: var(--cat-pagination-height);
+        box-shadow: 0px 1px 2px 0px #1018280D;
+        transition: all 0.5s ease;
+    }
+
+    .pagination > span:hover {
+        background-color: #eee;
+    }
+
+    .pagination > span:focus {
+        transform: scale(0.97);
+    }
+
+    .pagination > span:nth-child(4) {
+        background-color: var(--primary-blue);
+    }
+
+    .pagination > span:first-child i {
+        font-size: 10px;
+        margin-right: 3px;
+        display: flex;
+        align-items: center;
+    }
+
+    .pagination > span:last-child {
+        border-right: none;
+    }
+
+    .pagination > span:last-child i {
+        font-size: 10px;
+        margin-left: 3px;
+        display: flex;
+        align-items: center;
+    }
+
+    .pagination > span button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;       
+        background-color: transparent;
+        text-align: center;
+        border: none;
+        outline: none;
+        
+    }
+
+    @media (max-width: 600px) {
+        .search-categories {
+            flex-wrap: wrap;
+        }
+
+        .search-categories p {
+            display: none;
+        }
+
+        .search-categories .filter {
+            display: flex;
+        }
     }
 
 </style>

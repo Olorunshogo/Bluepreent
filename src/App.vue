@@ -1,14 +1,14 @@
 <script setup>
+
   import { RouterLink, RouterView } from 'vue-router';
   import NavigationBar from './components/NavigationBar.vue';
-
 </script>
 
 <template>
-    <div class="container">
+    <div class="nav">
 
       <div class="nav-container">
-        <NavigationBar class="nav"/>
+        <NavigationBar class="width" />
       </div>
 
       <div>
@@ -24,15 +24,15 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: var(--nav-height);
+    height: fit-content;
     background-color: var(--primary-bg-colour);
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
     z-index: 100;
   }
 
-  .nav {
+  .width {
+    margin: 0 auto;
     width: 90%;
     max-width: 2000px;
-    height: 100%
   }
 </style>

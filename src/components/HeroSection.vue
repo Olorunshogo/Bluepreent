@@ -5,7 +5,7 @@
 </script>
 
 <template>
-    <div class="container width">
+    <div class="container">
         <section class="desktop-hero">
             <div class="hero-texts">
                 <h1>Zero Inspection Fee</h1>
@@ -95,10 +95,18 @@
         }
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 760px) {
         .hero-texts h1 {
             text-align: center;
-            font-size: var(--hero-texts-h1-size);
+        }
+    }
+
+    @media (max-width: 450px) {
+
+        .container {
+            width: 100%;
+            /* height: var(--hero-height); */
+            height: 50vh;
         }
     }
 </style>

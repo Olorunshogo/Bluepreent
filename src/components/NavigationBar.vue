@@ -28,9 +28,9 @@
 
 <template>
     <!-- === NAVIGATION === -->
-    <nav class="width">
+    <nav>
         <!-- === Top Nav === -->
-        <div class="nav-container">
+        <div class="container">
             <!-- === Occupy 90% width container === -->
             <div class="navigation-bar">
                 <!-- Logo Container -->
@@ -45,7 +45,7 @@
 
                 <!-- Nav Links container -->
                 <nav class="nav-link-container" role="navigation">
-                    <div title="Help/Contact" class="link-container">
+                    <div class="link-container">
                         <RouterLink to="/contact" class="link">
                             <i>
                                 <PhoneIcon class="icons" />
@@ -54,7 +54,7 @@
                         </RouterLink>
                     </div>
 
-                    <div title="Notification" class="link-container">
+                    <div class="link-container">
                         <RouterLink to="/notification" class="link">
                             <i>
                                 <NotificationIcon class="icons" />
@@ -63,8 +63,8 @@
                         </RouterLink>                     
                     </div>
 
-                    <div title="Sell" class="link-container">
-                        <RouterLink class="link" to="/sell" id="sell">
+                    <div class="link-container">
+                        <RouterLink class="link" to="/post">
                             <i>
                                 <PlusCircleIcon class="icons" />
                             </i>
@@ -81,8 +81,8 @@
                         </RouterLink>
                     </div> 
 
-                    <div title="Register" class="link-container">
-                        <RouterLink class="link" to="/register" id="register">
+                    <div class="link-container">
+                        <RouterLink class="link" to="/register">
                             <i>
                                 <UserIcon class="icons register" />
                             </i>
@@ -93,7 +93,7 @@
                     </div>
                 </nav>
 
-                <!-- <div class="menu-container" title="Menu">
+                <!-- <div class="menu-container">
                     <button class="menu-toggle" v-on:click="toggleSidebar">
                         <span :class="['hamburger-icon', { 'active': isSidebarOpen }]">
                             <i v-if="!isSidebarOpen" class="fas fa-bars"></i>
@@ -102,7 +102,7 @@
                     </button>                     
                 </div> -->
 
-                <div class="menu-container" title="Menu">
+                <div class="menu-container">
                     <button class="menu-toggle" v-on:click="toggleSidebar">
                         <span>
                             <i class='bx bx-menu-alt-right'></i>
@@ -113,46 +113,46 @@
 
                 <div class="sidebar-container" :class="{ 'open': isSidebarOpen }">
                     <div class="sidebar-header">
-                        <div class="sidebar-logo" title="Bluepreent">
+                        <div class="sidebar-logo">
                             <BluepreentLogo />
                         </div>
 
-                        <button class="close-btn" @click="toggleSidebar()" title="Close">
+                        <button class="close-btn" @click="toggleSidebar()">
                             <i class="fas fa-times"></i>
                         </button>
                     </div>
 
                     <nav class="sidebar-body">
                         <ul>
-                            <li title="Help/Contact">
+                            <li>
                                 <RouterLink to="/contact" class="side-link">
                                     <span><i><PhoneIcon /></i></span>
                                     <span>Help/Contact</span>
                                 </RouterLink>
                             </li>
 
-                            <li title="Notifications">
+                            <li>
                                 <RouterLink to="/notification" class="side-link">
                                     <span><i><NotificationIcon /></i></span>
                                     <span>Notification</span>
                                 </RouterLink>
                             </li>
 
-                            <li title="Sell">
+                            <li>
                                 <RouterLink to="/sell" class="side-link">
                                     <span><i><SellIcon /></i></span>
                                     <span>Sell</span>
                                 </RouterLink>
                             </li>
 
-                            <li title="Dashboard">
+                            <li>
                                 <RouterLink to="/dashboard" class="side-link">
                                     <span><i><DashboardIcon /></i></span>
                                     <span>Dashboard</span>
                                 </RouterLink>
                             </li>
 
-                            <li title="Post Ad">
+                            <li>
                                 <RouterLink to="/post" class="side-link">
                                     <span><i><PlusCircleIcon /></i></span>
                                     <span>Post ad</span>
@@ -161,21 +161,21 @@
                         </ul>
                         
                         <ul>
-                            <li title="LogIn">
+                            <li>
                                 <RouterLink to="/login" class="side-link" id="login">
                                     <span><i><LoginIcon /></i></span>
                                     <span>LogIn</span>
                                 </RouterLink>
                             </li>
 
-                            <li title="Register">
+                            <li>
                                 <RouterLink to="/register" class="side-link" id="register">
                                     <span><i><RegisterIcon /></i></span>
                                     <span>Register</span>
                                 </RouterLink>
                             </li>
 
-                            <li title="Logout">
+                            <li>
                                 <RouterLink to="/logout" class="side-link" id="logout">
                                     <span><i><LogoutIcon /></i></span>
                                     <span>Logout</span>
@@ -183,7 +183,7 @@
                             </li>
                         </ul>
                     </nav>
-                    <div class="overlay" :class="{ 'active': isSidebarOpen }" @click="toggleSidebar"></div>
+                    <!-- <div class="overlay" :class="{ 'active': isSidebarOpen }" @click="toggleSidebar"></div> -->
                 
                 </div>
             </div>
@@ -195,12 +195,13 @@
 
 <style lang="css" scoped>
     /* === TOP NAV: Overall container ===  */
-    .nav-container {
+    .container {
         width: 100%;
-        height: 100%;
+        height: var(--nav-height);
         cursor: default;
         display: flex;
         align-items: center;
+        justify-content: center;
     }
 
     /* === Container for both the Logo and Navigation */
@@ -225,7 +226,7 @@
 
     /* === BluepreentLogo Component Container === */
     .bluepreent-logo {
-        width: max(20%, 200px);
+        width: 160px;
         height: auto;
     }
 
@@ -234,18 +235,22 @@
         display: flex;
         flex-direction: row;
         align-items: right;
-        justify-content: space-around;
-        width: max(50%, 600px);
+        width: 570px;
     }
 
     /* === Individual link container === */
     .link-container {
-        width: var(--nav-link-width);
-        height: 35px;
+        width: fit-content;
+        height: 36px;
         display: flex;
         align-items: center;
         justify-content: center;
         text-decoration: none;
+        border-radius: 8px;
+    }
+
+    .link-container:nth-child(5) {
+        background-color: var(--primary-blue);
     }
 
     .link-container .link {
@@ -255,32 +260,25 @@
         color: var(--secondary-blue);
         font-size: var(--nav-link-size);
         line-height: 1.05rem;  
-        width: 100%;      
+        width: fit-content;     
         height: 100%;
-        padding: 0.5rem 0 0.5rem 0.5rem;
+        padding: 0.5rem;
         border-radius: 8px;
         border: 1px solid transparent;
         outline: none;
         cursor: pointer;
         text-decoration: none;
-        opacity: 0.9;
         transition: all 0.4s ease-out;
     }
 
+    .link-container:nth-child(5) .link {
+        color: var(--white-text);
+    }
+
     .link-container .link:hover {
-        opacity: 1;
         border: 1px solid var(--light-blue-bg);
         box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
     }
-
-    .link-container #register {
-        background-color: var(--primary-blue);
-        color: white;
-    }
-
-    .register {
-        color: var(--white-text);
-    } 
 
     /* === Link Name === */
     .link span {
@@ -318,8 +316,6 @@
     @media  (max-width: 760px) {
         .nav-link-container {
             display: none;
-            background: red;
-            overflow-x: scroll;
         }       
 
         .menu-container {
@@ -348,7 +344,6 @@
             top: 0;
             right: var(--sidebar-width);
             width: var(--sidebar-width);
-            max-width: 50%;
             height: 100%;
             background-color: #fff;
             transition: right 0.3s ease;

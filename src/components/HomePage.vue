@@ -11,48 +11,36 @@
 </script>
 
 <template>
-    <div class="container" title="Home Page">
+    <div class="container">
         <div>
             <div class="nav-hero-container section">
-                <div title="Hero Section">
+                <div>
                     <HeroSection />
                 </div>
             </div>
 
-            <div class="width" title="Categories">
-                <div class="categories">
-                    <CategoriesSection />
-                </div>
+            <div class="categories">
+                <CategoriesSection class="width" />
             </div>
 
-            <div class="width" title="Declutter and Sell">
-                <div class="declutter-sell">
-                    <DeclutterSell />
-                </div>
+            <div class="declutter-sell">
+                <DeclutterSell class="width" />
             </div>
 
-            <div class="width" title="Trending Posts">
-                <div class="trending-posts">
-                    <TrendingPosts />
-                </div>
+            <div class="trending-posts">
+                <TrendingPosts class="width" />
             </div>
 
-            <div class="width" title="Services Offered">
-                <div class="services-section">
-                    <ServicesSection />
-                </div>
+            <div class="services-section">
+                <ServicesSection class="width" />
             </div>
 
-            <div class="width" title="Shop. Sell. Excel.">
-                <div class="shop-sell">
-                    <ShopSell />
-                </div>
+            <div class="shop-sell">
+                <ShopSell class="width" />
             </div>
 
-            <div class="width" title="Footer">
-                <div class="footer">
-                    <FooTer />
-                </div>
+            <div class="footer">
+                <FooTer class="width" />
             </div>
 
         </div>
@@ -62,8 +50,13 @@
 
 <style lang="css" scoped>
     .container {
-        max-width: 2000px;
+        width: 100%;
+    }
+
+    .width {
         margin: 0 auto;
+        width: 90%;
+        max-width: 2000px;
     }
 
     .categories,
@@ -71,13 +64,6 @@
     .trending-posts,
     .services-section {
         margin-top: 3.5rem;
-    }
-
-    .nav-hero-container {
-        display: flex;
-        flex-direction: column;
         width: 100%;
-    }
-
-    
+    }    
 </style>
